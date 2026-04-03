@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EV Finder</title>
+    เหลือ - คำนวณ NPV, ชั่งน้ำหนัก, เปลี่ยน filter
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .car-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        button {
+            padding: 8px 12px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚗 Car Finder</h1>
+
+    <div style="margin-bottom: 20px;">
+        <label>💰 Max Price:</label>
+        <input type="number" id="price" value="1000000">
+
+        <label style="margin-left: 20px;">🔋 Min Range:</label>
+        <input type="number" id="range" value="300">
+
+        <button id="filterBtn">Filter</button>
+    </div>
+
+    <div id="car-list"></div>
+
+    <div id="car-list"></div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
