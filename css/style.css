@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.navbar {
+  background: #111;
+  color: white;
+  padding: 15px;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Filter */
+.filter-box {
+  width: 250px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.filter-box input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.filter-box button {
+  width: 100%;
+  padding: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Cars */
+.car-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.car-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.car-card:hover {
+  transform: scale(1.03);
+}
