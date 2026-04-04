@@ -9,23 +9,56 @@
 </head>
 
 <body>
-
-    <header class="navbar">
-        <h2>⚡ EV Car Finder</h2>
-    </header>
-
     <div class="container">
 
         <div class="filter-box">
-            <h3>Filter</h3>
+            <h3>Filter by Brand</h3>
 
-            <label>💰 Max Price</label>
-            <input type="number" id="price" value="1000000">
+            <label class="checkbox-item">
+                <input type="checkbox" value="Audi" class="brand">
+                <span>Audi</span>
+            </label>
 
-            <label>🔋 Min Range</label>
-            <input type="number" id="range" value="300">
+            <label class="checkbox-item">
+                <input type="checkbox" value="BMW" class="brand">
+                <span>BMW</span>
+            </label>
 
-            <button id="filterBtn">Apply Filter</button>
+            <label class="checkbox-item">
+                <input type="checkbox" value="BYD" class="brand">
+                <span>BYD</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" value="Honda" class="brand">
+                <span>Honda</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" value="MG" class="brand">
+                <span>MG</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" value="Nissan" class="brand">
+                <span>Nissan</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" value="Tesla" class="brand">
+                <span>Tesla</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" value="Toyota" class="brand">
+                <span>Toyota</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" value="Volvo" class="brand">
+                <span>Volvo</span>
+            </label>
+
         </div>
 
         <div id="car-list" class="car-grid"></div>
