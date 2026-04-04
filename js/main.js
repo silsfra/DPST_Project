@@ -10,9 +10,13 @@ async function updateUI() {
     priceRange: document.getElementById("priceRange").value
   };
 
+  console.log("filters:", filters);
+
   const filtered = applyFilters(cars, filters);
 
-  renderCars(filtered);
+  console.log("filtered:", filtered);
+
+  renderCars(filtered); // ✅ ใช้ filter แล้ว
 }
 
 // event
