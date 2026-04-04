@@ -9,8 +9,10 @@
 </head>
 
 <body>
+
     <div class="container">
 
+        <!-- 🔹 Sidebar: Brand Filter -->
         <div class="filter-box">
             <h3>Filter by Brand</h3>
 
@@ -58,10 +60,48 @@
                 <input type="checkbox" value="Volvo" class="brand">
                 <span>Volvo</span>
             </label>
-
         </div>
 
-        <div id="car-list" class="car-grid"></div>
+        <!-- 🔹 Right Section -->
+        <div class="main-section">
+
+            <!-- 🔝 Top Filter -->
+            <div class="top-filter">
+
+                <!-- 💰 Block 1: Price -->
+                <div class="filter-block">
+                    <label>Price Range</label>
+                    <select id="priceRange">
+                        <option value="">All</option>
+                        <option value="0-500000">0 - 500k</option>
+                        <option value="500000-1000000">500k - 1M</option>
+                        <option value="1000000-2000000">1M - 2M</option>
+                        <option value="2000000-99999999">2M+</option>
+                    </select>
+                </div>
+
+                <!-- 🧩 Block 2 -->
+                <div class="filter-block">
+                    <label>Option 2</label>
+                    <select>
+                        <option>non</option>
+                    </select>
+                </div>
+
+                <!-- 🧩 Block 3 -->
+                <div class="filter-block">
+                    <label>Option 3</label>
+                    <select>
+                        <option>non</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- 🚗 Car List -->
+            <div id="car-list" class="car-grid"></div>
+
+        </div>
 
     </div>
 
