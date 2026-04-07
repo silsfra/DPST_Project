@@ -1,87 +1,15 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
   margin: 0;
   padding: 20px;
+  color: #333;
 }
 
-/* Layout */
 .container {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   align-items: flex-start;
-}
-
-/* Filter */
-.filter-box {
-  width: 240px;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.filter-box h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.checkbox-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.15s;
-}
-
-.checkbox-item:hover {
-  background: #f0f0f0;
-}
-
-.checkbox-item input {
-  cursor: pointer;
-}
-
-/* Cars */
-.car-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 15px;
-}
-
-.car-card {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.car-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-/* Text */
-.car-card h3 {
-  margin: 0 0 8px 0;
-}
-
-.car-card p {
-  margin: 4px 0;
-  font-size: 14px;
-}
-
-.car-image {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .main-section {
@@ -90,68 +18,149 @@ body {
   flex-direction: column;
 }
 
-/* 🔝 top filter */
-.top-filter {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
+.filter-box {
+  width: 240px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
-.top-filter select {
+.filter-box h3 {
+  margin-bottom: 12px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  min-width: 150px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.checkbox-item:hover {
+  background: #f2f4f7;
+}
+
+.top-filter {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filter-block {
+  flex: 1;
+}
+
+.filter-block label {
+  font-size: 13px;
+  color: gray;
+  margin-bottom: 4px;
+  display: block;
 }
 
 .filter-block select {
   width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.filter-block select:hover {
+  border-color: #aaa;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
 }
 
 .car-card {
-  background: white;
-  border-radius: 15px;
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: 0.25s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .car-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
 }
 
 .car-image {
   width: 100%;
-  height: 140px;
+  height: 150px;
   object-fit: cover;
 }
 
 .car-info {
-  padding: 12px;
+  padding: 14px;
 }
 
 .car-title {
   font-size: 16px;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .price {
+  font-size: 15px;
   font-weight: bold;
-  color: #333;
+  color: #222;
 }
 
 .specs {
   font-size: 13px;
-  color: gray;
+  color: #777;
   display: flex;
   gap: 10px;
-  margin: 5px 0;
+  margin: 6px 0;
 }
 
 .npv {
-  margin-top: 8px;
-  color: green;
+  margin-top: 10px;
   font-weight: bold;
+  color: #16a34a;
 }
+
+.detail-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  max-width: 700px;
+  margin: auto;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.colors {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.color-more {
+  font-size: 12px;
+  color: #666;
+}
+
