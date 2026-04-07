@@ -17,12 +17,25 @@ export function renderCars(cars) {
     div.className = "car-card";
 
     div.innerHTML = `
-      <img src="assets/car_paint.png" class="car-image">
-      <h3>${car.brand} ${car.model} ${car.trim || ""}</h3>
-      <p>💰 ${car.price.toLocaleString()}</p>
-      <p>🔋 ${car.wltp_range_km} km</p>
-      <p style="color:green;">NPV: ${npv.toLocaleString()}</p>
-    `;
+  <img src="assets/car_paint.png" class="car-image">
+
+  <div class="car-info">
+    <h3 class="car-title">
+      ${`${car.brand} ${car.model} ${car.trim || ""}`.trim()}
+    </h3>
+
+    <p class="price">💰 ${car.price.toLocaleString()} บาท</p>
+
+    <div class="specs">
+      <span>🔋 ${car.wltp_range_km} km</span>
+      <span>⚡ ${car.horsepower_hp || "-"} hp</span>
+    </div>
+
+    <div class="npv">
+      ⭐ NPV: ${npv.toLocaleString()}
+    </div>
+  </div>
+`;
 
     div.onclick = () => {
       window.location.href = `car.html?id=${car.ID}`;

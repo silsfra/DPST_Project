@@ -107,3 +107,51 @@ body {
 .filter-block select {
   width: 100%;
 }
+
+.car-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.car-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.car-info {
+  padding: 12px;
+}
+
+.car-title {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-weight: bold;
+  color: #333;
+}
+
+.specs {
+  font-size: 13px;
+  color: gray;
+  display: flex;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.npv {
+  margin-top: 8px;
+  color: green;
+  font-weight: bold;
+}
