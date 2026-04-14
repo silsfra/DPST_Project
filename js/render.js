@@ -10,14 +10,13 @@ export function renderCars(cars) {
   }
 
   cars.forEach(car => {
-
     const npv = calculateNPV(car);
 
-    // ✅ ===== ใส่ตรงนี้ =====
+    // ===== COLORS =====
     const colors = car.colors || [];
 
-    const visibleColors = colors.slice(0, 3);
-    const extraCount = colors.length - 3;
+    const visibleColors = colors.slice(0, 4);
+    const extraCount = colors.length - 4;
 
     const colorHTML = visibleColors.map(c => `
       <div class="color-dot" title="${c.name}" style="background:${c.hex}"></div>
@@ -26,34 +25,55 @@ export function renderCars(cars) {
     const extraHTML = extraCount > 0 
       ? `<div class="color-more">+${extraCount}</div>`
       : "";
-    // =======================
 
+    // ===== CREATE CARD =====
     const div = document.createElement("div");
     div.className = "car-card";
 
     div.innerHTML = `
-      <img src="assets/car_paint.png" class="car-image">
+      <div class="card-image-wrapper">
+        <img src="assets/car_paint.png" class="car-image">
+      </div>
 
       <div class="car-info">
+
+        <p class="brand">${car.brand}</p>
+
         <h3 class="car-title">
-          ${`${car.brand} ${car.model} ${car.trim || ""}`.trim()}
+          ${`${car.model} ${car.trim || ""}`.trim()}
         </h3>
 
-        <p class="price">💰 ${car.price.toLocaleString()} บาท</p>
+        <p class="desc">
+          Range ${car.wltp_range_km} km • ${car.horsepower_hp || "-"} hp
+        </p>
 
-        <div class="specs">
-          <span>🔋 ${car.wltp_range_km} km</span>
-          <span>⚡ ${car.horsepower_hp || "-"} hp</span>
-        </div>
-
-        <div class="npv">
-          ⭐ NPV: ${npv.toLocaleString()}
-        </div>
-
-        <!-- ✅ ใส่ตรงนี้ -->
+        <!-- COLORS -->
         <div class="colors">
           ${colorHTML}
           ${extraHTML}
+        </div>
+
+        <!-- SPEC BOX -->
+        <div class="spec-box">
+          <div>
+            <p>${car.wltp_range_km}</p>
+            <span>RANGE</span>
+          </div>
+          <div>
+            <p>${car.battery_capacity_kWh || "-"}</p>
+            <span>kWh</span>
+          </div>
+          <div>
+            <p>${car.horsepower_hp || "-"}</p>
+            <span>HP</span>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="bottom">
+          <p class="price">฿${car.price.toLocaleString()}</p>
+
+          <button class="detail-btn">Details</button>
         </div>
 
       </div>
