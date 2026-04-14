@@ -1,105 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>EV Car Finder</title>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- 🔝 Navbar -->
+    <!-- 🔝 Navbar -->
+    <div class="navbar">
+      <div class="nav-logo">LOGO</div>
+    </div>
 
     <div class="container">
+      <div class="filter-box">
+        <h3>Filter by Brand</h3>
 
-        <div class="filter-box">
-            <h3>Filter by Brand</h3>
+        <label class="checkbox-item">
+          <input type="checkbox" value="Audi" class="brand" />
+          <span>Audi</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="Audi" class="brand">
-                <span>Audi</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="BMW" class="brand" />
+          <span>BMW</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="BMW" class="brand">
-                <span>BMW</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="BYD" class="brand" />
+          <span>BYD</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="BYD" class="brand">
-                <span>BYD</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="Honda" class="brand" />
+          <span>Honda</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="Honda" class="brand">
-                <span>Honda</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="MG" class="brand" />
+          <span>MG</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="MG" class="brand">
-                <span>MG</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="Nissan" class="brand" />
+          <span>Nissan</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="Nissan" class="brand">
-                <span>Nissan</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="Tesla" class="brand" />
+          <span>Tesla</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="Tesla" class="brand">
-                <span>Tesla</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="Toyota" class="brand" />
+          <span>Toyota</span>
+        </label>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="Toyota" class="brand">
-                <span>Toyota</span>
-            </label>
+        <label class="checkbox-item">
+          <input type="checkbox" value="Volvo" class="brand" />
+          <span>Volvo</span>
+        </label>
+      </div>
 
-            <label class="checkbox-item">
-                <input type="checkbox" value="Volvo" class="brand">
-                <span>Volvo</span>
-            </label>
+      <div class="main-section">
+        <div class="top-filter">
+          <div class="filter-block">
+            <label>Price Range</label>
+            <select id="priceRange">
+              <option value="">All</option>
+              <option value="0-500000">0 - 500k</option>
+              <option value="500000-1000000">500k - 1M</option>
+              <option value="1000000-2000000">1M - 2M</option>
+              <option value="2000000-99999999">2M+</option>
+            </select>
+          </div>
+
+          <div class="filter-block">
+            <label>Option 2222</label>
+            <select>
+              <option>non</option>
+            </select>
+          </div>
+
+          <div class="filter-block">
+            <label>Option 3</label>
+            <select>
+              <option>non</option>
+            </select>
+          </div>
         </div>
 
-        <div class="main-section">
-
-            <div class="top-filter">
-
-                <div class="filter-block">
-                    <label>Price Range</label>
-                    <select id="priceRange">
-                        <option value="">All</option>
-                        <option value="0-500000">0 - 500k</option>
-                        <option value="500000-1000000">500k - 1M</option>
-                        <option value="1000000-2000000">1M - 2M</option>
-                        <option value="2000000-99999999">2M+</option>
-                    </select>
-                </div>
-
-                <div class="filter-block">
-                    <label>Option 2222</label>
-                    <select>
-                        <option>non</option>
-                    </select>
-                </div>
-
-                <div class="filter-block">
-                    <label>Option 3</label>
-                    <select>
-                        <option>non</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div id="car-list" class="car-grid"></div>
-
-        </div>
-
+        <div id="car-list" class="car-grid"></div>
+      </div>
     </div>
 
     <script type="module" src="js/main.js"></script>
-
-</body>
-
+  </body>
 </html>
