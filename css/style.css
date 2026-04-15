@@ -1,61 +1,58 @@
 /* ===== GLOBAL ===== */
 body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Segoe UI', Arial, sans-serif;
   background: #f4f6f8;
   color: #333;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
 /* ===== NAVBAR ===== */
 .navbar {
+  background: #111;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 24px;
   position: sticky;
   top: 0;
   z-index: 1000;
-
-  background: #111;
-  color: white;
-
-  padding: 16px 28px;
-  font-size: 18px;
-  font-weight: 600;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 /* ===== LAYOUT ===== */
 .container {
   display: flex;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 56px);
 }
 
 .main-section {
   flex: 1;
-  padding: 24px;
   overflow-y: auto;
+  padding: 20px;
 }
 
 /* ===== SIDEBAR ===== */
 .filter-box {
-  width: 250px;
   background: #fff;
-  padding: 20px;
   border-right: 1px solid #e5e7eb;
+  padding: 16px;
+  width: 240px;
 }
 
 .filter-box h3 {
-  margin-bottom: 12px;
+  margin: 0 0 10px 0;
 }
 
-/* checkbox */
+/* ===== CHECKBOX ===== */
 .checkbox-item {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  display: flex;
+  gap: 8px;
+  padding: 6px;
   transition: 0.2s;
 }
 
@@ -65,15 +62,13 @@ body {
 
 /* ===== TOP FILTER ===== */
 .top-filter {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-
   background: #fff;
-  padding: 16px;
-  border-radius: 14px;
-
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
 }
 
 .filter-block {
@@ -81,51 +76,42 @@ body {
 }
 
 .filter-block label {
-  font-size: 13px;
   color: #777;
-  margin-bottom: 4px;
   display: block;
+  font-size: 12px;
+  margin-bottom: 3px;
 }
 
 .filter-block select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
   background: #fff;
-  transition: 0.2s;
-}
-
-.filter-block select:hover {
-  border-color: #aaa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
 }
 
 /* ===== GRID ===== */
 .car-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  align-items: stretch;
+  gap: 16px;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 /* ===== CARD ===== */
 .car-card {
   background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
-  height: 100%;
-
-  transition: 0.25s;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: 0.2s;
 }
 
 .car-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
 }
 
 /* ===== IMAGE ===== */
@@ -134,65 +120,64 @@ body {
 }
 
 .car-image {
-  width: 100%;
   height: 200px;
   object-fit: cover;
+  width: 100%;
 }
 
 /* ===== INFO ===== */
 .car-info {
-  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex: 1;
+  gap: 15px;
+  padding: 18px;
 }
 
+.car-info h3,
+.car-info p {
+  margin: 0;
+}
+
+/* ===== TEXT ===== */
 .brand {
-  font-size: 12px;
   color: #10b981;
+  font-size: 11px;
   font-weight: 600;
 }
 
 .car-title {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
-/* desc */
 .desc {
-  font-size: 13px;
   color: #6b7280;
+  font-size: 12px;
 }
 
 /* ===== COLORS ===== */
 .colors {
   display: flex;
-  gap: 6px;
-  align-items: center;
+  gap: 5px;
 }
 
 .color-dot {
-  width: 14px;
-  height: 14px;
+  border: 2px solid white;
   border-radius: 50%;
-  border: 1px solid #ccc;
-}
-
-.color-more {
-  font-size: 12px;
-  color: #666;
+  box-shadow: 0 0 0 1px #ccc;
+  height: 16px;
+  width: 16px;
 }
 
 /* ===== SPEC BOX ===== */
 .spec-box {
+  background: #f3f4f6;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  background: #f3f4f6;
-  padding: 12px;
-  border-radius: 12px;
-  margin-top: 6px;
+  margin-top: 8px;
+  padding: 8px;
 }
 
 .spec-box div {
@@ -200,35 +185,37 @@ body {
 }
 
 .spec-box p {
-  margin: 0;
+  font-size: 12px;
   font-weight: 600;
+  margin: 0;
 }
 
 .spec-box span {
-  font-size: 10px;
   color: #6b7280;
+  font-size: 9px;
 }
 
 /* ===== BOTTOM ===== */
 .bottom {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
+  margin-top: 12px;
 }
 
 .price {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .detail-btn {
   background: #111827;
-  color: white;
   border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
+  font-size: 12px;
+  padding: 6px 10px;
 }
 
 .detail-btn:hover {
@@ -238,16 +225,16 @@ body {
 /* ===== DETAIL PAGE ===== */
 .detail-card {
   background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   margin: auto;
+  max-width: 600px;
+  padding: 20px;
 }
 
 .back-btn {
-  display: inline-block;
-  margin-bottom: 15px;
-  text-decoration: none;
   color: #333;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
 }

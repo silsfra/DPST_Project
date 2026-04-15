@@ -15,16 +15,9 @@ export function renderCars(cars) {
     // ===== COLORS =====
     const colors = car.colors || [];
 
-    const visibleColors = colors.slice(0, 4);
-    const extraCount = colors.length - 4;
-
-    const colorHTML = visibleColors.map(c => `
-      <div class="color-dot" title="${c.name}" style="background:${c.hex}"></div>
-    `).join("");
-
-    const extraHTML = extraCount > 0 
-      ? `<div class="color-more">+${extraCount}</div>`
-      : "";
+    const colorHTML = colors.map(c => `
+  <div class="color-dot" title="${c.name}" style="background:${c.hex}"></div>
+`).join("");
 
     // ===== CREATE CARD =====
     const div = document.createElement("div");
@@ -43,15 +36,10 @@ export function renderCars(cars) {
           ${`${car.model} ${car.trim || ""}`.trim()}
         </h3>
 
-        <p class="desc">
-          Range ${car.wltp_range_km} km • ${car.horsepower_hp || "-"} hp
-        </p>
-
         <!-- COLORS -->
         <div class="colors">
-          ${colorHTML}
-          ${extraHTML}
-        </div>
+  ${colorHTML}
+</div>
 
         <!-- SPEC BOX -->
         <div class="spec-box">
