@@ -6,8 +6,11 @@ async function updateUI() {
   const cars = await getCars();
 
   const filters = {
-    brands: Array.from(document.querySelectorAll(".brand:checked")).map(cb => cb.value),
-    priceRange: document.getElementById("priceRange").value
+    brands: Array.from(document.querySelectorAll(".brand:checked"))
+      .map(cb => cb.value),
+
+    // ✅ ป้องกัน null
+    priceRange: document.getElementById("priceRange")?.value || ""
   };
 
   console.log("filters:", filters);
@@ -16,15 +19,21 @@ async function updateUI() {
 
   console.log("filtered:", filtered);
 
-  renderCars(filtered); // ✅ ใช้ filter แล้ว
+  renderCars(filtered);
 }
 
-// event
+// ===== EVENT =====
+
+// brand checkbox
 document.querySelectorAll(".brand").forEach(cb => {
   cb.addEventListener("change", updateUI);
 });
 
-document.getElementById("priceRange").addEventListener("change", updateUI);
+// ✅ ป้องกัน error (ตัวพังจริง)
+const priceInput = document.getElementById("priceRange");
+if (priceInput) {
+  priceInput.addEventListener("change", updateUI);
+}
 
-// load
+// ===== LOAD =====
 updateUI();
