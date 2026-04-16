@@ -1,4 +1,4 @@
-import { calculateNPV } from './utils.js';
+import { calculateNPV } from "./utils.js";
 
 export function renderCars(cars) {
   const container = document.getElementById("car-list");
@@ -9,15 +9,19 @@ export function renderCars(cars) {
     return;
   }
 
-  cars.forEach(car => {
+  cars.forEach((car) => {
     const npv = calculateNPV(car);
 
     // ===== COLORS =====
     const colors = car.colors || [];
 
-    const colorHTML = colors.map(c => `
+    const colorHTML = colors
+      .map(
+        (c) => `
   <div class="color-dot" title="${c.name}" style="background:${c.hex}"></div>
-`).join("");
+`,
+      )
+      .join("");
 
     // ===== CREATE CARD =====
     const div = document.createElement("div");
@@ -43,19 +47,21 @@ export function renderCars(cars) {
 
         <!-- SPEC BOX -->
         <div class="spec-box">
-          <div>
-            <p>${car.wltp_range_km}</p>
-            <span>RANGE</span>
-          </div>
-          <div>
-            <p>${car.battery_capacity_kWh || "-"}</p>
-            <span>kWh</span>
-          </div>
-          <div>
-            <p>${car.horsepower_hp || "-"}</p>
-            <span>HP</span>
-          </div>
-        </div>
+  <div class="spec-item">
+    <p>${car.wltp_range_km} km</p>
+    <span>Range</span>
+  </div>
+
+  <div class="spec-item">
+    <p>${car.battery_capacity_kWh || "-"} kWh</p>
+    <span>Battery</span>
+  </div>
+
+  <div class="spec-item">
+    <p>${car.dc_charging_power_kW || "-"} kW</p>
+    <span>Charging</span>
+  </div>
+</div>
 
         <!-- BOTTOM -->
         <div class="bottom">

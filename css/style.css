@@ -172,27 +172,32 @@ body {
 
 /* ===== SPEC BOX ===== */
 .spec-box {
-  background: #f3f4f6;
+  background: none;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  padding: 8px;
+  padding: 0px;
+  gap: 8px;
 }
 
-.spec-box div {
+.spec-item {
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 10px 20px;
   text-align: center;
+  flex: 1;
 }
 
 .spec-box p {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   margin: 0;
 }
 
 .spec-box span {
   color: #6b7280;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 /* ===== BOTTOM ===== */
