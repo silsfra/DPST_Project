@@ -1,89 +1,108 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>EV Car Finder</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>EV Car Finder</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
-
-  <!-- ===== NAVBAR ===== -->
-  <div class="navbar">
-    <div class="nav-logo">LOGO</div>
-  </div>
-
-  <div class="container">
-
-    <!-- ===== SIDEBAR (BRAND FILTER) ===== -->
-    <div class="filter-box">
-      <h3>Filter by Brand</h3>
-
-      <label class="checkbox-item"><input type="checkbox" value="Audi" class="brand" /> <span>Audi</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="BMW" class="brand" /> <span>BMW</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="BYD" class="brand" /> <span>BYD</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Honda" class="brand" /> <span>Honda</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="MG" class="brand" /> <span>MG</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Nissan" class="brand" /> <span>Nissan</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Tesla" class="brand" /> <span>Tesla</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Toyota" class="brand" /> <span>Toyota</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Volvo" class="brand" /> <span>Volvo</span></label>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <div class="navbar">
+      <div class="nav-logo">LOGO</div>
     </div>
 
-    <!-- ===== MAIN SECTION ===== -->
-    <div class="main-section">
+    <div class="container">
+      <!-- ===== SIDEBAR (BRAND FILTER) ===== -->
+      <div class="filter-box">
+        <h3>Filter by Brand</h3>
 
-      <!-- ===== TOP FILTER ===== -->
-      <div class="top-filter">
-
-        <!-- HEADER -->
-        <div class="filter-header">
-          <h3>Write Something ...</h3>
-          <p>Write Something (description) ...</p>
-        </div>
-
-        <!-- FILTER ROW -->
-        <div class="filter-row">
-
-          <!-- PRIMARY USE -->
-          <div class="filter-item">
-            <label for="cluster">Primary Use</label>
-            <select id="cluster">
-              <option value="">Select usage...</option>
-              <option value="0">All-round</option>
-              <option value="1">Local</option>
-              <option value="2">Long Range</option>
-              <option value="3">City</option>
-            </select>
-          </div>
-
-          <!-- DISTANCE -->
-          <div class="filter-item">
-            <label for="distance">Monthly Distance</label>
-            <input id="distance" type="text" placeholder="e.g. 1500 km" />
-          </div>
-
-          <!-- BUDGET -->
-          <div class="filter-item">
-            <label for="budget">Budget</label>
-            <input id="budget" type="text" placeholder="e.g. $50,000" />
-          </div>
-
-          <!-- BUTTON -->
-          <button id="recommend-btn" class="recommend-btn">
-            ✨ Find Recommended Cars
-          </button>
-
-        </div>
+        <label class="checkbox-item"
+          ><input type="checkbox" value="Audi" class="brand" />
+          <span>Audi</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="BMW" class="brand" />
+          <span>BMW</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="BYD" class="brand" />
+          <span>BYD</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="Honda" class="brand" />
+          <span>Honda</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="MG" class="brand" />
+          <span>MG</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="Nissan" class="brand" />
+          <span>Nissan</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="Tesla" class="brand" />
+          <span>Tesla</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="Toyota" class="brand" />
+          <span>Toyota</span></label
+        >
+        <label class="checkbox-item"
+          ><input type="checkbox" value="Volvo" class="brand" />
+          <span>Volvo</span></label
+        >
       </div>
 
-      <!-- ===== CAR LIST ===== -->
-      <div id="car-list" class="car-grid"></div>
+      <!-- ===== MAIN SECTION ===== -->
+      <div class="main-section">
+        <!-- ===== TOP FILTER ===== -->
+        <div class="top-filter">
+          <!-- HEADER -->
+          <div class="filter-header">
+            <h3>Write Something ...</h3>
+            <p>Write Something (description) ...</p>
+          </div>
 
+          <!-- FILTER ROW -->
+          <div class="filter-row">
+            <!-- PRIMARY USE -->
+            <div class="filter-item">
+              <label for="cluster">Car Type</label>
+              <select id="cluster">
+                <option value="">Select usage...</option>
+                <option value="0">All-round</option>
+                <option value="1">Local</option>
+                <option value="2">Long Range</option>
+                <option value="3">City</option>
+              </select>
+            </div>
+
+            <!-- DISTANCE -->
+            <div class="filter-item">
+              <label for="budget">Budget</label>
+              <input id="budget" type="text" placeholder="e.g. ฿1,000,000" />
+            </div>
+
+            <!-- BUDGET -->
+            <div class="filter-item">
+              <label for="budget">What To Write Here</label>
+              <input id="budget" type="text" placeholder="e.g. blab blab" />
+            </div>
+
+            <!-- BUTTON -->
+            <button id="recommend-btn" class="recommend-btn">
+              Find Ev Cars
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== CAR LIST ===== -->
+        <div id="car-list" class="car-grid"></div>
+      </div>
     </div>
-  </div>
 
-  <script type="module" src="js/main.js"></script>
-
-</body>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>

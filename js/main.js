@@ -9,8 +9,12 @@ async function updateUI() {
     brands: Array.from(document.querySelectorAll(".brand:checked"))
       .map(cb => cb.value),
 
-    // ✅ ป้องกัน null
-    priceRange: document.getElementById("priceRange")?.value || ""
+    priceRange: document.getElementById("priceRange")?.value || "",
+
+    cluster: document.getElementById("cluster")?.value || "",
+
+    // ✅ ต้องอยู่ตรงนี้เท่านั้น
+    budget: document.getElementById("budget")?.value || ""
   };
 
   console.log("filters:", filters);
@@ -22,18 +26,12 @@ async function updateUI() {
   renderCars(filtered);
 }
 
-// ===== EVENT =====
+// ✅ ปุ่มเดียวพอ
+const btn = document.getElementById("recommend-btn");
 
-// brand checkbox
-document.querySelectorAll(".brand").forEach(cb => {
-  cb.addEventListener("change", updateUI);
-});
-
-// ✅ ป้องกัน error (ตัวพังจริง)
-const priceInput = document.getElementById("priceRange");
-if (priceInput) {
-  priceInput.addEventListener("change", updateUI);
+if (btn) {
+  btn.addEventListener("click", updateUI);
 }
 
-// ===== LOAD =====
+// โหลดครั้งแรก
 updateUI();
