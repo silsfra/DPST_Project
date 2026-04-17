@@ -3,39 +3,54 @@ export function applyFilters(cars, filters) {
 
     // ===== BRAND =====
     if (filters.brands.length > 0) {
-      const carBrand = car.brand.toLowerCase();
-      const selectedBrands = filters.brands.map(b => b.toLowerCase());
+      const carBrandLower = (car.brand || "").toLowerCase();
+      const selectedBrandsLower = filters.brands.map(b => b.toLowerCase());
 
-      if (!selectedBrands.includes(carBrand)) {
+      if (!selectedBrandsLower.includes(carBrandLower)) {
         return false;
       }
     }
 
     // ===== PRICE RANGE =====
     if (filters.priceRange) {
-      const [min, max] = filters.priceRange.split("-").map(Number);
+      const [minPrice, maxPrice] = filters.priceRange.split("-").map(Number);
 
-      if (car.price < min || car.price > max) {
+      if (car.price < minPrice || car.price > maxPrice) {
         return false;
       }
     }
 
     // ===== CLUSTER =====
     if (filters.cluster !== "") {
-      if (car.cluster != filters.cluster) {
+      const carCluster = String(car.cluster);
+      const selectedCluster = String(filters.cluster);
+
+      if (carCluster !== selectedCluster) {
         return false;
       }
     }
 
     // ===== BUDGET =====
     if (filters.budget) {
-      const budget = Number(filters.budget.replace(/[^0-9]/g, ""));
+      const budgetValue = Number(filters.budget.replace(/[^0-9]/g, ""));
 
-      // กันเคส user พิมพ์มั่ว
-      if (!isNaN(budget) && budget > 0) {
-        if (car.price > budget) {
+      if (!isNaN(budgetValue) && budgetValue > 0) {
+        if (car.price > budgetValue) {
           return false;
         }
+      }
+    }
+
+    // ===== COLOR GROUP =====
+    if (filters.colors && filters.colors.length > 0) {
+      const carColors = car.color_groups || [];
+
+      const match = filters.colors.some(selectedColor =>
+        carColors.includes(selectedColor)
+      );
+
+      if (!match) {
+        return false;
       }
     }
 

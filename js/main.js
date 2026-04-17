@@ -9,11 +9,11 @@ async function updateUI() {
     brands: Array.from(document.querySelectorAll(".brand:checked"))
       .map(cb => cb.value),
 
+    colors: Array.from(document.querySelectorAll(".color:checked"))
+      .map(cb => cb.value),
+
     priceRange: document.getElementById("priceRange")?.value || "",
-
     cluster: document.getElementById("cluster")?.value || "",
-
-    // ✅ ต้องอยู่ตรงนี้เท่านั้น
     budget: document.getElementById("budget")?.value || ""
   };
 
@@ -26,12 +26,22 @@ async function updateUI() {
   renderCars(filtered);
 }
 
-// ✅ ปุ่มเดียวพอ
+// ===== SIDEBAR (ทำงานทันที) =====
+document.querySelectorAll(".brand").forEach(cb => {
+  cb.addEventListener("change", updateUI);
+});
+
+// ✅ color filter → ทำงานทันที
+document.querySelectorAll(".color").forEach(cb => {
+  cb.addEventListener("change", updateUI);
+});
+
+// ===== TOP FILTER (กดปุ่มก่อน) =====
 const btn = document.getElementById("recommend-btn");
 
 if (btn) {
   btn.addEventListener("click", updateUI);
 }
 
-// โหลดครั้งแรก
+// ===== LOAD ครั้งแรก =====
 updateUI();

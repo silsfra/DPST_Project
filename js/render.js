@@ -1,5 +1,15 @@
 import { calculateNPV } from "./utils.js";
 
+function getClusterName(cluster) {
+  switch (cluster) {
+    case 0: return "All-round";
+    case 1: return "Local";
+    case 2: return "Long Range";
+    case 3: return "City";
+    default: return "Unknown";
+  }
+}
+
 export function renderCars(cars) {
   const container = document.getElementById("car-list");
   container.innerHTML = "";
@@ -29,8 +39,10 @@ export function renderCars(cars) {
 
     div.innerHTML = `
       <div class="card-image-wrapper">
-        <img src="assets/car_paint.png" class="car-image">
-      </div>
+  <span class="tag">${getClusterName(car.cluster)}</span>
+
+  <img src="assets/car_paint.png" class="car-image">
+</div>
 
       <div class="car-info">
 

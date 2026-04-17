@@ -38,7 +38,7 @@ body {
 /* ===== SIDEBAR ===== */
 .filter-box {
   width: 240px;
-  padding: 16px;
+  padding: 24px;
 
   background: #fff;
   border-right: 1px solid #e5e7eb;
@@ -181,7 +181,7 @@ body {
   flex-direction: column;
   gap: 15px;
 
-  padding: 18px;
+  padding: 20px;
 }
 
 .car-info h3,
@@ -300,4 +300,23 @@ body {
 
   text-decoration: none;
   color: #333;
+}
+
+.card-image-wrapper {
+  position: relative;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background: rgba(255,255,255,0.9);
+  padding: 6px 12px;
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  z-index: 10;
 }
