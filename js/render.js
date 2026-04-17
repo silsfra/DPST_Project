@@ -41,7 +41,7 @@ export function renderCars(cars) {
       <div class="card-image-wrapper">
   <span class="tag">${getClusterName(car.cluster)}</span>
 
-  <img src="assets/car_paint.png" class="car-image">
+  <img src="${car.image_url || 'assets/car_paint.png'}" class="car-image">
 </div>
 
       <div class="car-info">
