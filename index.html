@@ -7,7 +7,6 @@
   </head>
 
   <body>
-
     <div class="container">
       <!-- ===== SIDEBAR (BRAND FILTER) ===== -->
       <div class="filter-box">
@@ -140,10 +139,13 @@
               <input id="budget" type="text" placeholder="e.g. ฿1,000,000" />
             </div>
 
-            <!-- COLORS แบบ เลือกได้หลายอัน -->
             <div class="filter-item">
-              <label for="budget">Budget</label>
-              <input id="budget" type="text" placeholder="e.g. ฿1,000,000" />
+              <label for="sort">Sort by Price</label>
+              <select id="sort">
+                <option value="">Default</option>
+                <option value="asc">Price: Low → High</option>
+                <option value="desc">Price: High → Low</option>
+              </select>
             </div>
 
             <!-- BUTTON -->

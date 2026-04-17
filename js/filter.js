@@ -1,5 +1,6 @@
 export function applyFilters(cars, filters) {
-  return cars.filter(car => {
+
+  let result = cars.filter(car => {
 
     // ===== BRAND =====
     if (filters.brands.length > 0) {
@@ -22,10 +23,7 @@ export function applyFilters(cars, filters) {
 
     // ===== CLUSTER =====
     if (filters.cluster !== "") {
-      const carCluster = String(car.cluster);
-      const selectedCluster = String(filters.cluster);
-
-      if (carCluster !== selectedCluster) {
+      if (String(car.cluster) !== String(filters.cluster)) {
         return false;
       }
     }
@@ -41,7 +39,7 @@ export function applyFilters(cars, filters) {
       }
     }
 
-    // ===== COLOR GROUP =====
+    // ===== COLOR =====
     if (filters.colors && filters.colors.length > 0) {
       const carColors = car.color_groups || [];
 
@@ -56,4 +54,15 @@ export function applyFilters(cars, filters) {
 
     return true;
   });
+
+  // 🔥 ===== SORT ตรงนี้ =====
+  if (filters.sort === "asc") {
+    result.sort((a, b) => a.price - b.price);
+  }
+
+  if (filters.sort === "desc") {
+    result.sort((a, b) => b.price - a.price);
+  }
+
+  return result;
 }

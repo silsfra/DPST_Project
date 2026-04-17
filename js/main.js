@@ -14,7 +14,9 @@ async function updateUI() {
 
     priceRange: document.getElementById("priceRange")?.value || "",
     cluster: document.getElementById("cluster")?.value || "",
-    budget: document.getElementById("budget")?.value || ""
+    budget: document.getElementById("budget")?.value || "",
+    sort: document.getElementById("sort")?.value || ""
+    
   };
 
   console.log("filters:", filters);
