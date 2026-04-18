@@ -1,7 +1,7 @@
 /* ===== BASE ===== */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: #f4f6f8;
   color: #333;
 }
@@ -9,6 +9,8 @@ body {
 /* ===== PAGE ===== */
 .page {
   padding: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* ===== BACK ===== */
@@ -20,44 +22,47 @@ body {
   font-weight: 600;
 }
 
-/* ===== MAIN LAYOUT ===== */
+/* ===== MAIN ===== */
 .detail-wrapper {
   display: flex;
+  flex-direction: column;
   gap: 40px;
-  align-items: flex-start;
 }
 
-/* ===== LEFT SIDE ===== */
-.detail-left {
-  flex: 3; /* 👈 กินพื้นที่หลัก */
-}
-
-/* รูป + ข้อมูล อยู่แถวเดียวกัน */
+/* ===== TOP (รูป + ข้อมูล) ===== */
 .car-top {
   display: flex;
   gap: 40px;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-/* รูป */
+/* ===== IMAGE ===== */
 .detail-image {
-  width: 700px;   /* 🔥 เพิ่มจาก 380 → ใหญ่ขึ้นชัด */
-  max-width: 100%;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+
   border-radius: 16px;
+  background: #fff;
 }
 
-/* ข้อมูล */
+/* ===== INFO ===== */
 .car-info {
   flex: 1;
+  min-width: 300px;
 }
 
 .car-info h2 {
-  font-size: 28px;
+  margin: 0;
+  font-size: 30px;
   font-weight: 700;
 }
 
 .car-info p {
+  margin-top: 10px;
   font-size: 14px;
+  color: #6b7280;
 }
 
 /* ===== SPEC ===== */
@@ -85,31 +90,38 @@ body {
   color: #6b7280;
 }
 
-/* ===== RIGHT SIDE (NPV) ===== */
-.detail-right {
-  flex: 1;
-  max-width: 280px;   /* จาก 320 → เล็กลง */
-}
-
-/* กล่อง NPV */
-.npv-card {
-  background: #fff;
+/* ===== COST BOX ===== */
+.cost-box {
+  margin-top: 30px;
   padding: 20px;
+  background: #fff;
   border-radius: 16px;
 
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cost-box h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
 }
 
 /* ===== FORM ===== */
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .form-group {
+  flex: 1;
+  min-width: 160px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
 }
 
 .form-group label {
   font-size: 12px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   color: #6b7280;
 }
 
@@ -119,16 +131,13 @@ body {
   border: 1px solid #e5e7eb;
 }
 
-/* ===== NPV RESULT ===== */
-.npv-box {
-  margin-top: 20px;
-  padding: 16px;
-  background: #111827;
-  color: white;
-  border-radius: 12px;
-  text-align: center;
-}
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .car-top {
+    flex-direction: column;
+  }
 
-.npv-box h2 {
-  margin: 0;
+  .detail-image {
+    max-width: 100%;
+  }
 }

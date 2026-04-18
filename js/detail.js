@@ -13,10 +13,16 @@ async function loadCar() {
 
   currentCar = car;
 
-  // render
+  // ===== FULL NAME =====
+  const fullName = `${car.brand} ${car.model} ${car.trim || ""}`.trim();
+
+  // ===== RENDER =====
   document.getElementById("car-image").src = car.image_url;
-  document.getElementById("car-title").innerText = car.model;
-  document.getElementById("car-desc").innerText = car.brand;
+  document.getElementById("car-title").innerText = fullName;
+
+  // 👉 lorem แทนไปก่อน
+  document.getElementById("car-desc").innerText =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
   updateNPV();
 }
@@ -24,9 +30,10 @@ async function loadCar() {
 function updateNPV() {
   if (!currentCar) return;
 
-  const years = Number(document.getElementById("years").value);
-  const insurance = Number(document.getElementById("insurance").value);
-  const maintenance = Number(document.getElementById("maintenance").value);
+  // ===== INPUT =====
+  const years = Number(document.getElementById("years").value) || 0;
+  const insurance = Number(document.getElementById("insurance").value) || 0;
+  const maintenance = Number(document.getElementById("maintenance").value) || 0;
 
   let npv = -currentCar.price;
 
@@ -36,13 +43,16 @@ function updateNPV() {
     npv += (-yearlyCost) / Math.pow(1.05, t);
   }
 
+  // ===== OUTPUT =====
   document.getElementById("npv-result").innerText =
     "NPV: ฿" + Math.round(npv).toLocaleString();
 }
 
-// 🔥 realtime update
-document.querySelectorAll("input").forEach(input => {
-  input.addEventListener("input", updateNPV);
-});
+// ===== REALTIME UPDATE =====
+document.querySelectorAll("#years, #insurance, #maintenance")
+  .forEach(input => {
+    input.addEventListener("input", updateNPV);
+  });
 
+// ===== LOAD =====
 loadCar();

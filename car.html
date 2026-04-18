@@ -21,34 +21,27 @@
               <p id="car-desc"></p>
             </div>
           </div>
-
-          <!-- spec -->
-          
         </div>
 
-        <!-- RIGHT -->
-        <div class="detail-right">
-          <div class="npv-card">
-            <h3>NPV Calculator</h3>
+      </div>
 
-            <div class="form-group">
-              <label>Years</label>
-              <input id="years" type="number" value="5" />
-            </div>
+      <div class="cost-box">
+        <h3>คำนวณค่าใช้จ่ายคร่าว ๆ</h3>
 
-            <div class="form-group">
-              <label>Insurance</label>
-              <input id="insurance" type="number" value="25000" />
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ระยะเวลาการใช้งาน (ปี)</label>
+            <input id="years" type="number" value="5" />
+          </div>
 
-            <div class="form-group">
-              <label>Maintenance</label>
-              <input id="maintenance" type="number" value="5000" />
-            </div>
+          <div class="form-group">
+            <label>ค่าประกัน ต่อปี</label>
+            <input id="insurance" type="number" value="25000" step="1000" />
+          </div>
 
-            <div class="npv-box">
-              <h2 id="npv-result">NPV: -</h2>
-            </div>
+          <div class="form-group">
+            <label>ค่าบำรุงรักษา ต่อปี</label>
+            <input id="maintenance" type="number" value="5000" step="1000" />
           </div>
         </div>
       </div>
