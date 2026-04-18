@@ -17,18 +17,16 @@ export function getTax(weight) {
   return 3600;
 }
 
-export function calculateNPV(car) {
-  const insurance = 25000;
-  const maintenance = 5000;
+export function calculateNPV(car, years, insurance, maintenance) {
   const act = 645.21;
 
   const taxBase = getTax(car.weight_kg);
 
   let npv = -car.price;
 
-  for (let t = 1; t <= 5; t++) {
+  for (let t = 1; t <= years; t++) {
 
-    // ปีแรกจ่าย 20%
+    // ปีแรกลด 20%
     const tax = t === 1 ? taxBase * 0.2 : taxBase;
 
     const yearlyCost = insurance + maintenance + act + tax;

@@ -141,3 +141,24 @@ body {
     max-width: 100%;
   }
 }
+
+.npv-output-box {
+  margin-top: 20px;
+  padding: 20px;
+
+  background: #fff; /* 🔥 เปลี่ยนจากดำ → ขาว */
+  border-radius: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.npv-output-box h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.npv-output-box p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}

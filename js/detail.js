@@ -1,4 +1,5 @@
 import { getCars } from './api.js';
+import { calculateNPV } from './utils.js'; // ✅ เพิ่ม
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -30,20 +31,12 @@ async function loadCar() {
 function updateNPV() {
   if (!currentCar) return;
 
-  // ===== INPUT =====
-  const years = Number(document.getElementById("years").value) || 0;
-  const insurance = Number(document.getElementById("insurance").value) || 0;
-  const maintenance = Number(document.getElementById("maintenance").value) || 0;
+  const years = Number(document.getElementById("years").value);
+  const insurance = Number(document.getElementById("insurance").value);
+  const maintenance = Number(document.getElementById("maintenance").value);
 
-  let npv = -currentCar.price;
+  const npv = calculateNPV(currentCar, years, insurance, maintenance);
 
-  for (let t = 1; t <= years; t++) {
-    const yearlyCost = insurance + maintenance;
-
-    npv += (-yearlyCost) / Math.pow(1.05, t);
-  }
-
-  // ===== OUTPUT =====
   document.getElementById("npv-result").innerText =
     "NPV: ฿" + Math.round(npv).toLocaleString();
 }
