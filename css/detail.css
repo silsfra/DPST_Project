@@ -1,0 +1,134 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* ===== PAGE ===== */
+.page {
+  padding: 30px;
+}
+
+/* ===== BACK ===== */
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.detail-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ===== LEFT SIDE ===== */
+.detail-left {
+  flex: 3; /* 👈 กินพื้นที่หลัก */
+}
+
+/* รูป + ข้อมูล อยู่แถวเดียวกัน */
+.car-top {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* รูป */
+.detail-image {
+  width: 700px;   /* 🔥 เพิ่มจาก 380 → ใหญ่ขึ้นชัด */
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+/* ข้อมูล */
+.car-info {
+  flex: 1;
+}
+
+.car-info h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.car-info p {
+  font-size: 14px;
+}
+
+/* ===== SPEC ===== */
+.spec-box {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.spec-box div {
+  flex: 1;
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.spec-box p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.spec-box span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ===== RIGHT SIDE (NPV) ===== */
+.detail-right {
+  flex: 1;
+  max-width: 280px;   /* จาก 320 → เล็กลง */
+}
+
+/* กล่อง NPV */
+.npv-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* ===== FORM ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #6b7280;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== NPV RESULT ===== */
+.npv-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: #111827;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.npv-box h2 {
+  margin: 0;
+}

@@ -78,8 +78,6 @@ export function renderCars(cars) {
         <!-- BOTTOM -->
         <div class="bottom">
           <p class="price">฿${car.price.toLocaleString()}</p>
-
-          <button class="detail-btn">Details</button>
         </div>
 
       </div>
