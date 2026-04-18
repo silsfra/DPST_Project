@@ -26,11 +26,25 @@ export function renderCars(cars) {
     const colors = car.colors || [];
 
     const colorHTML = colors
-      .map(
-        (c) => `
-  <div class="color-dot" title="${c.name}" style="background:${c.hex}"></div>
-`,
-      )
+      .map((c) => {
+        // 👉 ถ้ามี 2 สี
+        if (c.secondary) {
+          return `
+    <div class="color-dot"
+      title="${c.name}"
+      style="background: linear-gradient(to bottom, ${c.secondary} 50%, ${c.hex} 50%);">
+    </div>
+  `;
+        }
+
+        // 👉 สีเดียว (ของเดิม)
+        return `
+      <div class="color-dot"
+        title="${c.name}"
+        style="background:${c.hex}">
+      </div>
+    `;
+      })
       .join("");
 
     // ===== CREATE CARD =====
