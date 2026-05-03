@@ -1,3 +1,5 @@
+import { calculateNPV } from "./utils.js";
+
 export function applyFilters(cars, filters) {
 
   let result = cars.filter(car => {
@@ -62,6 +64,23 @@ export function applyFilters(cars, filters) {
 
   if (filters.sort === "desc") {
     result.sort((a, b) => b.price - a.price);
+  }
+
+  if (filters.sort === "npv-desc") {
+    result.sort((a, b) => {
+      const npvA = calculateNPV(a, 5, 25000, 5000, 15000) || 0;
+      const npvB = calculateNPV(b, 5, 25000, 5000, 15000) || 0;
+      return npvB - npvA;
+    });
+  }
+
+  // NPV น้อย → มาก
+  if (filters.sort === "npv-asc") {
+    result.sort((a, b) => {
+      const npvA = calculateNPV(a, 5, 25000, 5000, 15000) || 0;
+      const npvB = calculateNPV(b, 5, 25000, 5000, 15000) || 0;
+      return npvA - npvB;
+    });
   }
 
   return result;

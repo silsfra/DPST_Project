@@ -20,7 +20,7 @@ export function renderCars(cars) {
   }
 
   cars.forEach((car) => {
-    const npv = calculateNPV(car);
+    const npv = calculateNPV(car, 5, 25000, 5000, 15000) || 0;
 
     // ===== COLORS =====
     const colors = car.colors || [];
@@ -89,10 +89,10 @@ export function renderCars(cars) {
   </div>
 </div>
 
-        <!-- BOTTOM -->
         <div class="bottom">
-          <p class="price">฿${car.price.toLocaleString()}</p>
-        </div>
+  <p class="price">฿${car.price.toLocaleString()}</p>
+  <p class="npv">NPV: ฿${Math.round(npv).toLocaleString()}</p>
+</div>
 
       </div>
     `;

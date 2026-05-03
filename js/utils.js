@@ -17,7 +17,21 @@ export function getTax(weight) {
   return 3600;
 }
 
-export function calculateNPV(car, years, insurance, maintenance) {
+export function calculateResalePrice(car, years, kmPerYear) {
+  const initial = 0.2293;
+  const ageRate = 0.061;
+  const mileageRate = 0.052;
+
+  const totalDistance = kmPerYear * years;
+
+  const priceAfterInitial = car.price * (1 - initial);
+  const ageFactor = Math.pow(1 - ageRate, years);
+  const mileageFactor = Math.pow(1 - mileageRate, totalDistance / 10000);
+
+  return priceAfterInitial * ageFactor * mileageFactor;
+}
+
+export function calculateNPV(car, years, insurance, maintenance, kmPerYear) {
   const act = 645.21;
 
   const taxBase = getTax(car.weight_kg);
@@ -31,7 +45,12 @@ export function calculateNPV(car, years, insurance, maintenance) {
 
     const yearlyCost = insurance + maintenance + act + tax;
 
-    const discounted = (-yearlyCost) / Math.pow(1.05, t);
+    let discounted = (-yearlyCost) / Math.pow(1.05, t);
+
+    if (t === years) {
+      const resale = calculateResalePrice(car, years, kmPerYear);
+      discounted += resale / Math.pow(1.05, t);
+    }
 
     npv += discounted;
   }
