@@ -157,3 +157,45 @@ body {
     text-align: left;
   }
 }
+
+.car-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-top: 24px;
+}
+
+.spec-card {
+  padding: 14px;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.spec-card span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.spec-card strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .car-spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .car-spec-grid {
+    grid-template-columns: 1fr;
+  }
+}

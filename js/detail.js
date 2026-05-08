@@ -34,8 +34,37 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("car-image").src = car.image_url;
     document.getElementById("car-title").innerText = fullName;
-    document.getElementById("car-desc").innerText =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+    document.getElementById("car-spec-grid").innerHTML = `
+      <div class="spec-card">
+        <span>Range</span>
+        <strong>${car.wltp_range_km || "-"} km</strong>
+      </div>
+    
+      <div class="spec-card">
+        <span>Battery</span>
+        <strong>${car.battery_capacity_kWh || "-"} kWh</strong>
+      </div>
+    
+      <div class="spec-card">
+        <span>Charging</span>
+        <strong>${car.dc_charging_power_kW || "-"} kW</strong>
+      </div>
+    
+      <div class="spec-card">
+        <span>Torque</span>
+        <strong>${car.torque_Nm || "-"} Nm</strong>
+      </div>
+    
+      <div class="spec-card">
+        <span>Horse Power</span>
+        <strong>${car.horsepower_hp || "-"} hp</strong>
+      </div>
+    
+      <div class="spec-card">
+        <span>0-100 km/h</span>
+        <strong>${car.acceleration_0_100_sec || "-"} sec</strong>
+      </div>
+    `;
 
     updateNPV();
   }
