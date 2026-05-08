@@ -1,95 +1,94 @@
+const ACT_FEE = 645.21;
+const DISCOUNT_RATE = 0.05;
+
+const RESALE_INITIAL_DROP = 0.2293;
+const RESALE_AGE_RATE = 0.061;
+const RESALE_MILEAGE_RATE = 0.052;
+
+const TAX_TABLE = [
+  [500, 150],
+  [750, 300],
+  [1000, 450],
+  [1250, 800],
+  [1500, 1000],
+  [1750, 1300],
+  [2000, 1600],
+  [2500, 1900],
+  [3000, 2200],
+  [3500, 2400],
+  [4000, 2600],
+  [4500, 2800],
+  [5000, 3000],
+  [6000, 3200],
+  [7000, 3400],
+];
+
+function getCarWeight(car) {
+  return car.weight_kg ?? car.weight ?? 0;
+}
+
+function getYearlyTax(taxBase, year) {
+  return year === 1 ? taxBase * 0.2 : taxBase;
+}
+
+function getDiscountFactor(year) {
+  return Math.pow(1 + DISCOUNT_RATE, year);
+}
+
 export function getTax(weight) {
-  if (weight <= 500) return 150;
-  if (weight <= 750) return 300;
-  if (weight <= 1000) return 450;
-  if (weight <= 1250) return 800;
-  if (weight <= 1500) return 1000;
-  if (weight <= 1750) return 1300;
-  if (weight <= 2000) return 1600;
-  if (weight <= 2500) return 1900;
-  if (weight <= 3000) return 2200;
-  if (weight <= 3500) return 2400;
-  if (weight <= 4000) return 2600;
-  if (weight <= 4500) return 2800;
-  if (weight <= 5000) return 3000;
-  if (weight <= 6000) return 3200;
-  if (weight <= 7000) return 3400;
-  return 3600;
+  const row = TAX_TABLE.find(([maxWeight]) => weight <= maxWeight);
+  return row ? row[1] : 3600;
 }
 
 export function calculateResalePrice(car, years, kmPerYear) {
-  const initial = 0.2293;
-  const ageRate = 0.061;
-  const mileageRate = 0.052;
-
   const totalDistance = kmPerYear * years;
 
-  const priceAfterInitial = car.price * (1 - initial);
-  const ageFactor = Math.pow(1 - ageRate, years);
-  const mileageFactor = Math.pow(1 - mileageRate, totalDistance / 10000);
+  const priceAfterInitialDrop =
+    car.price * (1 - RESALE_INITIAL_DROP);
 
-  return priceAfterInitial * ageFactor * mileageFactor;
+  const ageFactor =
+    Math.pow(1 - RESALE_AGE_RATE, years);
+
+  const mileageFactor =
+    Math.pow(1 - RESALE_MILEAGE_RATE, totalDistance / 10000);
+
+  return priceAfterInitialDrop * ageFactor * mileageFactor;
+}
+
+export function calculateRunningCost(car, years, insurance, maintenance) {
+  const taxBase = getTax(getCarWeight(car));
+
+  let total = 0;
+
+  for (let year = 1; year <= years; year++) {
+    const tax = getYearlyTax(taxBase, year);
+    total += insurance + maintenance + ACT_FEE + tax;
+  }
+
+  return total;
 }
 
 export function calculateNPV(car, years, insurance, maintenance, kmPerYear) {
-  const act = 645.21;
-
-  const taxBase = getTax(car.weight_kg);
+  const taxBase = getTax(getCarWeight(car));
 
   let npv = -car.price;
 
-  for (let t = 1; t <= years; t++) {
+  for (let year = 1; year <= years; year++) {
+    const tax = getYearlyTax(taxBase, year);
+    const yearlyCost = insurance + maintenance + ACT_FEE + tax;
 
-    // ปีแรกลด 20%
-    const tax = t === 1 ? taxBase * 0.2 : taxBase;
+    npv -= yearlyCost / getDiscountFactor(year);
 
-    const yearlyCost = insurance + maintenance + act + tax;
-
-    let discounted = (-yearlyCost) / Math.pow(1.05, t);
-
-    if (t === years) {
+    if (year === years) {
       const resale = calculateResalePrice(car, years, kmPerYear);
-      discounted += resale / Math.pow(1.05, t);
+      npv += resale / getDiscountFactor(year);
     }
-
-    npv += discounted;
   }
-
 
   return npv;
 }
 
 export function normalize(value, min, max) {
   if (max === min) return 0;
-
   return (value - min) / (max - min);
-}
-
-export function calculateRunningCost(
-  car,
-  years,
-  insurance,
-  maintenance
-) {
-
-  const act = 645.21;
-
-  const taxBase = getTax(car.weight);
-
-  let total = 0;
-
-  for (let t = 1; t <= years; t++) {
-
-    const tax = t === 1
-      ? taxBase * 0.2
-      : taxBase;
-
-    total +=
-      insurance +
-      maintenance +
-      act +
-      tax;
-  }
-
-  return total;
 }

@@ -1,49 +1,60 @@
-import { getCars } from './api.js';
-import { applyFilters } from './filter.js';
-import { renderCars } from './render.js';
+import { getCars } from "./api.js";
+import { applyFilters } from "./filter.js";
+import { renderCars } from "./render.js";
 
-async function updateUI() {
-  const cars = await getCars();
+let allCars = [];
 
-  const filters = {
-    brands: Array.from(document.querySelectorAll(".brand:checked"))
-      .map(cb => cb.value),
+function getCheckedValues(selector) {
+  return Array.from(document.querySelectorAll(`${selector}:checked`))
+    .map(input => input.value);
+}
 
-    colors: Array.from(document.querySelectorAll(".color:checked"))
-      .map(cb => cb.value),
+function getElementValue(id) {
+  return document.getElementById(id)?.value || "";
+}
 
-    priceRange: document.getElementById("priceRange")?.value || "",
-    cluster: document.getElementById("cluster")?.value || "",
-    budget: document.getElementById("budget")?.value || "",
-    sort: document.getElementById("sort")?.value || ""
-    
+function getFilters() {
+  return {
+    brands: getCheckedValues(".brand"),
+    colors: getCheckedValues(".color"),
+    priceRange: getElementValue("priceRange"),
+    cluster: getElementValue("cluster"),
+    budget: getElementValue("budget"),
+    sort: getElementValue("sort"),
   };
-
-  console.log("filters:", filters);
-
-  const filtered = applyFilters(cars, filters);
-
-  console.log("filtered:", filtered);
-
-  renderCars(filtered);
 }
 
-// ===== SIDEBAR (ทำงานทันที) =====
-document.querySelectorAll(".brand").forEach(cb => {
-  cb.addEventListener("change", updateUI);
-});
+function updateUI() {
+  const filters = getFilters();
+  const filteredCars = applyFilters(allCars, filters);
 
-// ✅ color filter → ทำงานทันที
-document.querySelectorAll(".color").forEach(cb => {
-  cb.addEventListener("change", updateUI);
-});
-
-// ===== TOP FILTER (กดปุ่มก่อน) =====
-const btn = document.getElementById("recommend-btn");
-
-if (btn) {
-  btn.addEventListener("click", updateUI);
+  renderCars(filteredCars);
 }
 
-// ===== LOAD ครั้งแรก =====
-updateUI();
+function bindEvents() {
+  document
+    .querySelectorAll(".brand, .color")
+    .forEach(input => {
+      input.addEventListener("change", updateUI);
+    });
+
+  document
+    .getElementById("recommend-btn")
+    ?.addEventListener("click", updateUI);
+}
+
+async function init() {
+  try {
+    allCars = await getCars();
+
+    bindEvents();
+    updateUI();
+  } catch (error) {
+    console.error("Failed to load cars:", error);
+
+    document.getElementById("car-list").innerHTML =
+      `<p class="empty-result">เกิดข้อผิดพลาดในการโหลดข้อมูลรถ</p>`;
+  }
+}
+
+init();

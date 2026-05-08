@@ -1,34 +1,42 @@
 /* ===== GLOBAL ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: #f4f6f8;
   color: #333;
 }
 
 /* ===== LAYOUT ===== */
 .container {
-  display: flex;
-  height: calc(100vh - 56px);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
 }
 
 .main-section {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
+  padding: 24px;
+  overflow: auto;
 }
 
 /* ===== SIDEBAR ===== */
 .filter-box {
-  width: 240px;
   padding: 24px;
-
   background: #fff;
   border-right: 1px solid #e5e7eb;
 }
 
 .filter-box h3 {
-  margin: 0 0 10px;
+  margin: 0 0 16px;
+}
+
+.filter-box h4 {
+  margin: 20px 0 10px;
+  font-size: 13px;
+  color: #6b7280;
 }
 
 /* ===== CHECKBOX ===== */
@@ -36,12 +44,9 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-
-  padding: 6px;
-  border-radius: 6px;
-
+  padding: 8px 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .checkbox-item:hover {
@@ -52,37 +57,32 @@ body {
 .top-filter {
   margin-bottom: 20px;
   padding: 20px;
-
   background: #fff;
   border-radius: 16px;
-
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 
-/* header */
 .filter-header h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .filter-header p {
-  margin: 4px 0 16px;
+  margin: 6px 0 18px;
   font-size: 13px;
   color: #6b7280;
 }
 
-/* row */
 .filter-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr)) auto;
+  gap: 14px;
+  align-items: end;
 }
 
-/* input block */
 .filter-item {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .filter-item label {
@@ -93,26 +93,23 @@ body {
 
 .filter-item input,
 .filter-item select {
-  padding: 10px;
+  width: 100%;
+  padding: 11px 12px;
   font-size: 13px;
-
   border: 1px solid #e5e7eb;
   border-radius: 10px;
 }
 
-/* button */
+/* ===== BUTTON ===== */
 .recommend-btn {
-  padding: 12px 18px;
-
+  height: 40px;
+  padding: 0 18px;
   background: #10b981;
-  color: white;
-
+  color: #fff;
   border: none;
   border-radius: 12px;
-
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
-
   cursor: pointer;
 }
 
@@ -123,51 +120,57 @@ body {
 /* ===== GRID ===== */
 .car-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
 }
 
 /* ===== CARD ===== */
 .car-card {
   display: flex;
   flex-direction: column;
-
   background: #fff;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-
   cursor: pointer;
-  transition: 0.2s;
-
+  transition: 0.2s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .car-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
 }
 
-/* ===== IMAGE ===== */
 .card-image-wrapper {
   position: relative;
+  background: #f9fafb;
 }
 
 .car-image {
   width: 100%;
-  height: 200px;
+  height: 190px;
   object-fit: cover;
+  display: block;
 }
 
-/* ===== INFO ===== */
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===== CARD INFO ===== */
 .car-info {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-
-  padding: 20px;
+  gap: 14px;
+  padding: 18px;
 }
 
 .car-info h3,
@@ -175,67 +178,55 @@ body {
   margin: 0;
 }
 
-/* ===== TEXT ===== */
 .brand {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: #10b981;
 }
 
 .car-title {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.desc {
-  font-size: 12px;
-  color: #6b7280;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 /* ===== COLORS ===== */
 .colors {
   display: flex;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .color-dot {
   width: 16px;
   height: 16px;
-
   border-radius: 50%;
-  border: 2px solid white;
-
+  border: 2px solid #fff;
   box-shadow: 0 0 0 1px #ccc;
-
-  overflow: hidden; /* สำคัญ */
+  overflow: hidden;
 }
 
 /* ===== SPEC ===== */
 .spec-box {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  margin-top: 8px;
 }
 
 .spec-item {
-  flex: 1;
-  padding: 12px 12px;
-
+  padding: 10px 8px;
   background: #f3f4f6;
   border-radius: 10px;
-
   text-align: center;
 }
 
 .spec-item p {
-  margin: 0;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .spec-item span {
-  font-size: 12px;
+  font-size: 11px;
   color: #6b7280;
 }
 
@@ -244,168 +235,89 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .price {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 800;
 }
 
-.detail-btn {
-  padding: 6px 10px;
-
-  background: #111827;
-  color: white;
-
-  border: none;
-  border-radius: 6px;
-
-  font-size: 12px;
-  cursor: pointer;
+.npv {
+  font-size: 13px;
+  color: #6b7280;
 }
 
-.detail-btn:hover {
-  background: #000;
-}
-
-/* ===== DETAIL PAGE ===== */
-.detail-card {
-  max-width: 600px;
-  margin: auto;
+/* ===== EMPTY ===== */
+.empty-result {
   padding: 20px;
-
-  background: white;
-  border-radius: 12px;
-
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-.back-btn {
-  display: inline-block;
-  margin-bottom: 10px;
-
-  text-decoration: none;
-  color: #333;
-}
-
-.card-image-wrapper {
-  position: relative;
-}
-
-.tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-
-  background: rgba(255,255,255,0.9);
-  padding: 6px 12px;
-  border-radius: 12px;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  z-index: 10;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-/* ===== LARGE LAPTOP ===== */
-@media (max-width: 1400px) {
-  .car-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ===== LAPTOP ===== */
-@media (max-width: 1200px) {
-  .car-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  background: #fff;
+  border-radius: 14px;
 }
 
 /* ===== TABLET ===== */
-@media (max-width: 992px) {
-
+@media (max-width: 1024px) {
   .container {
-    flex-direction: column;
-    height: auto;
+    grid-template-columns: 1fr;
   }
 
-  /* sidebar */
   .filter-box {
-    width: auto;
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
   }
 
-  /* filter row wrap */
-  .filter-row {
-    flex-wrap: wrap;
-    align-items: stretch;
+  .filter-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 14px;
   }
 
-  .filter-item {
-    min-width: 220px;
-    flex: 1 1 220px;
+  .filter-box h3,
+  .filter-box h4 {
+    grid-column: 1 / -1;
+  }
+
+  .filter-row {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .recommend-btn {
     width: 100%;
-  }
-
-  /* cards */
-  .car-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 640px) {
-
   .main-section {
-    padding: 12px;
+    padding: 14px;
+  }
+
+  .filter-box {
+    padding: 16px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .top-filter {
     padding: 16px;
+    border-radius: 14px;
   }
 
-  .filter-header h3 {
-    font-size: 15px;
-  }
-
-  .filter-header p {
-    font-size: 12px;
-  }
-
-  /* stack filters */
   .filter-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .filter-item {
-    width: 100%;
-  }
-
-  .filter-item input,
-  .filter-item select {
-    width: 100%;
-    box-sizing: border-box;
+    grid-template-columns: 1fr;
   }
 
   .recommend-btn {
-    width: 100%;
+    height: 44px;
   }
 
-  /* 1 card per row */
+  .car-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 
   .car-image {
-    height: 180px;
+    height: 175px;
   }
 
   .car-info {
@@ -413,12 +325,25 @@ body {
   }
 
   .spec-box {
-    flex-direction: column;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bottom {
+    align-items: flex-start;
+  }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 420px) {
+  .filter-box {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-box {
+    grid-template-columns: 1fr;
   }
 
   .bottom {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
   }
 }

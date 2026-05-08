@@ -1,87 +1,96 @@
 import { calculateNPV } from "./utils.js";
 
-export function applyFilters(cars, filters) {
+const NPV_YEARS = 5;
+const NPV_INSURANCE = 25000;
+const NPV_MAINTENANCE = 5000;
+const NPV_KM_PER_YEAR = 15000;
 
-  let result = cars.filter(car => {
+function calculateDefaultNPV(car) {
+  return calculateNPV(
+    car,
+    NPV_YEARS,
+    NPV_INSURANCE,
+    NPV_MAINTENANCE,
+    NPV_KM_PER_YEAR
+  ) || 0;
+}
 
-    // ===== BRAND =====
-    if (filters.brands.length > 0) {
-      const carBrandLower = (car.brand || "").toLowerCase();
-      const selectedBrandsLower = filters.brands.map(b => b.toLowerCase());
+function normalizeText(value) {
+  return String(value || "").toLowerCase();
+}
 
-      if (!selectedBrandsLower.includes(carBrandLower)) {
-        return false;
-      }
-    }
+function getBudgetValue(budget) {
+  return Number(String(budget).replace(/[^0-9]/g, ""));
+}
 
-    // ===== PRICE RANGE =====
-    if (filters.priceRange) {
-      const [minPrice, maxPrice] = filters.priceRange.split("-").map(Number);
+function matchBrand(car, brands) {
+  if (!brands || brands.length === 0) return true;
 
-      if (car.price < minPrice || car.price > maxPrice) {
-        return false;
-      }
-    }
+  const carBrand = normalizeText(car.brand);
+  const selectedBrands = brands.map(normalizeText);
 
-    // ===== CLUSTER =====
-    if (filters.cluster !== "") {
-      if (String(car.cluster) !== String(filters.cluster)) {
-        return false;
-      }
-    }
+  return selectedBrands.includes(carBrand);
+}
 
-    // ===== BUDGET =====
-    if (filters.budget) {
-      const budgetValue = Number(filters.budget.replace(/[^0-9]/g, ""));
+function matchPriceRange(car, priceRange) {
+  if (!priceRange) return true;
 
-      if (!isNaN(budgetValue) && budgetValue > 0) {
-        if (car.price > budgetValue) {
-          return false;
-        }
-      }
-    }
+  const [minPrice, maxPrice] = priceRange.split("-").map(Number);
 
-    // ===== COLOR =====
-    if (filters.colors && filters.colors.length > 0) {
-      const carColors = car.color_groups || [];
+  return car.price >= minPrice && car.price <= maxPrice;
+}
 
-      const match = filters.colors.some(selectedColor =>
-        carColors.includes(selectedColor)
-      );
+function matchCluster(car, cluster) {
+  if (cluster === "") return true;
 
-      if (!match) {
-        return false;
-      }
-    }
+  return String(car.cluster) === String(cluster);
+}
 
-    return true;
-  });
+function matchBudget(car, budget) {
+  if (!budget) return true;
 
-  // 🔥 ===== SORT ตรงนี้ =====
-  if (filters.sort === "asc") {
-    result.sort((a, b) => a.price - b.price);
-  }
+  const budgetValue = getBudgetValue(budget);
 
-  if (filters.sort === "desc") {
-    result.sort((a, b) => b.price - a.price);
-  }
+  if (Number.isNaN(budgetValue) || budgetValue <= 0) return true;
 
-  if (filters.sort === "npv-desc") {
-    result.sort((a, b) => {
-      const npvA = calculateNPV(a, 5, 25000, 5000, 15000) || 0;
-      const npvB = calculateNPV(b, 5, 25000, 5000, 15000) || 0;
-      return npvB - npvA;
-    });
-  }
+  return car.price <= budgetValue;
+}
 
-  // NPV น้อย → มาก
-  if (filters.sort === "npv-asc") {
-    result.sort((a, b) => {
-      const npvA = calculateNPV(a, 5, 25000, 5000, 15000) || 0;
-      const npvB = calculateNPV(b, 5, 25000, 5000, 15000) || 0;
-      return npvA - npvB;
-    });
+function matchColor(car, colors) {
+  if (!colors || colors.length === 0) return true;
+
+  const carColors = car.color_groups || [];
+
+  return colors.some(color => carColors.includes(color));
+}
+
+function sortCars(cars, sort) {
+  const result = [...cars];
+
+  const sorters = {
+    asc: (a, b) => a.price - b.price,
+    desc: (a, b) => b.price - a.price,
+    "npv-asc": (a, b) => calculateDefaultNPV(a) - calculateDefaultNPV(b),
+    "npv-desc": (a, b) => calculateDefaultNPV(b) - calculateDefaultNPV(a),
+  };
+
+  if (sorters[sort]) {
+    result.sort(sorters[sort]);
   }
 
   return result;
+}
+
+export function applyFilters(cars, filters) {
+  const filteredCars = cars.filter(car => {
+    return (
+      matchBrand(car, filters.brands) &&
+      matchPriceRange(car, filters.priceRange) &&
+      matchCluster(car, filters.cluster) &&
+      matchBudget(car, filters.budget) &&
+      matchColor(car, filters.colors)
+    );
+  });
+
+  return sortCars(filteredCars, filters.sort);
 }

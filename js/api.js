@@ -5,7 +5,10 @@ export async function getCars() {
     .from("car_data")
     .select("*");
 
-  if (error) throw error;
+  if (error) {
+    console.error("Failed to fetch cars:", error);
+    throw new Error("Unable to load car data");
+  }
 
-  return data;
+  return data ?? [];
 }

@@ -1,13 +1,113 @@
 import { calculateNPV, normalize } from "./utils.js";
 
+const DEFAULT_IMAGE = "assets/car_paint.png";
+const NPV_YEARS = 5;
+const NPV_INSURANCE = 25000;
+const NPV_MAINTENANCE = 5000;
+const NPV_KM_PER_YEAR = 15000;
+
 function getClusterName(cluster) {
-  switch (cluster) {
-    case 0: return "All-round";
-    case 1: return "Local";
-    case 2: return "Long Range";
-    case 3: return "City";
-    default: return "Unknown";
+  const clusters = {
+    0: "All-round",
+    1: "Local",
+    2: "Long Range",
+    3: "City",
+  };
+
+  return clusters[cluster] || "Unknown";
+}
+
+function formatMoney(value) {
+  return "฿" + Number(value || 0).toLocaleString();
+}
+
+function calculateDefaultNPV(car) {
+  return calculateNPV(
+    car,
+    NPV_YEARS,
+    NPV_INSURANCE,
+    NPV_MAINTENANCE,
+    NPV_KM_PER_YEAR
+  ) || 0;
+}
+
+function renderColorDot(color) {
+  if (color.secondary) {
+    return `
+      <div
+        class="color-dot"
+        title="${color.name}"
+        style="background: linear-gradient(to bottom, ${color.secondary} 50%, ${color.hex} 50%);">
+      </div>
+    `;
   }
+
+  return `
+    <div
+      class="color-dot"
+      title="${color.name}"
+      style="background: ${color.hex};">
+    </div>
+  `;
+}
+
+function renderCarCard(car, normalizedNPV) {
+  const colors = car.colors || [];
+  const colorHTML = colors.map(renderColorDot).join("");
+
+  const carName = `${car.model} ${car.trim || ""}`.trim();
+
+  const card = document.createElement("div");
+  card.className = "car-card";
+
+  card.innerHTML = `
+    <div class="card-image-wrapper">
+      <span class="tag">${getClusterName(car.cluster)}</span>
+      <img
+        src="${car.image_url || DEFAULT_IMAGE}"
+        class="car-image"
+        alt="${car.brand} ${carName}"
+      />
+    </div>
+
+    <div class="car-info">
+      <p class="brand">${car.brand || "-"}</p>
+
+      <h3 class="car-title">${carName}</h3>
+
+      <div class="colors">
+        ${colorHTML}
+      </div>
+
+      <div class="spec-box">
+        <div class="spec-item">
+          <p>${car.wltp_range_km || "-"} km</p>
+          <span>Range</span>
+        </div>
+
+        <div class="spec-item">
+          <p>${car.battery_capacity_kWh || "-"} kWh</p>
+          <span>Battery</span>
+        </div>
+
+        <div class="spec-item">
+          <p>${car.dc_charging_power_kW || "-"} kW</p>
+          <span>Charging</span>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <p class="price">${formatMoney(car.price)}</p>
+        <p class="npv">Score: ${normalizedNPV.toFixed(2)}</p>
+      </div>
+    </div>
+  `;
+
+  card.addEventListener("click", () => {
+    window.location.href = `car.html?id=${car.ID}`;
+  });
+
+  return card;
 }
 
 export function renderCars(cars) {
@@ -15,102 +115,18 @@ export function renderCars(cars) {
   container.innerHTML = "";
 
   if (!cars || cars.length === 0) {
-    container.innerHTML = "❌ No cars found";
+    container.innerHTML = `<p class="empty-result">❌ No cars found</p>`;
     return;
   }
 
-  const npvValues = cars.map(car =>
-    calculateNPV(car, 5, 25000, 5000, 15000)
-  );
-  
+  const npvValues = cars.map(calculateDefaultNPV);
   const minNPV = Math.min(...npvValues);
   const maxNPV = Math.max(...npvValues);
 
-  cars.forEach((car) => {
-    const npv = calculateNPV(car, 5, 25000, 5000, 15000) || 0;
+  cars.forEach((car, index) => {
+    const normalizedNPV = normalize(npvValues[index], minNPV, maxNPV);
+    const card = renderCarCard(car, normalizedNPV);
 
-    const normalizedNPV = normalize(npv, minNPV, maxNPV);
-    // ===== COLORS =====
-    const colors = car.colors || [];
-
-    const colorHTML = colors
-      .map((c) => {
-        // 👉 ถ้ามี 2 สี
-        if (c.secondary) {
-          return `
-    <div class="color-dot"
-      title="${c.name}"
-      style="background: linear-gradient(to bottom, ${c.secondary} 50%, ${c.hex} 50%);">
-    </div>
-  `;
-        }
-
-        // 👉 สีเดียว (ของเดิม)
-        return `
-      <div class="color-dot"
-        title="${c.name}"
-        style="background:${c.hex}">
-      </div>
-    `;
-      })
-      .join("");
-
-    // ===== CREATE CARD =====
-    const div = document.createElement("div");
-    div.className = "car-card";
-
-    div.innerHTML = `
-      <div class="card-image-wrapper">
-  <span class="tag">${getClusterName(car.cluster)}</span>
-
-  <img src="${car.image_url || 'assets/car_paint.png'}" class="car-image">
-</div>
-
-      <div class="car-info">
-
-        <p class="brand">${car.brand}</p>
-
-        <h3 class="car-title">
-          ${`${car.model} ${car.trim || ""}`.trim()}
-        </h3>
-
-        <!-- COLORS -->
-        <div class="colors">
-  ${colorHTML}
-</div>
-
-        <!-- SPEC BOX -->
-        <div class="spec-box">
-  <div class="spec-item">
-    <p>${car.wltp_range_km} km</p>
-    <span>Range</span>
-  </div>
-
-  <div class="spec-item">
-    <p>${car.battery_capacity_kWh || "-"} kWh</p>
-    <span>Battery</span>
-  </div>
-
-  <div class="spec-item">
-    <p>${car.dc_charging_power_kW || "-"} kW</p>
-    <span>Charging</span>
-  </div>
-</div>
-
-        <div class="bottom">
-  <p class="price">฿${car.price.toLocaleString()}</p>
-  <p class="npv">
-    Score: ${(normalizedNPV).toFixed(2)}
-</p>
-</div>
-
-      </div>
-    `;
-
-    div.onclick = () => {
-      window.location.href = `car.html?id=${car.ID}`;
-    };
-
-    container.appendChild(div);
+    container.appendChild(card);
   });
 }
