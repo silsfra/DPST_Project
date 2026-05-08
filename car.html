@@ -1,66 +1,78 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Car Detail</title>
-    <link rel="stylesheet" href="css/detail.css" />
-  </head>
 
-  <body>
-    <div class="page">
-      <a href="index.html" class="back-btn">⬅ Back</a>
+<head>
+  <meta charset="UTF-8" />
+  <title>Car Detail</title>
+  <link rel="stylesheet" href="css/detail.css" />
+</head>
 
-      <div class="detail-wrapper">
-        <!-- LEFT -->
-        <div class="detail-left">
-          <div class="car-top">
-            <img id="car-image" class="detail-image" />
+<body>
+  <div class="page">
+    <a href="index.html" class="back-btn">⬅ Back</a>
 
-            <div class="car-info">
-              <h2 id="car-title"></h2>
-              <p id="car-desc"></p>
-            </div>
+    <div class="detail-wrapper">
+      <!-- LEFT -->
+      <div class="detail-left">
+        <div class="car-top">
+          <img id="car-image" class="detail-image" />
+
+          <div class="car-info">
+            <h2 id="car-title"></h2>
+            <p id="car-desc"></p>
           </div>
         </div>
-      </div>
-
-      <div class="cost-box">
-        <h3>คำนวณค่าใช้จ่ายคร่าว ๆ</h3>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>ระยะเวลาการใช้งาน (ปี)</label>
-            <input id="years" type="number" value="5" min="1"/>
-          </div>
-
-          <div class="form-group">
-            <label>ค่าประกัน ต่อปี</label>
-            <input id="insurance" type="number" value="25000" step="1000" min="0"/>
-          </div>
-
-          <div class="form-group">
-            <label>ค่าบำรุงรักษา ต่อปี</label>
-            <input id="maintenance" type="number" value="5000" step="1000" min="0"/>
-          </div>
-
-          <div class="form-group">
-            <label>เลขไมล์ ต่อปี</label>
-            <input id="km" type="number" value="15000" step="1000" min="0"/>
-          </div>
-        </div>
-
-        <div class="cost-result">
-          <p id="running-cost-result-per-year">ค่าใช้จ่ายเพิ่มเติมรายปี: -</p>
-          <p id="running-cost-result">ค่าใช้จ่ายเพิ่มเติมตลอดระยะเวลา: -</p>
-        </div>
-      </div>
-
-      <div class="npv-output-box">
-        <h3>คำนวณค่า NPV</h3>
-        <p id="npv-result">NPV: -</p>
       </div>
     </div>
 
-    <script type="module" src="js/detail.js"></script>
-  </body>
+    <div class="cost-box">
+      <h3>คำนวณค่าใช้จ่ายคร่าว ๆ</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>ระยะเวลาการใช้งาน (ปี)</label>
+          <input id="years" type="number" value="5" min="1" />
+        </div>
+
+        <div class="form-group">
+          <label>ค่าประกัน ต่อปี</label>
+          <input id="insurance" type="number" value="25000" step="1000" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>ค่าบำรุงรักษา ต่อปี</label>
+          <input id="maintenance" type="number" value="5000" step="1000" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>เลขไมล์ ต่อปี</label>
+          <input id="km" type="number" value="15000" step="1000" min="0" />
+        </div>
+      </div>
+
+      <div class="cost-result">
+
+        <p id="running-cost-result-per-year">
+          ค่าใช้จ่ายเพิ่มเติมรายปี: -
+        </p>
+      
+        <p id="running-cost-result">
+          ค่าใช้จ่ายเพิ่มเติมตลอดระยะเวลา: -
+        </p>
+      
+      </div>
+    </div>
+
+    <div class="npv-output-box">
+      <h3>คำนวณค่า NPV</h3>
+
+      <div id="npv-summary"></div>
+
+      <p id="npv-result">NPV: -</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/detail.js"></script>
+</body>
+
 </html>

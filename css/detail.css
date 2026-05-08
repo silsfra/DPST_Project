@@ -8,31 +8,34 @@ body {
 
 /* ===== PAGE ===== */
 .page {
-  padding: 30px;
   max-width: 1200px;
   margin: auto;
+  padding: 30px;
 }
 
-/* ===== BACK ===== */
+/* ===== BACK BUTTON ===== */
 .back-btn {
   display: inline-block;
   margin-bottom: 20px;
+
   text-decoration: none;
   color: #333;
+
   font-weight: 600;
 }
 
-/* ===== MAIN ===== */
+/* ===== MAIN LAYOUT ===== */
 .detail-wrapper {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-/* ===== TOP (รูป + ข้อมูล) ===== */
+/* ===== TOP SECTION ===== */
 .car-top {
   display: flex;
   gap: 40px;
+
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -55,12 +58,14 @@ body {
 
 .car-info h2 {
   margin: 0;
+
   font-size: 30px;
   font-weight: 700;
 }
 
 .car-info p {
   margin-top: 10px;
+
   font-size: 14px;
   color: #6b7280;
 }
@@ -69,14 +74,18 @@ body {
 .spec-box {
   display: flex;
   gap: 12px;
+
   margin-top: 20px;
 }
 
 .spec-box div {
   flex: 1;
-  background: #fff;
+
   padding: 14px;
+
+  background: #fff;
   border-radius: 12px;
+
   text-align: center;
 }
 
@@ -90,18 +99,22 @@ body {
   color: #6b7280;
 }
 
-/* ===== COST BOX ===== */
-.cost-box {
-  margin-top: 30px;
+/* ===== BOX ===== */
+.cost-box,
+.npv-output-box {
+  margin-top: 24px;
   padding: 20px;
+
   background: #fff;
   border-radius: 16px;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.cost-box h3 {
+.cost-box h3,
+.npv-output-box h3 {
   margin: 0 0 16px;
+
   font-size: 18px;
 }
 
@@ -109,30 +122,90 @@ body {
 .form-row {
   display: flex;
   gap: 16px;
+
   flex-wrap: wrap;
 }
 
 .form-group {
   flex: 1;
   min-width: 160px;
+
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
-  font-size: 12px;
   margin-bottom: 6px;
+
+  font-size: 12px;
   color: #6b7280;
 }
 
 .form-group input {
   padding: 10px;
-  border-radius: 10px;
+
   border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+/* ===== RESULT ===== */
+.cost-result {
+  margin-top: 18px;
+}
+
+.cost-result p,
+.npv-output-box p {
+  margin: 8px 0;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ===== BREAKDOWN ===== */
+#breakdown-box {
+  margin: 16px 0;
+}
+
+/* ===== TABLE ===== */
+.breakdown-table {
+  width: 100%;
+
+  margin-top: 12px;
+
+  border-collapse: collapse;
+
+  font-size: 14px;
+
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.breakdown-table th,
+.breakdown-table td {
+  padding: 12px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  text-align: center;
+}
+
+.breakdown-table th {
+  background: #f3f4f6;
+
+  font-weight: 700;
+}
+
+.breakdown-table tr:hover {
+  background: #f9fafb;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
+
+  .page {
+    padding: 16px;
+  }
+
   .car-top {
     flex-direction: column;
   }
@@ -140,25 +213,35 @@ body {
   .detail-image {
     max-width: 100%;
   }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .breakdown-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 
-.npv-output-box {
+#npv-summary {
   margin-top: 20px;
-  padding: 20px;
-
-  background: #fff; /* 🔥 เปลี่ยนจากดำ → ขาว */
-  border-radius: 16px;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.npv-output-box h3 {
-  margin: 0 0 12px;
-  font-size: 18px;
+.npv-summary-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.npv-output-box p {
-  margin: 0;
-  font-size: 16px;
+.npv-summary-row:last-child {
+  border-bottom: none;
+}
+
+.npv-summary-row span:last-child {
   font-weight: 700;
 }
