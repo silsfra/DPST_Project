@@ -123,7 +123,10 @@ body {
 /* ===== GRID ===== */
 .car-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
   gap: 16px;
 }
 
@@ -304,4 +307,118 @@ body {
   font-weight: 600;
 
   z-index: 10;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* ===== LARGE LAPTOP ===== */
+@media (max-width: 1400px) {
+  .car-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== LAPTOP ===== */
+@media (max-width: 1200px) {
+  .car-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 992px) {
+
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* sidebar */
+  .filter-box {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* filter row wrap */
+  .filter-row {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .filter-item {
+    min-width: 220px;
+    flex: 1 1 220px;
+  }
+
+  .recommend-btn {
+    width: 100%;
+  }
+
+  /* cards */
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+
+  .main-section {
+    padding: 12px;
+  }
+
+  .top-filter {
+    padding: 16px;
+  }
+
+  .filter-header h3 {
+    font-size: 15px;
+  }
+
+  .filter-header p {
+    font-size: 12px;
+  }
+
+  /* stack filters */
+  .filter-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-item {
+    width: 100%;
+  }
+
+  .filter-item input,
+  .filter-item select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .recommend-btn {
+    width: 100%;
+  }
+
+  /* 1 card per row */
+
+  .car-image {
+    height: 180px;
+  }
+
+  .car-info {
+    padding: 16px;
+  }
+
+  .spec-box {
+    flex-direction: column;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
