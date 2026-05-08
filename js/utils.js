@@ -55,5 +55,12 @@ export function calculateNPV(car, years, insurance, maintenance, kmPerYear) {
     npv += discounted;
   }
 
+
   return npv;
+}
+
+export function normalize(value, min, max) {
+  if (max === min) return 0;
+
+  return (value - min) / (max - min);
 }

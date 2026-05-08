@@ -1,4 +1,4 @@
-import { calculateNPV } from "./utils.js";
+import { calculateNPV, normalize } from "./utils.js";
 
 function getClusterName(cluster) {
   switch (cluster) {
@@ -19,9 +19,17 @@ export function renderCars(cars) {
     return;
   }
 
+  const npvValues = cars.map(car =>
+    calculateNPV(car, 5, 25000, 5000, 15000)
+  );
+  
+  const minNPV = Math.min(...npvValues);
+  const maxNPV = Math.max(...npvValues);
+
   cars.forEach((car) => {
     const npv = calculateNPV(car, 5, 25000, 5000, 15000) || 0;
 
+    const normalizedNPV = normalize(npv, minNPV, maxNPV);
     // ===== COLORS =====
     const colors = car.colors || [];
 
@@ -91,7 +99,9 @@ export function renderCars(cars) {
 
         <div class="bottom">
   <p class="price">฿${car.price.toLocaleString()}</p>
-  <p class="npv">NPV: ฿${Math.round(npv).toLocaleString()}</p>
+  <p class="npv">
+    Score: ${(normalizedNPV).toFixed(2)}
+</p>
 </div>
 
       </div>
