@@ -1,5 +1,6 @@
 import { getCars } from './api.js';
-import { calculateNPV } from './utils.js'; // ✅ เพิ่ม
+import { calculateNPV, calculateRunningCost } from './utils.js'; // ✅ เพิ่ม
+
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -37,9 +38,23 @@ function updateNPV() {
   const km = Number(document.getElementById("km").value);
 
   const npv = calculateNPV(currentCar, years, insurance, maintenance, km);
+  const runningCost = calculateRunningCost(
+    currentCar,
+    years,
+    insurance,
+    maintenance
+  );
 
   document.getElementById("npv-result").innerText =
     "NPV: " + Math.round(npv).toLocaleString() + "฿";
+
+  document.getElementById("running-cost-result").innerText =
+    "ค่าใช้จ่ายเพิ่มเติมตลอดระยะเวลา: " +
+    Math.round(runningCost).toLocaleString() + "฿";
+
+  document.getElementById("running-cost-result-per-year").innerText =
+    "ค่าใช้จ่ายเพิ่มเติมรายปี: " +
+    Math.round(runningCost / years).toLocaleString() + "฿";
 }
 
 // ===== REALTIME UPDATE =====

@@ -64,3 +64,32 @@ export function normalize(value, min, max) {
 
   return (value - min) / (max - min);
 }
+
+export function calculateRunningCost(
+  car,
+  years,
+  insurance,
+  maintenance
+) {
+
+  const act = 645.21;
+
+  const taxBase = getTax(car.weight);
+
+  let total = 0;
+
+  for (let t = 1; t <= years; t++) {
+
+    const tax = t === 1
+      ? taxBase * 0.2
+      : taxBase;
+
+    total +=
+      insurance +
+      maintenance +
+      act +
+      tax;
+  }
+
+  return total;
+}
