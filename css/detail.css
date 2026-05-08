@@ -19,7 +19,6 @@ body {
   font-weight: 600;
 }
 
-.detail-card,
 .cost-box,
 .npv-output-box {
   margin-top: 24px;
@@ -27,6 +26,10 @@ body {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.detail-card {
+  margin-top: 24px;
 }
 
 .detail-card {
@@ -121,10 +124,11 @@ body {
 
 .npv-summary-row strong {
   text-align: right;
+  font-weight: 400;
 }
 
 .npv-summary-row.total {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {

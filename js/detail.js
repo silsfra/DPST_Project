@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let currentCar = null;
 
   const formatMoney = value =>
-    "฿" + Math.round(value).toLocaleString();
+    Math.round(value).toLocaleString() + "฿";
 
   async function loadCar() {
     const cars = await getCars();
