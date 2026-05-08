@@ -34,15 +34,16 @@ function updateNPV() {
   const years = Number(document.getElementById("years").value);
   const insurance = Number(document.getElementById("insurance").value);
   const maintenance = Number(document.getElementById("maintenance").value);
+  const km = Number(document.getElementById("km").value);
 
-  const npv = calculateNPV(currentCar, years, insurance, maintenance);
+  const npv = calculateNPV(currentCar, years, insurance, maintenance, km);
 
   document.getElementById("npv-result").innerText =
-    "NPV: ฿" + Math.round(npv).toLocaleString();
+    "NPV: " + Math.round(npv).toLocaleString() + "฿";
 }
 
 // ===== REALTIME UPDATE =====
-document.querySelectorAll("#years, #insurance, #maintenance")
+document.querySelectorAll("#years, #insurance, #maintenance, #km")
   .forEach(input => {
     input.addEventListener("input", updateNPV);
   });
