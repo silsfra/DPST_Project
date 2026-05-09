@@ -84,10 +84,6 @@ function bindEvents() {
       input.addEventListener("input", updateUI);
       input.addEventListener("change", updateUI);
     });
-
-  document
-    .getElementById("recommend-btn")
-    ?.addEventListener("click", updateUI);
 }
 
 async function init() {

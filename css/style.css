@@ -80,7 +80,7 @@ body {
 
 .filter-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(160px, 1fr)) auto;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
   gap: 14px;
   align-items: end;
 }
@@ -103,22 +103,6 @@ body {
   font-size: 13px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
-}
-
-.recommend-btn {
-  height: 40px;
-  padding: 0 18px;
-  background: #10b981;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.recommend-btn:hover {
-  background: #059669;
 }
 
 .ranking-options {
