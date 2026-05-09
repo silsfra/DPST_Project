@@ -1,4 +1,3 @@
-/* ===== GLOBAL ===== */
 * {
   box-sizing: border-box;
 }
@@ -10,7 +9,10 @@ body {
   color: #333;
 }
 
-/* ===== LAYOUT ===== */
+.hidden {
+  display: none;
+}
+
 .container {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -22,7 +24,6 @@ body {
   overflow: auto;
 }
 
-/* ===== SIDEBAR ===== */
 .filter-box {
   padding: 24px;
   background: #fff;
@@ -39,7 +40,6 @@ body {
   color: #6b7280;
 }
 
-/* ===== CHECKBOX ===== */
 .checkbox-item {
   display: flex;
   align-items: center;
@@ -53,8 +53,9 @@ body {
   background: #f2f4f7;
 }
 
-/* ===== TOP FILTER ===== */
-.top-filter {
+.top-filter,
+.ranking-box,
+.preference-box {
   margin-bottom: 20px;
   padding: 20px;
   background: #fff;
@@ -62,12 +63,16 @@ body {
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 
-.filter-header h3 {
+.filter-header h3,
+.ranking-header h3,
+.preference-header h3 {
   margin: 0;
   font-size: 18px;
 }
 
-.filter-header p {
+.filter-header p,
+.ranking-header p,
+.preference-header p {
   margin: 6px 0 18px;
   font-size: 13px;
   color: #6b7280;
@@ -75,7 +80,7 @@ body {
 
 .filter-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(160px, 1fr)) auto;
+  grid-template-columns: repeat(2, minmax(160px, 1fr)) auto;
   gap: 14px;
   align-items: end;
 }
@@ -100,7 +105,6 @@ body {
   border-radius: 10px;
 }
 
-/* ===== BUTTON ===== */
 .recommend-btn {
   height: 40px;
   padding: 0 18px;
@@ -117,14 +121,89 @@ body {
   background: #059669;
 }
 
-/* ===== GRID ===== */
+.ranking-options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.ranking-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ranking-option:hover {
+  background: #f3f4f6;
+}
+
+.ranking-option:has(input:checked) {
+  border-color: #10b981;
+  background: #ecfdf5;
+  color: #047857;
+  font-weight: 700;
+}
+
+.preference-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.preference-group {
+  padding: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.preference-group h4 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #111827;
+}
+
+.preference-item {
+  display: grid;
+  grid-template-columns: auto 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.preference-item:last-child {
+  margin-bottom: 0;
+}
+
+.preference-percent {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: center;
+  background: #fff;
+}
+
+.preference-percent:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
 .car-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 18px;
 }
 
-/* ===== CARD ===== */
 .car-card {
   display: flex;
   flex-direction: column;
@@ -165,7 +244,6 @@ body {
   font-weight: 700;
 }
 
-/* ===== CARD INFO ===== */
 .car-info {
   display: flex;
   flex-direction: column;
@@ -190,7 +268,6 @@ body {
   line-height: 1.35;
 }
 
-/* ===== COLORS ===== */
 .colors {
   display: flex;
   flex-wrap: wrap;
@@ -206,7 +283,6 @@ body {
   overflow: hidden;
 }
 
-/* ===== SPEC ===== */
 .spec-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -230,7 +306,6 @@ body {
   color: #6b7280;
 }
 
-/* ===== BOTTOM ===== */
 .bottom {
   display: flex;
   justify-content: space-between;
@@ -249,28 +324,30 @@ body {
   color: #6b7280;
 }
 
-/* ===== EMPTY ===== */
 .empty-result {
   padding: 20px;
   background: #fff;
   border-radius: 14px;
 }
 
-/* ===== TABLET ===== */
+@media (max-width: 1200px) {
+  .ranking-options,
+  .preference-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
   }
 
   .filter-box {
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .filter-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 6px 14px;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .filter-box h3,
@@ -287,7 +364,6 @@ body {
   }
 }
 
-/* ===== MOBILE ===== */
 @media (max-width: 640px) {
   .main-section {
     padding: 14px;
@@ -298,17 +374,29 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .top-filter {
+  .top-filter,
+  .ranking-box,
+  .preference-box {
     padding: 16px;
     border-radius: 14px;
   }
 
-  .filter-row {
+  .filter-row,
+  .ranking-options,
+  .preference-grid {
     grid-template-columns: 1fr;
   }
 
   .recommend-btn {
     height: 44px;
+  }
+
+  .preference-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .preference-percent {
+    grid-column: 2 / 3;
   }
 
   .car-grid {
@@ -333,12 +421,8 @@ body {
   }
 }
 
-/* ===== SMALL MOBILE ===== */
 @media (max-width: 420px) {
-  .filter-box {
-    grid-template-columns: 1fr;
-  }
-
+  .filter-box,
   .spec-box {
     grid-template-columns: 1fr;
   }

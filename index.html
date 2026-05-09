@@ -1,167 +1,186 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>EV Car Finder</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>EV Car Finder</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-  <body>
-    <div class="container">
-      <!-- ===== SIDEBAR (BRAND FILTER) ===== -->
-      <div class="filter-box">
-        <h3>FILTER</h3>
+<body>
+  <div class="container">
+    <aside class="filter-box">
+      <h3>FILTER</h3>
 
-        <h4>Filter by Brand</h4>
+      <h4>Filter by Brand</h4>
 
-        <label class="checkbox-item"
-          ><input type="checkbox" value="Audi" class="brand" />
-          <span>Audi</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="BMW" class="brand" />
-          <span>BMW</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="BYD" class="brand" />
-          <span>BYD</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="Honda" class="brand" />
-          <span>Honda</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="MG" class="brand" />
-          <span>MG</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="Nissan" class="brand" />
-          <span>Nissan</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="Tesla" class="brand" />
-          <span>Tesla</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="Toyota" class="brand" />
-          <span>Toyota</span></label
-        >
-        <label class="checkbox-item"
-          ><input type="checkbox" value="Volvo" class="brand" />
-          <span>Volvo</span></label
-        >
+      <label class="checkbox-item"><input type="checkbox" value="Audi" class="brand" /><span>Audi</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="BMW" class="brand" /><span>BMW</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="BYD" class="brand" /><span>BYD</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="Honda" class="brand" /><span>Honda</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="MG" class="brand" /><span>MG</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="Nissan" class="brand" /><span>Nissan</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="Tesla" class="brand" /><span>Tesla</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="Toyota" class="brand" /><span>Toyota</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="Volvo" class="brand" /><span>Volvo</span></label>
 
-        <h4>Filter by Color</h4>
+      <h4>Filter by Color</h4>
 
-        <label class="checkbox-item">
-          <input type="checkbox" value="black" class="color" />
-          <span>Black</span>
-        </label>
+      <label class="checkbox-item"><input type="checkbox" value="black" class="color" /><span>Black</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="white" class="color" /><span>White</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="grey" class="color" /><span>Grey</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="silver" class="color" /><span>Silver</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="blue" class="color" /><span>Blue</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="red" class="color" /><span>Red</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="green" class="color" /><span>Green</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="yellow" class="color" /><span>Yellow</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="beige" class="color" /><span>Beige</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="pink" class="color" /><span>Pink</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="other" class="color" /><span>Other</span></label>
+    </aside>
 
-        <label class="checkbox-item">
-          <input type="checkbox" value="white" class="color" />
-          <span>White</span>
-        </label>
+    <main class="main-section">
+      <section class="top-filter">
+        <div class="filter-header">
+          <h3>Find Your EV</h3>
+          <p>กรองรถไฟฟ้าตามงบประมาณ ประเภทรถ และความต้องการของคุณ</p>
+        </div>
 
-        <label class="checkbox-item">
-          <input type="checkbox" value="grey" class="color" />
-          <span>Grey</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="silver" class="color" />
-          <span>Silver</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="blue" class="color" />
-          <span>Blue</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="red" class="color" />
-          <span>Red</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="green" class="color" />
-          <span>Green</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="yellow" class="color" />
-          <span>Yellow</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="beige" class="color" />
-          <span>Beige</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="pink" class="color" />
-          <span>Pink</span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" value="other" class="color" />
-          <span>Other</span>
-        </label>
-      </div>
-
-      <!-- ===== MAIN SECTION ===== -->
-      <div class="main-section">
-        <!-- ===== TOP FILTER ===== -->
-        <div class="top-filter">
-          <!-- HEADER -->
-          <div class="filter-header">
-            <h3>Write Something ...</h3>
-            <p>Write Something (description) ...</p>
+        <div class="filter-row">
+          <div class="filter-item">
+            <label for="cluster">Car Type</label>
+            <select id="cluster">
+              <option value="">Select usage...</option>
+              <option value="0">All-round</option>
+              <option value="1">Local</option>
+              <option value="2">Long Range</option>
+              <option value="3">City</option>
+            </select>
           </div>
 
-          <!-- FILTER ROW -->
-          <div class="filter-row">
-            <!-- PRIMARY USE -->
-            <div class="filter-item">
-              <label for="cluster">Car Type</label>
-              <select id="cluster">
-                <option value="">Select usage...</option>
-                <option value="0">All-round</option>
-                <option value="1">Local</option>
-                <option value="2">Long Range</option>
-                <option value="3">City</option>
-              </select>
-            </div>
+          <div class="filter-item">
+            <label for="budget">Budget</label>
+            <input id="budget" type="text" placeholder="e.g. ฿1,000,000" />
+          </div>
 
-            <!-- BUDGET -->
-            <div class="filter-item">
-              <label for="budget">Budget</label>
-              <input id="budget" type="text" placeholder="e.g. ฿1,000,000" />
-            </div>
+          <button id="recommend-btn" class="recommend-btn">
+            Find EV Cars
+          </button>
+        </div>
+      </section>
 
-            <div class="filter-item">
-              <label for="sort">Sort by Price</label>
-              <select id="sort">
-                <option value="">Default</option>
-                <option value="asc">Price: Low → High</option>
-                <option value="desc">Price: High → Low</option>
-                <option value="npv-desc">NPV: High → Low</option>
-                <option value="npv-asc">NPV: Low → High</option>
-              </select>
-            </div>
+      <section class="ranking-box">
+        <div class="ranking-header">
+          <h3>Ranking Mode</h3>
+          <p>เลือกวิธีจัดอันดับรถที่ต้องการดู</p>
+        </div>
 
-            <!-- BUTTON -->
-            <button id="recommend-btn" class="recommend-btn">
-              Find Ev Cars
-            </button>
+        <div class="ranking-options">
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="default" checked />
+            <span>Default</span>
+          </label>
+
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="price-asc" />
+            <span>Price: Low → High</span>
+          </label>
+
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="price-desc" />
+            <span>Price: High → Low</span>
+          </label>
+
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="npv-desc" />
+            <span>NPV Best</span>
+          </label>
+
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="personal" />
+            <span>Personal Preference</span>
+          </label>
+        </div>
+      </section>
+
+      <section id="preference-box" class="preference-box hidden">
+        <div class="preference-header">
+          <div>
+            <h3>Personal Preference</h3>
+            <p>กำหนดเปอร์เซ็นต์ความสำคัญของแต่ละสเปกรถ</p>
           </div>
         </div>
 
-        <!-- ===== CAR LIST ===== -->
-        <div id="car-list" class="car-grid"></div>
-      </div>
-    </div>
+        <div class="preference-grid">
+          <div class="preference-group">
+            <h4>Performance</h4>
 
-    <script type="module" src="js/main.js"></script>
-  </body>
+            <label class="preference-item">
+              <input type="checkbox" data-key="horsepower_hp" />
+              <span>แรงม้า</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="torque_Nm" />
+              <span>แรงบิด</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="acceleration_0_100_sec" />
+              <span>0-100 km/h</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+
+          <div class="preference-group">
+            <h4>Practicality</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="cargo_capacity_liters" />
+              <span>พื้นที่เก็บของ</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+
+          <div class="preference-group">
+            <h4>Battery & Range</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="wltp_range_km" />
+              <span>ระยะทางวิ่ง</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="battery_capacity_kWh" />
+              <span>ความจุแบต</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="dc_charging_power_kW" />
+              <span>ความเร็วชาร์จ</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+
+          <div class="preference-group">
+            <h4>Cost</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="npv" />
+              <span>NPV</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <div id="car-list" class="car-grid"></div>
+    </main>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
 </html>
