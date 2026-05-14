@@ -199,3 +199,23 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.detail-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin: 14px 0 20px;
+}
+
+.detail-color-dot {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+  border: 2px solid #fff;
+
+  box-shadow: 0 0 0 1px #d1d5db;
+
+  cursor: pointer;
+}

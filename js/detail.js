@@ -34,6 +34,37 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("car-image").src = car.image_url;
     document.getElementById("car-title").innerText = fullName;
+
+    const colors = car.colors || [];
+
+document.getElementById("car-colors").innerHTML =
+  colors.map(color => {
+    if (color.secondary) {
+      return `
+        <div
+          class="detail-color-dot"
+          title="${color.name}"
+          style="
+            background:
+            linear-gradient(
+              to bottom,
+              ${color.secondary} 50%,
+              ${color.hex} 50%
+            );
+          ">
+        </div>
+      `;
+    }
+
+    return `
+      <div
+        class="detail-color-dot"
+        title="${color.name}"
+        style="background: ${color.hex};">
+      </div>
+    `;
+  }).join("");
+  
     document.getElementById("car-spec-grid").innerHTML = `
       <div class="spec-card">
         <span>Range</span>
