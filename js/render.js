@@ -84,9 +84,7 @@ function renderCarCard(car, normalizedNPV, filters) {
     getDisplayScore(car, normalizedNPV, filters);
 
   const displayNPV =
-    formatMoney(
-      Math.round(calculateDefaultNPV(car))
-    );
+    `NPV : ${Math.round(calculateDefaultNPV(car)).toLocaleString()}฿`;
 
   const card = document.createElement("div");
 
