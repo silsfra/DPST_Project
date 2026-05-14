@@ -240,12 +240,6 @@ body {
   margin: 0;
 }
 
-.brand {
-  font-size: 13px;
-  font-weight: 700;
-  color: #10b981;
-}
-
 .car-title {
   font-size: 16px;
   font-weight: 700;
@@ -414,4 +408,29 @@ body {
   .bottom {
     flex-direction: column;
   }
+}
+
+.card-top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.npv-top {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #cd0000;
+}
+
+.npv-top {
+  white-space: nowrap;
 }

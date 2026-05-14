@@ -83,6 +83,11 @@ function renderCarCard(car, normalizedNPV, filters) {
   const displayScore =
     getDisplayScore(car, normalizedNPV, filters);
 
+  const displayNPV =
+    formatMoney(
+      Math.round(calculateDefaultNPV(car))
+    );
+
   const card = document.createElement("div");
 
   card.className = "car-card";
@@ -104,9 +109,15 @@ function renderCarCard(car, normalizedNPV, filters) {
 
     <div class="car-info">
 
-      <p class="brand">
-        ${car.brand || "-"}
-      </p>
+      <div class="card-top-info">
+        <p class="brand">
+          ${car.brand || "-"}
+        </p>
+
+        <p class="npv-top">
+          ${displayNPV}
+        </p>
+      </div>
 
       <h3 class="car-title">
         ${carName}
