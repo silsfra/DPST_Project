@@ -53,7 +53,15 @@ body {
   background: #f2f4f7;
 }
 
-.top-filter,
+.top-filter {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+
 .ranking-box,
 .preference-box {
   margin-bottom: 20px;
@@ -508,4 +516,24 @@ body {
 .nav-links a:hover::after{
   width:73%;
   background-color:#16a34a;
+}
+
+.main-logo{
+  display: block;
+  margin: -60px auto 0px auto;
+  width: 650px;
+  height: auto;
+}
+
+.NPV-meaning{
+  text-align:center;
+
+  margin-top:-60px;
+  margin-bottom:48px;
+
+  font-size:18px;
+  font-weight:400;
+
+  color:#000000;
+  letter-spacing:.5px;
 }
