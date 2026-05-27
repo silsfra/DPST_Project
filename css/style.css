@@ -73,7 +73,10 @@ body {
 .left-filter{
   display:flex;
   flex-direction:column;
-  gap:14px;
+  justify-content:space-between;
+  height:100%;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .custom-dropdown{
@@ -87,7 +90,7 @@ body {
   height:52px;
 
   background:#fff;
-  border:1px solid #e5e7eb;
+  border:1px solid #cccfd5;
   border-radius:14px;
 
   padding:0 18px;
@@ -101,7 +104,7 @@ body {
 }
 
 .dropdown-btn:hover{
-  border-color:#9ca3af;
+  border-color:#797d84;
 }
 
 /* MENU */
@@ -116,7 +119,7 @@ body {
   width:100%;
 
   background:#fff;
-  border:1px solid #e5e7eb;
+  border:1px solid #cccfd5;
   border-radius:14px;
 
   padding:10px;
@@ -142,27 +145,27 @@ body {
 }
 
 .dropdown-menu label:hover{
-  background:#f3f4f6;
+  background:#797d84;
 }
 
 /* RIGHT CARD */
 
 .car-type-card{
-  background:#f9fafb;
-  border:1px solid #e5e7eb;
+  background:#fff;
+  border:1px solid #cccfd5;
   border-radius:16px;
   padding:18px;
 }
 
 .car-type-text h4{
   margin:0 0 6px;
-  font-size:22px;
+  font-size:16px;
 }
 
 .car-type-text p{
   margin:0 0 18px;
   color:#6b7280;
-  font-size:14px;
+  font-size:12px;
 }
 
 .car-type-options{
@@ -177,7 +180,7 @@ body {
   gap:8px;
 
   background:#fff;
-  border:1px solid #e5e7eb;
+  border:1px solid #cccfd5;
   border-radius:12px;
 
   padding:12px 14px;
@@ -186,7 +189,7 @@ body {
 }
 
 .car-type-options label:hover{
-  border-color:#9ca3af;
+  border-color:#797d84;
 }
 
 .ranking-box,
@@ -209,7 +212,7 @@ body {
 .ranking-header p,
 .preference-header p {
   margin: 6px 0 18px;
-  font-size: 13px;
+  font-size: 14px;
   color: #6b7280;
 }
 
