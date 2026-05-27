@@ -26,38 +26,16 @@
 
   <div class="container">
     <aside class="filter-box">
-      <h3>FILTER</h3>
-
-      <h4>Filter by Brand</h4>
-
-      <label class="checkbox-item"><input type="checkbox" value="Audi" class="brand" /><span>Audi</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="BMW" class="brand" /><span>BMW</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="BYD" class="brand" /><span>BYD</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Honda" class="brand" /><span>Honda</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="MG" class="brand" /><span>MG</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Nissan" class="brand" /><span>Nissan</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Tesla" class="brand" /><span>Tesla</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Toyota" class="brand" /><span>Toyota</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="Volvo" class="brand" /><span>Volvo</span></label>
-
-      <h4>Filter by Color</h4>
-
-      <label class="checkbox-item"><input type="checkbox" value="black" class="color" /><span>Black</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="white" class="color" /><span>White</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="grey" class="color" /><span>Grey</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="silver" class="color" /><span>Silver</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="blue" class="color" /><span>Blue</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="red" class="color" /><span>Red</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="green" class="color" /><span>Green</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="yellow" class="color" /><span>Yellow</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="beige" class="color" /><span>Beige</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="pink" class="color" /><span>Pink</span></label>
-      <label class="checkbox-item"><input type="checkbox" value="other" class="color" /><span>Other</span></label>
     </aside>
 
     <main class="main-section">
       <img src="\assets\NPV__Logo.png" class="main-logo">
-      <p class="NPV-meaning">heeloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</p>
+      <p class="NPV-meaning">
+        NPV (Net Present Value) หรือภาษาไทยเรียกว่า "มูลค่าปัจจุบันสุทธิ" คือ
+        เครื่องมือทางการเงินที่ใช้ประเมินความคุ้มค่าของการลงทุน
+        โดยคำนวณจากการนำกระแสเงินสดรับและกระแสเงินสดจ่ายทั้งหมดที่จะเกิดขึ้นในอนาคตตลอดอายุการใช้งาน
+        มาคิดลด (Discount) กลับมาเป็นมูลค่า ณ ปัจจุบัน แล้วหักลบด้วยเงินลงทุนก้อนแรกเริ่มต้น
+      </p>
       <section class="top-filter">
         <div class="filter-header">
           <h3>Find Your EV</h3>
@@ -76,11 +54,15 @@
               </button>
 
               <div class="dropdown-menu">
-                <label><input type="checkbox"> BYD</label>
-                <label><input type="checkbox"> Tesla</label>
-                <label><input type="checkbox"> MG</label>
-                <label><input type="checkbox"> ORA</label>
-                <label><input type="checkbox"> NETA</label>
+                <label><input type="checkbox" value="Audi"> Audi</label>
+                <label><input type="checkbox" value="BMW"> BMW</label>
+                <label><input type="checkbox" value="BYD"> BYD</label>
+                <label><input type="checkbox" value="Honda"> Honda</label>
+                <label><input type="checkbox" value="MG"> MG</label>
+                <label><input type="checkbox" value="Nissan"> Nissan</label>
+                <label><input type="checkbox" value="Tesla"> Tesla</label>
+                <label><input type="checkbox" value="Toyota"> Toyota</label>
+                <label><input type="checkbox" value="Volvo"> Volvo</label>
               </div>
             </div>
 
@@ -90,11 +72,10 @@
               </button>
 
               <div class="dropdown-menu">
-                <label><input type="checkbox"> ต่ำกว่า ฿700k</label>
-                <label><input type="checkbox"> ฿700k–1M</label>
-                <label><input type="checkbox"> ฿1M–1.5M</label>
-                <label><input type="checkbox"> มากกว่า ฿1.5M</label>
-                <label><input type="checkbox"> กำหนดเอง</label>
+                <label><input type="checkbox" value="0-700000"> ต่ำกว่า ฿700k</label>
+                <label><input type="checkbox" value="700000-1000000"> ฿700k–1M</label>
+                <label><input type="checkbox" value="1000000-1500000"> ฿1M–1.5M</label>
+                <label><input type="checkbox" value="1500000-999999999"> มากกว่า ฿1.5M</label>
               </div>
             </div>
 
@@ -102,15 +83,19 @@
               <button class="dropdown-btn" type="button">
                 By Color
               </button>
-            
+
               <div class="dropdown-menu">
-                <label><input type="checkbox"> White</label>
-                <label><input type="checkbox"> Black</label>
-                <label><input type="checkbox"> Grey</label>
-                <label><input type="checkbox"> Silver</label>
-                <label><input type="checkbox"> Red</label>
-                <label><input type="checkbox"> Blue</label>
-                <label><input type="checkbox"> Green</label>
+                <label><input type="checkbox" value="beige"> Beige</label>
+                <label><input type="checkbox" value="black"> Black</label>
+                <label><input type="checkbox" value="blue"> Blue</label>
+                <label><input type="checkbox" value="green"> Green</label>
+                <label><input type="checkbox" value="grey"> Grey</label>
+                <label><input type="checkbox" value="pink"> Pink</label>
+                <label><input type="checkbox" value="red"> Red</label>
+                <label><input type="checkbox" value="white"> White</label>
+                <label><input type="checkbox" value="silver"> Silver</label>
+                <label><input type="checkbox" value="yellow"> Yellow</label>
+                <label><input type="checkbox" value="other"> Other</label>
               </div>
             </div>
 
@@ -126,10 +111,10 @@
             </div>
 
             <div class="car-type-options">
-              <label><input type="checkbox"> All-round</label>
-              <label><input type="checkbox"> Local</label>
-              <label><input type="checkbox"> Long Range</label>
-              <label><input type="checkbox"> City</label>
+              <label><input type="checkbox" value="0"> All-round</label>
+              <label><input type="checkbox" value="1"> Local</label>
+              <label><input type="checkbox" value="2"> Long Range</label>
+              <label><input type="checkbox" value="3"> City</label>
             </div>
 
           </div>

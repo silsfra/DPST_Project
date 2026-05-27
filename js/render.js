@@ -7,6 +7,11 @@ const NPV_INSURANCE = 25000;
 const NPV_MAINTENANCE = 5000;
 const NPV_KM_PER_YEAR = 15000;
 
+document.addEventListener("filterschange", (e) => {
+  const filteredCars = applyFilters(cars, e.detail);
+  renderCars(filteredCars);
+});
+
 function getClusterName(cluster) {
   const clusters = {
     0: "All-round",
