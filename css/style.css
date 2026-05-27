@@ -434,3 +434,78 @@ body {
 .npv-top {
   white-space: nowrap;
 }
+
+/* NAVBAR */
+
+.navbar{
+  width:100%;
+  height:72px;
+
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+
+  padding:0 5%;
+  box-sizing:border-box;
+
+  background:white;
+
+  /* เส้นจางๆ */
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+/* LINKS */
+
+.nav-links{
+  display:flex;
+  align-items:center;
+}
+
+/* แต่ละเมนู */
+
+.nav-links a{
+  position:relative;
+
+  text-decoration:none;
+  color:#444;
+
+  font-size:16px;
+  font-weight:500;
+
+  padding:0 1.5vw;
+
+  transition:.25s;
+}
+
+/* เส้นจางๆ ใต้ข้อความก่อน hover */
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+
+  left:50%;
+  bottom:-5px;
+
+  transform:translateX(-50%);
+
+  width:60%;
+  height:2px;
+
+  background-color:#7d7d7d;
+
+  transition:
+    background-color .3s ease,
+    height .3s ease,
+    width .3s ease;
+}
+
+/* Hover */
+
+.nav-links a:hover{
+  color:#111;
+}
+
+.nav-links a:hover::after{
+  width:73%;
+  background-color:#16a34a;
+}
