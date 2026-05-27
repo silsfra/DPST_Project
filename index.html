@@ -57,28 +57,65 @@
 
     <main class="main-section">
       <img src="\assets\NPV__Logo.png" class="main-logo">
-      <p class="NPV-meaning">heelooooooooooooooooooooooooooooooooooo</p>
+      <p class="NPV-meaning">heeloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</p>
       <section class="top-filter">
         <div class="filter-header">
           <h3>Find Your EV</h3>
           <p>กรองรถไฟฟ้าตามงบประมาณ ประเภทรถ และความต้องการของคุณ</p>
         </div>
 
-        <div class="filter-row">
-          <div class="filter-item">
-            <label for="cluster">Car Type</label>
-            <select id="cluster">
-              <option value="">Select usage...</option>
-              <option value="0">All-round</option>
-              <option value="1">Local</option>
-              <option value="2">Long Range</option>
-              <option value="3">City</option>
-            </select>
+        <div class="filter-grid">
+
+          <!-- LEFT -->
+
+          <div class="left-filter">
+
+            <div class="custom-dropdown">
+              <button class="dropdown-btn" type="button">
+                รุ่นรถ / ยี่ห้อ
+              </button>
+
+              <div class="dropdown-menu">
+                <label><input type="checkbox"> BYD</label>
+                <label><input type="checkbox"> Tesla</label>
+                <label><input type="checkbox"> MG</label>
+                <label><input type="checkbox"> ORA</label>
+                <label><input type="checkbox"> NETA</label>
+              </div>
+            </div>
+
+            <div class="custom-dropdown">
+              <button class="dropdown-btn" type="button">
+                Budget
+              </button>
+
+              <div class="dropdown-menu">
+                <label><input type="checkbox"> ต่ำกว่า ฿700k</label>
+                <label><input type="checkbox"> ฿700k–1M</label>
+                <label><input type="checkbox"> ฿1M–1.5M</label>
+                <label><input type="checkbox"> มากกว่า ฿1.5M</label>
+                <label><input type="checkbox"> กำหนดเอง</label>
+              </div>
+            </div>
+
           </div>
 
-          <div class="filter-item">
-            <label for="budget">Budget</label>
-            <input id="budget" type="text" placeholder="e.g. ฿1,000,000" />
+          <!-- RIGHT -->
+
+          <div class="car-type-card">
+
+            <div class="car-type-text">
+              <h4>คุณกำลังมองหารถแบบไหน</h4>
+              <p>เลือกประเภทการใช้งานที่ตรงกับความต้องการของคุณ</p>
+            </div>
+
+            <div class="car-type-options">
+              <label><input type="checkbox"> All-round</label>
+              <label><input type="checkbox"> Local</label>
+              <label><input type="checkbox"> Long Range</label>
+              <label><input type="checkbox"> City</label>
+            </div>
+
           </div>
 
         </div>

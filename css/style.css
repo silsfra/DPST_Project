@@ -58,9 +58,136 @@ body {
   padding: 20px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
+.filter-grid{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:18px 24px;
+  align-items:start;
+}
+
+/* LEFT */
+
+.left-filter{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.custom-dropdown{
+  position:relative;
+}
+
+/* BUTTON */
+
+.dropdown-btn{
+  width:100%;
+  height:52px;
+
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+
+  padding:0 18px;
+
+  text-align:left;
+  font-size:14px;
+  color:#374151;
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.dropdown-btn:hover{
+  border-color:#9ca3af;
+}
+
+/* MENU */
+
+.dropdown-menu{
+  display:none;
+
+  position:absolute;
+  top:58px;
+  left:0;
+
+  width:100%;
+
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+
+  padding:10px;
+  box-sizing:border-box;
+
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  z-index:100;
+}
+
+.custom-dropdown.open .dropdown-menu{
+  display:block;
+}
+
+.dropdown-menu label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:10px 12px;
+  border-radius:10px;
+
+  cursor:pointer;
+}
+
+.dropdown-menu label:hover{
+  background:#f3f4f6;
+}
+
+/* RIGHT CARD */
+
+.car-type-card{
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:18px;
+}
+
+.car-type-text h4{
+  margin:0 0 6px;
+  font-size:22px;
+}
+
+.car-type-text p{
+  margin:0 0 18px;
+  color:#6b7280;
+  font-size:14px;
+}
+
+.car-type-options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.car-type-options label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+
+  padding:12px 14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.car-type-options label:hover{
+  border-color:#9ca3af;
+}
 
 .ranking-box,
 .preference-box {
@@ -68,7 +195,7 @@ body {
   padding: 20px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .filter-header h3,
@@ -204,12 +331,12 @@ body {
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .car-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 .card-image-wrapper {
@@ -230,7 +357,7 @@ body {
   left: 10px;
   z-index: 2;
   padding: 6px 12px;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
@@ -317,6 +444,7 @@ body {
 }
 
 @media (max-width: 1200px) {
+
   .ranking-options,
   .preference-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -408,6 +536,7 @@ body {
 }
 
 @media (max-width: 420px) {
+
   .filter-box,
   .spec-box {
     grid-template-columns: 1fr;
@@ -445,61 +574,61 @@ body {
 
 /* NAVBAR */
 
-.navbar{
-  width:100%;
-  height:72px;
+.navbar {
+  width: 100%;
+  height: 72px;
 
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
-  padding:0 5%;
-  box-sizing:border-box;
+  padding: 0 5%;
+  box-sizing: border-box;
 
-  background:white;
+  background: white;
 
   /* เส้นจางๆ */
-  border-bottom:1px solid rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
 }
 
 /* LINKS */
 
-.nav-links{
-  display:flex;
-  align-items:center;
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 /* แต่ละเมนู */
 
-.nav-links a{
-  position:relative;
+.nav-links a {
+  position: relative;
 
-  text-decoration:none;
-  color:#444;
+  text-decoration: none;
+  color: #444;
 
-  font-size:16px;
-  font-weight:500;
+  font-size: 16px;
+  font-weight: 500;
 
-  padding:0 1.5vw;
+  padding: 0 1.5vw;
 
-  transition:.25s;
+  transition: .25s;
 }
 
 /* เส้นจางๆ ใต้ข้อความก่อน hover */
 
-.nav-links a::after{
-  content:"";
-  position:absolute;
+.nav-links a::after {
+  content: "";
+  position: absolute;
 
-  left:50%;
-  bottom:-5px;
+  left: 50%;
+  bottom: -5px;
 
-  transform:translateX(-50%);
+  transform: translateX(-50%);
 
-  width:60%;
-  height:2px;
+  width: 60%;
+  height: 2px;
 
-  background-color:#7d7d7d;
+  background-color: #7d7d7d;
 
   transition:
     background-color .3s ease,
@@ -509,31 +638,31 @@ body {
 
 /* Hover */
 
-.nav-links a:hover{
-  color:#111;
+.nav-links a:hover {
+  color: #111;
 }
 
-.nav-links a:hover::after{
-  width:73%;
-  background-color:#16a34a;
+.nav-links a:hover::after {
+  width: 73%;
+  background-color: #16a34a;
 }
 
-.main-logo{
+.main-logo {
   display: block;
   margin: -60px auto 0px auto;
   width: 650px;
   height: auto;
 }
 
-.NPV-meaning{
-  text-align:center;
+.NPV-meaning {
+  text-align: center;
 
-  margin-top:-60px;
-  margin-bottom:48px;
+  margin-top: -60px;
+  margin-bottom: 48px;
 
-  font-size:18px;
-  font-weight:400;
+  font-size: 18px;
+  font-weight: 400;
 
-  color:#000000;
-  letter-spacing:.5px;
+  color: #000000;
+  letter-spacing: .5px;
 }

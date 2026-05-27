@@ -170,3 +170,27 @@ export function applyFilters(cars, filters) {
 
   return sortCars(filteredCars, filters.rankingMode);
 }
+
+document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
+
+  const button = dropdown.querySelector(".dropdown-btn");
+
+  button.addEventListener("click", () => {
+
+    document.querySelectorAll(".custom-dropdown")
+      .forEach(d => {
+        if(d !== dropdown){
+          d.classList.remove("open");
+        }
+      });
+
+    dropdown.classList.toggle("open");
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if(!e.target.closest(".custom-dropdown")){
+    document.querySelectorAll(".custom-dropdown")
+      .forEach(d => d.classList.remove("open"));
+  }
+});
