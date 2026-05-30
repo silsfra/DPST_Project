@@ -62,6 +62,81 @@
     
         </div>
       </section>
+
+      <section id="preference-box" class="preference-box hidden">
+        <div class="preference-header">
+          <div>
+            <h3>Personal Preference</h3>
+            <p>กำหนดเปอร์เซ็นต์ความสำคัญ</p>
+          </div>
+        </div>
+
+        <div class="preference-grid">
+          <div class="preference-group">
+            <h4>Performance</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="horsepower_hp" />
+              <span>แรงม้า</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="torque_Nm" />
+              <span>แรงบิด</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="acceleration_0_100_sec" />
+              <span>0-100 km/h</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+
+          <div class="preference-group">
+            <h4>Practicality</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="cargo_capacity_liters" />
+              <span>พื้นที่เก็บของ</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+
+          <div class="preference-group">
+            <h4>Battery & Range</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="wltp_range_km" />
+              <span>ระยะทางวิ่ง</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="battery_capacity_kWh" />
+              <span>ความจุแบต</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="dc_charging_power_kW" />
+              <span>ความเร็วชาร์จ</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+
+          <div class="preference-group">
+            <h4>Cost</h4>
+
+            <label class="preference-item">
+              <input type="checkbox" data-key="npv" />
+              <span>NPV</span>
+              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            </label>
+          </div>
+        </div>
+      </section>
     
     </aside>
     </aside>
@@ -157,81 +232,6 @@
 
           </div>
 
-        </div>
-      </section>
-
-      <section id="preference-box" class="preference-box hidden">
-        <div class="preference-header">
-          <div>
-            <h3>Personal Preference</h3>
-            <p>กำหนดเปอร์เซ็นต์ความสำคัญของแต่ละสเปกรถ</p>
-          </div>
-        </div>
-
-        <div class="preference-grid">
-          <div class="preference-group">
-            <h4>Performance</h4>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="horsepower_hp" />
-              <span>แรงม้า</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="torque_Nm" />
-              <span>แรงบิด</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="acceleration_0_100_sec" />
-              <span>0-100 km/h</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-          </div>
-
-          <div class="preference-group">
-            <h4>Practicality</h4>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="cargo_capacity_liters" />
-              <span>พื้นที่เก็บของ</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-          </div>
-
-          <div class="preference-group">
-            <h4>Battery & Range</h4>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="wltp_range_km" />
-              <span>ระยะทางวิ่ง</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="battery_capacity_kWh" />
-              <span>ความจุแบต</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="dc_charging_power_kW" />
-              <span>ความเร็วชาร์จ</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-          </div>
-
-          <div class="preference-group">
-            <h4>Cost</h4>
-
-            <label class="preference-item">
-              <input type="checkbox" data-key="npv" />
-              <span>NPV</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
-            </label>
-          </div>
         </div>
       </section>
 
