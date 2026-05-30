@@ -26,6 +26,44 @@
 
   <div class="container">
     <aside class="filter-box">
+
+      <section class="ranking-box">
+        <div class="ranking-header">
+          <h3>Ranking Mode</h3>
+          <p>เลือกวิธีจัดอันดับรถ</p>
+        </div>
+    
+        <div class="ranking-options">
+    
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="default" checked />
+            <span>Default</span>
+          </label>
+    
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="price-asc" />
+            <span>Price: Low → High</span>
+          </label>
+    
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="price-desc" />
+            <span>Price: High → Low</span>
+          </label>
+    
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="npv-desc" />
+            <span>NPV Best</span>
+          </label>
+    
+          <label class="ranking-option">
+            <input type="radio" name="rankingMode" value="personal" />
+            <span>Personal Preference</span>
+          </label>
+    
+        </div>
+      </section>
+    
+    </aside>
     </aside>
 
     <main class="main-section">
@@ -72,10 +110,10 @@
               </button>
 
               <div class="dropdown-menu">
-                <label><input type="checkbox" value="0-700000"> ต่ำกว่า ฿700k</label>
-                <label><input type="checkbox" value="700000-1000000"> ฿700k–1M</label>
-                <label><input type="checkbox" value="1000000-1500000"> ฿1M–1.5M</label>
-                <label><input type="checkbox" value="1500000-999999999"> มากกว่า ฿1.5M</label>
+                <label><input type="checkbox" value="500000-1000000"> ฿500k-1M</label>
+                <label><input type="checkbox" value="1000000-2000000"> ฿1M–2M</label>
+                <label><input type="checkbox" value="2000000-5000000"> ฿2M–5M</label>
+                <label><input type="checkbox" value="5000000-999999999"> มากกว่า ฿5M</label>
               </div>
             </div>
 
@@ -119,40 +157,6 @@
 
           </div>
 
-        </div>
-      </section>
-
-      <section class="ranking-box">
-        <div class="ranking-header">
-          <h3>Ranking Mode</h3>
-          <p>เลือกวิธีจัดอันดับรถที่ต้องการดู</p>
-        </div>
-
-        <div class="ranking-options">
-          <label class="ranking-option">
-            <input type="radio" name="rankingMode" value="default" checked />
-            <span>Default</span>
-          </label>
-
-          <label class="ranking-option">
-            <input type="radio" name="rankingMode" value="price-asc" />
-            <span>Price: Low → High</span>
-          </label>
-
-          <label class="ranking-option">
-            <input type="radio" name="rankingMode" value="price-desc" />
-            <span>Price: High → Low</span>
-          </label>
-
-          <label class="ranking-option">
-            <input type="radio" name="rankingMode" value="npv-desc" />
-            <span>NPV Best</span>
-          </label>
-
-          <label class="ranking-option">
-            <input type="radio" name="rankingMode" value="personal" />
-            <span>Personal Preference</span>
-          </label>
         </div>
       </section>
 

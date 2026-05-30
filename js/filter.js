@@ -177,6 +177,32 @@ function getRankingMode() {
   return document.querySelector("input[name='rankingMode']:checked")?.value || "default";
 }
 
+function getPreferences() {
+  return [
+    ...document.querySelectorAll(".preference-item")
+  ]
+    .map(item => {
+
+      const checked =
+        item.querySelector("input[type='checkbox']");
+
+      const percent =
+        item.querySelector(".preference-percent");
+
+      if (!checked?.checked) return null;
+
+      return {
+        key: checked.dataset.key,
+        percent: Number(percent?.value || 0),
+      };
+    })
+    .filter(
+      pref =>
+        pref &&
+        pref.percent > 0
+    );
+}
+
 export function getCurrentFilters() {
   return {
     brands: getDropdownValues(0),
@@ -184,7 +210,7 @@ export function getCurrentFilters() {
     colors: getDropdownValues(2),
     clusters: getCheckedValues(document.querySelector(".car-type-options")),
     rankingMode: getRankingMode(),
-    preferences: [],
+    preferences: getPreferences(),
   };
 }
 
@@ -200,6 +226,25 @@ function updateDropdownButton(dropdown) {
   }
 
   button.dataset.selected = `${checked.length} selected`;
+}
+
+function togglePreferenceBox() {
+
+  const box =
+    document.getElementById(
+      "preference-box"
+    );
+
+  const mode =
+    getRankingMode();
+
+  if (!box) return;
+
+  if (mode === "personal") {
+    box.classList.remove("hidden");
+  } else {
+    box.classList.add("hidden");
+  }
 }
 
 function emitFilterChange() {
@@ -233,8 +278,17 @@ document.querySelectorAll(".car-type-options input[type='checkbox']").forEach(in
   input.addEventListener("change", emitFilterChange);
 });
 
-document.querySelectorAll("input[name='rankingMode']").forEach(input => {
-  input.addEventListener("change", emitFilterChange);
+document.querySelectorAll(
+  "input[name='rankingMode']"
+).forEach(input => {
+
+  input.addEventListener(
+    "change",
+    () => {
+      togglePreferenceBox();
+      emitFilterChange();
+    }
+  );
 });
 
 document.addEventListener("click", e => {
@@ -242,3 +296,5 @@ document.addEventListener("click", e => {
     document.querySelectorAll(".custom-dropdown").forEach(d => d.classList.remove("open"));
   }
 });
+
+togglePreferenceBox();

@@ -7,37 +7,8 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f4f6f8;
   color: #333;
-}
-
-.hidden {
-  display: none;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
-}
-
-.main-section {
-  padding: 24px;
-  overflow: auto;
-}
-
-.filter-box {
-  padding: 24px;
-  background: #fff;
-  border-right: 1px solid #e5e7eb;
-}
-
-.filter-box h3 {
-  margin: 0 0 16px;
-}
-
-.filter-box h4 {
-  margin: 20px 0 10px;
-  font-size: 13px;
-  color: #6b7280;
+  height:100vh;
+  overflow:hidden;
 }
 
 .checkbox-item {
@@ -53,12 +24,35 @@ body {
   background: #f2f4f7;
 }
 
-.top-filter {
-  margin-bottom: 20px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+.container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height:calc(100vh - 72px);
+  margin-top:72px;
+  overflow:hidden;
+}
+
+.filter-box{
+  padding:24px;
+  background:#fff;
+  border-right:1px solid #e5e7eb;
+
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+
+  height:100%;
+  overflow:hidden;
+}
+
+.filter-box h3 {
+  margin: 0 0 16px;
+}
+
+.filter-box h4 {
+  margin: 20px 0 10px;
+  font-size: 13px;
+  color: #6b7280;
 }
 
 .filter-grid{
@@ -68,7 +62,25 @@ body {
   align-items:start;
 }
 
-/* LEFT */
+.hidden {
+  display: none;
+}
+
+.main-section {
+  padding: 24px;
+  overflow: auto;
+  height:100%;
+}
+
+.top-filter {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------------------- */
 
 .left-filter{
   display:flex;
@@ -192,7 +204,15 @@ body {
   border-color:#797d84;
 }
 
-.ranking-box,
+.ranking-box{
+  margin:0;
+  padding:0;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+}
+
 .preference-box {
   margin-bottom: 20px;
   padding: 20px;
@@ -243,10 +263,10 @@ body {
   border-radius: 10px;
 }
 
-.ranking-options {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(140px, 1fr));
-  gap: 12px;
+.ranking-options{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
 }
 
 .ranking-option {
@@ -592,6 +612,11 @@ body {
 
   /* เส้นจางๆ */
   border-bottom: 1px solid rgba(0, 0, 0, .08);
+
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
 }
 
 /* LINKS */
