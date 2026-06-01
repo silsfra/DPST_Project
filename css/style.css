@@ -351,8 +351,7 @@ body {
   flex-direction:column;
   justify-content:space-between;
   height:100%;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 10px 0px;
 }
 
 .main-logo {
@@ -631,6 +630,23 @@ body {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.type-content{
+  display:flex;
+  flex-direction:column;
+}
+
+.type-desc{
+  margin-top:5px;
+  font-size:11px;
+  color:#6b7280;
+  line-height:1.3;
+}
+
+.type-title{
+  font-size:14px;
+  font-weight:500;
 }
 
 @media (max-width: 420px) {
