@@ -1,0 +1,292 @@
+*{
+    box-sizing:border-box;
+  }
+  
+  body{
+    margin:0;
+    font-family:"Segoe UI",sans-serif;
+    background:#f4f6f8;
+    color:#333;
+  }
+
+  .compare-column{
+    position:relative;
+    padding:32px;
+    min-width:0;
+  }
+
+  .compare-detail{
+    padding-top:0;
+  }
+  
+  .compare-detail h3{
+    margin:0 0 12px;
+    font-size:18px;
+  }
+
+  .car-frame{
+    width:100%;
+    height:260px;
+    overflow: hidden;
+  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+    margin-bottom:22px;
+  
+    background:#fff;
+    border:1px solid #d1d5db;
+    border-radius:22px;
+  }
+  
+  .car-frame img{
+    display:block;
+    max-width:none;
+    max-height:none;
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .compare-header{
+    text-align:center;
+    margin-bottom:36px;
+  }
+  
+  .compare-header h1{
+    margin:0 0 8px;
+    font-size:40px;
+  }
+
+  .compare-layout{
+    position:relative;
+  
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:24px;
+    overflow:hidden;
+
+    max-width:980px;
+    margin:0 auto;
+
+    gap:52px;
+  }
+
+  .compare-layout::after{
+    left:66.666%;
+  }
+    
+  .compare-layout::before{
+    left:33.333%;
+  }
+  
+  .compare-page{
+    padding-top:122px;
+  }
+
+  .detail-row{
+    display:flex;
+    justify-content:space-between;
+  
+    min-height:44px;
+    padding:12px 0;
+  
+    border-bottom:1px solid #eef0f3;
+  }
+  
+  .detail-row span{
+    color:#6b7280;
+  }
+  
+  .detail-row strong{
+    color:#111827;
+    font-weight:600;
+  }
+    
+  .navbar{
+    width:100%;
+    height:72px;
+  
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+  
+    padding:0 5%;
+    box-sizing:border-box;
+  
+    background:white;
+  
+    border-bottom:1px solid rgba(0,0,0,.08);
+  
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+  }
+  
+  .nav-links{
+    display:flex;
+    align-items:center;
+  }
+  
+  .nav-links a{
+    position:relative;
+  
+    text-decoration:none;
+    color:#444;
+  
+    font-size:16px;
+    font-weight:500;
+  
+    padding:0 1.5vw;
+  
+    transition:.25s;
+  }
+  
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+  
+    left:50%;
+    bottom:-5px;
+  
+    transform:translateX(-50%);
+  
+    width:60%;
+    height:2px;
+  
+    background-color:#7d7d7d;
+  
+    transition:
+      background-color .3s ease,
+      height .3s ease,
+      width .3s ease;
+  }
+  
+  .nav-links a:hover{
+    color:#111;
+  }
+  
+  .nav-links a:hover::after{
+    width:73%;
+    background-color:#16a34a;
+  }
+
+  .select-car-box{
+    margin-bottom:24px;
+  }
+  
+  .select-car-box label{
+    display:block;
+    margin-bottom:8px;
+  
+    font-size:14px;
+    font-weight:600;
+  }
+  
+  .select-car-box select{
+    width:100%;
+    height:48px;
+  
+    padding:0 14px;
+  
+    background:white;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+  
+    font-size:14px;
+  }
+
+  /*-------------------------------------------------------------------------------------------*/
+
+  .open-car-modal{
+    width:100%;
+    height:48px;
+  
+    background:white;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+  
+    padding:0 14px;
+  
+    font-size:14px;
+    text-align:left;
+    cursor:pointer;
+  }
+  
+  .car-modal{
+    position:fixed;
+    inset:0;
+  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+    background:rgba(0,0,0,.28);
+    z-index:2000;
+  }
+  
+  .car-modal.hidden{
+    display:none;
+  }
+  
+  .car-modal-card{
+    position:relative;
+  
+    width:480px;
+    padding:28px;
+  
+    background:white;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
+  }
+  
+  .car-modal-card h3{
+    margin:0 0 18px;
+  }
+  
+  .modal-field{
+    margin-bottom:16px;
+  }
+  
+  .modal-field label{
+    display:block;
+    margin-bottom:8px;
+  
+    font-size:13px;
+    font-weight:600;
+  }
+  
+  .modal-field select{
+    width:100%;
+    height:52px;
+  
+    border:1px solid #d1d5db;
+    border-radius:12px;
+  
+    padding:0 12px;
+    background:white;
+    font-size: 15px;  
+  }
+  
+  .confirm-car-btn{
+    position:absolute;
+    right:18px;
+    bottom:18px;
+  
+    width:42px;
+    height:42px;
+  
+    border:none;
+    border-radius:50%;
+  
+    background:#16a34a;
+    color:white;
+  
+    font-size:20px;
+    cursor:pointer;
+  }

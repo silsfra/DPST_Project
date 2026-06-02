@@ -1,11 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Compare EV</title>
+
+  <link rel="stylesheet" href="css/compare.css">
 </head>
+
 <body>
-    <p>Compare Page</p>
+
+  <!-- NAV -->
+
+  <nav class="navbar">
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="compare.html">Compare</a>
+      <a href="about.html">About</a>
+    </div>
+
+  </nav>
+
+  <!-- MAIN -->
+
+  <main class="compare-page">
+
+    <section class="compare-header">
+      <h1>Compare Mode</h1>
+    </section>
+
+    <section class="compare-layout">
+
+      <div class="compare-column" data-car="car1">
+        <div class="car-frame">
+          <img src="assets/car_paint.png" alt="Car 1">
+        </div>
+
+        <div class="select-car-box">
+          <button class="open-car-modal" data-target="car1" type="button">
+            เลือกรถคันที่ 1
+          </button>
+        </div>
+
+        <div class="compare-detail">
+          <h3>ข้อมูลคันที่ 1</h3>
+
+          <div class="detail-row" data-key="npv"><span>ค่า NPV</span><strong>-</strong></div>
+          <div class="detail-row" data-key="price"><span>Price</span><strong>-</strong></div>
+          <div class="detail-row" data-key="range"><span>ระยะทางวิ่ง</span><strong>-</strong></div>
+          <div class="detail-row" data-key="battery"><span>ความจุแบตเตอรี่</span><strong>-</strong></div>
+          <div class="detail-row" data-key="charging"><span>กำลังชาร์จ</span><strong>-</strong></div>
+          <div class="detail-row" data-key="horsepower"><span>แรงม้า</span><strong>-</strong></div>
+          <div class="detail-row" data-key="torque"><span>แรงบิด</span><strong>-</strong></div>
+        </div>
+      </div>
+
+      <div class="compare-column" data-car="car2">
+        <div class="car-frame">
+          <img src="assets/car_paint.png" alt="Car 2">
+        </div>
+      
+        <div class="select-car-box">
+          <button class="open-car-modal" data-target="car2" type="button">
+            เลือกรถคันที่ 2
+          </button>
+        </div>
+      
+        <div class="compare-detail">
+          <h3>ข้อมูลคันที่ 2</h3>
+      
+          <div class="detail-row" data-key="npv"><span>ค่า NPV</span><strong>-</strong></div>
+          <div class="detail-row" data-key="price"><span>Price</span><strong>-</strong></div>
+          <div class="detail-row" data-key="range"><span>ระยะทางวิ่ง</span><strong>-</strong></div>
+          <div class="detail-row" data-key="battery"><span>ความจุแบตเตอรี่</span><strong>-</strong></div>
+          <div class="detail-row" data-key="charging"><span>กำลังชาร์จ</span><strong>-</strong></div>
+          <div class="detail-row" data-key="horsepower"><span>แรงม้า</span><strong>-</strong></div>
+          <div class="detail-row" data-key="torque"><span>แรงบิด</span><strong>-</strong></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="js/compare.js"></script>
+
+  <div class="car-modal hidden" id="carModal">
+    <div class="car-modal-card">
+
+      <h3>เลือกรถยนต์</h3>
+
+      <div class="modal-field">
+        <label>Brand</label>
+        <select id="modalBrand">
+          <option value="">Select brand...</option>
+        </select>
+      </div>
+
+      <div class="modal-field">
+        <label>Model</label>
+        <select id="modalModel">
+          <option value="">Select model...</option>
+        </select>
+      </div>
+
+      <button class="confirm-car-btn" id="confirmCarBtn" type="button">
+        ✓
+      </button>
+
+    </div>
+  </div>
+
 </body>
+
 </html>
