@@ -12,7 +12,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f4f6f8;
+  background: #193d70;
   color: #333;
   height:100vh;
   overflow:hidden;
@@ -448,16 +448,19 @@ body {
 
   margin-top: -60px;
 
+  font-family: Mitr;
   font-size: 18px;
   font-weight: 400;
 
-  color: #000000;
+  color: #ffffff;
   letter-spacing: .5px;
 }
 
 .NPV-meaning-underText {
+  font-family: Mitr;
   text-align: center;
   margin-bottom: 42px;
+  color: #ffffff;
 }
 
 .npv-top {
