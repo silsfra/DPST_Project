@@ -317,7 +317,7 @@ body {
 
 .filter-box{
   padding:24px;
-  background:#212f42;
+  background:#243549;
   border-right:1px solid #e5e7eb;
 
   display:flex;
@@ -467,7 +467,7 @@ body {
   padding: 0 5%;
   box-sizing: border-box;
 
-  background: white;
+  background: #152c42;
 
   /* เส้นจางๆ */
   border-bottom: 1px solid rgba(0, 0, 0, .08);
@@ -487,10 +487,11 @@ body {
   position: relative;
 
   text-decoration: none;
-  color: #444;
+  color: #44c1bb;
 
   font-size: 16px;
   font-weight: 500;
+  font-family: Mitr;
 
   padding: 0 1.5vw;
 
@@ -509,7 +510,7 @@ body {
   width: 60%;
   height: 2px;
 
-  background-color: #7d7d7d;
+  background-color: #44c1bb;
 
   transition:
     background-color .3s ease,
@@ -518,12 +519,14 @@ body {
 }
 
 .nav-links a:hover {
-  color: #111;
+  color: #44c1bb;
+  text-shadow: 0 0 12px rgba(68, 193, 187, 0.8); 
 }
 
 .nav-links a:hover::after {
   width: 73%;
-  background-color: #16a34a;
+  background-color: #44c1bb;
+  filter: drop-shadow(0 0 5px rgba(68, 193, 187, 0.8));
 }
 
 .npv {
@@ -627,7 +630,7 @@ body {
 
 .price {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .ranking-box{
@@ -642,6 +645,9 @@ body {
 .ranking-header h3 {
   margin: 0;
   font-size: 18px;
+  color: #d8deeb;
+  font-family: Mitr;
+  font-weight: 500;
 }
 
 .ranking-header p {
@@ -656,8 +662,8 @@ body {
   gap: 8px;
   min-height: 42px;
   padding: 10px 12px;
-  background: #212f42;
-  border: 1px solid #2b3a51;
+  background: #243549;
+  border: 1px solid #38537c;
   border-radius: 12px;
   font-size: 13px;
   cursor: pointer;
@@ -669,17 +675,65 @@ body {
   border: 1px solid #85fff9; 
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
               0 0 15px rgba(133, 255, 249, 0.3);
-  background: #212f42;
+  background: #243549;
   color: #ffffff;
   font-weight: 500;
 }
 
 .ranking-option:hover {
-  background: #212f42;
-  border: 1px solid #85fff9; 
+  background: #243549;
   color: #ffffff;
+  border: 1px solid #85fff9; 
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
               0 0 15px rgba(133, 255, 249, 0.3);
+}
+
+.ranking-option input[type="radio"]{
+  appearance:none;
+  -webkit-appearance:none;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius:50%;
+  border:2px solid #cfcfcf;
+  background:#243549;
+
+  position:relative;
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.ranking-option input[type="radio"]::after{
+  content:"";
+
+  position:absolute;
+
+  width: 12px;
+  height:12px;
+
+  border-radius:50%;
+
+  background:transparent;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  transition:.2s;
+}
+
+.ranking-option input[type="radio"]:checked{
+  border-color:#85fff9;
+  border: 3px solid #85fff9; 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 15px rgba(133, 255, 249, 0.3);    
+}
+
+.ranking-option input[type="radio"]:checked::after{
+  background:#85fff9;       
 }
 
 .ranking-options{
