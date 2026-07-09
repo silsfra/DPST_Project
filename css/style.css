@@ -109,19 +109,62 @@ body {
   color: #d8deeb;
   font-family: Mitr;
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .car-type-text p{
   margin:0 0 18px;
   color:#6b7280;
   font-size:12px;
+  text-align: center;
+  font-family: Mitr;
 }
 
 .car-type-options{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:16px;
+}
+
+.car-type-options input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  border: 1px solid #4f688c; 
+  border-radius: 4px; 
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  background-color: #212f42; 
+  transition: all 0.2s ease;
+}
+
+.car-type-options input[type="checkbox"]:hover {
+  border-color: #92b5e6; 
+  box-shadow: 0 0 5px rgba(146, 181, 230, 0.5); 
+}
+
+.car-type-options input[type="checkbox"]:checked {
+  background-color: #007bff; 
+  border-color: #007bff; 
+}
+
+.car-type-options input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  left: 4px;     
+  top: 1px;     
+  width: 4px;    
+  height: 8px;   
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .car-type-options label{
@@ -137,16 +180,23 @@ body {
   color: #d8deeb;
   font-family: Mitr;
 
-  padding:12px 14px;
+  padding:12px 14px 12px 20px;
   cursor:pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
               0 0 5px rgba(115, 205, 250, 0.3);
   transition:.2s;
 }
 
-.car-type-options label:hover{
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
-              0 0 5px rgba(115, 205, 250, 0.3);
+.car-type-options label:hover {
+  border-color: #73cdfa; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 
+              0 0 12px rgba(115, 205, 250, 0.6);
+}
+
+.car-type-options label:has(input[type="checkbox"]:checked) {
+  border-color: #73cdfa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 
+              0 0 12px rgba(115, 205, 250, 0.6); 
 }
 
 .checkbox-item {
@@ -340,6 +390,7 @@ body {
   font-size: 14px;
   color: #6b7280;
   max-width: 520px;
+  font-family: Mitr;
 }
 
 .filter-item {
