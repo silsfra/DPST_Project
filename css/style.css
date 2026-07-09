@@ -94,15 +94,22 @@ body {
   flex-direction:column;
   justify-content:center;
 
-  background:#fff;
-  border:1px solid #cccfd5;
-  border-radius:16px;
+  background: #212f42;
+  border: 1px solid #4f688c;
+  border-radius:20px;
   padding:22px;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 5px rgba(115, 205, 250, 0.3);
 }
 
-.car-type-text h4{
+.car-type-text h6{
   margin:0 0 6px;
   font-size:16px;
+  color: #d8deeb;
+  font-family: Mitr;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .car-type-text p{
@@ -123,17 +130,23 @@ body {
   gap:8px;
   min-height:78px;
 
-  background:#fff;
-  border:1px solid #cccfd5;
-  border-radius:12px;
+  background: #212f42;
+  border: 1px solid #4f688c;
+  border-radius: 20px;
+
+  color: #d8deeb;
+  font-family: Mitr;
 
   padding:12px 14px;
   cursor:pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 5px rgba(115, 205, 250, 0.3);
   transition:.2s;
 }
 
 .car-type-options label:hover{
-  border-color:#797d84;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 5px rgba(115, 205, 250, 0.3);
 }
 
 .checkbox-item {
@@ -180,26 +193,35 @@ body {
   display:block;
 }
 
-.dropdown-btn{
-  width:100%;
-  height:64px;
+.dropdown-btn {
+  width: 100%;
+  height: 64px;
 
-  background:#fff;
-  border:1px solid #cccfd5;
-  border-radius:14px;
-
-  padding:0 18px;
+  background: #212f42;
+  
+  /* เปลี่ยนสีขอบเป็นสี #73cdfa */
+  border: 1px solid #4f688c;
+  border-radius: 20px;
+  padding: 0 18px;
 
   text-align: center;
-  font-size:14px;
-  color:#374151;
+  font-size: 20px;
+  color: #d8deeb;
+  font-family: Mitr;
 
-  cursor:pointer;
-  transition:.2s;
+  cursor: pointer;
+  transition: .2s;
+
+  /* เพิ่มเงาเรืองแสงสี #73cdfa ตอนปกติ (แปลงเป็น rgb คือ 115, 205, 250) */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 5px rgba(115, 205, 250, 0.3);
 }
 
-.dropdown-btn:hover{
-  border-color:#797d84;
+.dropdown-btn:hover {
+  /* เปลี่ยนสีขอบและสีเงาตอน Hover ให้สว่างจัดขึ้น */
+  border-color: #73cdfa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 
+              0 0 25px rgba(115, 205, 250, 0.6);
 }
 
 .dropdown-menu{
@@ -664,6 +686,7 @@ body {
 .type-content{
   display:flex;
   flex-direction:column;
+  
 }
 
 .type-desc{
