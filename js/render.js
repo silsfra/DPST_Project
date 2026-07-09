@@ -110,10 +110,6 @@ function createCarCard(car, normalizedNPV, filters) {
 
       <h3 class="car-title">${carName}</h3>
 
-      <div class="colors">
-        ${colorHTML}
-      </div>
-
       <div class="spec-box">
         <div class="spec-item">
           <p>${car.wltp_range_km || "-"} km</p>

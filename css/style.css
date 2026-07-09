@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Pridi:200,300,regular,500,600,700" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Mali:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic" rel="stylesheet');
+
 * {
   box-sizing: border-box;
 }
@@ -39,7 +43,10 @@ body {
 
 .car-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  border: 2px solid #85fff9; 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 15px rgba(133, 255, 249, 0.3);
+  border-radius: 20px;
 }
 
 .car-grid {
@@ -58,6 +65,7 @@ body {
 .card-image-wrapper {
   position: relative;
   background: #f9fafb;
+  transition: all 0.25s ease;
 }
 
 .car-info {
@@ -151,8 +159,8 @@ body {
 }
 
 .car-type-options input[type="checkbox"]:checked {
-  background-color: #007bff; 
-  border-color: #007bff; 
+  background-color: #85fff9; 
+  border-color: #85fff9; 
 }
 
 .car-type-options input[type="checkbox"]:checked::before {
@@ -199,6 +207,18 @@ body {
               0 0 12px rgba(115, 205, 250, 0.6); 
 }
 
+.car-type-options input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  left: 4px;      
+  top: 1px;       
+  width: 4px;     
+  height: 8px;    
+  border: solid #212f42; /* 💡 เปลี่ยนตรงนี้เป็นสีเข้มเพื่อให้มองเห็นง่ายขึ้นบนพื้นสีสว่าง */
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 .checkbox-item {
   display: flex;
   align-items: center;
@@ -210,21 +230,6 @@ body {
 
 .checkbox-item:hover {
   background: #f2f4f7;
-}
-
-.colors {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.color-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px #ccc;
-  overflow: hidden;
 }
 
 .container {
@@ -431,6 +436,10 @@ body {
   display: none;
 }
 
+.icon-mode input[type="radio"]{
+  display:none;
+}
+
 .left-filter{
   display:flex;
   flex-direction:column;
@@ -631,6 +640,7 @@ body {
 .price {
   font-size: 16px;
   font-weight: 700;
+  font-family: Kanit;
 }
 
 .ranking-box{
@@ -654,6 +664,17 @@ body {
   margin: 6px 0 18px;
   font-size: 14px;
   color: #6b7280;
+}
+
+.ranking-icon{
+  width:28px;
+  height:28px;
+
+  object-fit:contain;
+
+  opacity:.45;
+
+  transition:.25s;
 }
 
 .ranking-option {
@@ -911,3 +932,4 @@ body {
 }
 
 /* -------------------------------------------------------------------------------------------------------------------------------------- */
+
