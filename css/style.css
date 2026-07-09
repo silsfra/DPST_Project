@@ -11,7 +11,7 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Mitr;
   background: #0c1a2e;
   color: #333;
   height:100vh;
@@ -317,7 +317,7 @@ body {
 
 .filter-box{
   padding:24px;
-  background:#fff;
+  background:#212f42;
   border-right:1px solid #e5e7eb;
 
   display:flex;
@@ -656,22 +656,30 @@ body {
   gap: 8px;
   min-height: 42px;
   padding: 10px 12px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  background: #212f42;
+  border: 1px solid #2b3a51;
   border-radius: 12px;
   font-size: 13px;
   cursor: pointer;
+  color: #aeaeae;
+  font-weight: 500;
 }
 
 .ranking-option:has(input:checked) {
-  border-color: #10b981;
-  background: #ecfdf5;
-  color: #047857;
-  font-weight: 700;
+  border: 1px solid #85fff9; 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 15px rgba(133, 255, 249, 0.3);
+  background: #212f42;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .ranking-option:hover {
-  background: #f3f4f6;
+  background: #212f42;
+  border: 1px solid #85fff9; 
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+              0 0 15px rgba(133, 255, 249, 0.3);
 }
 
 .ranking-options{
