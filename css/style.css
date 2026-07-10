@@ -596,12 +596,13 @@ body {
 .preference-group h4 {
   margin: 0 0 12px;
   font-size: 13px;
-  color: #111827;
+  color: #ffffff;
 }
 
 .preference-header h3 {
   margin: 0;
   font-size: 18px;
+  color: #ffffff;
 }
 
 .preference-header p {
