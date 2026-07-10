@@ -453,9 +453,10 @@ body {
 
 .main-logo {
   display: block;
-  margin: -60px auto 0px auto;
-  width: 650px;
-  height: auto;
+  margin: 20px auto 0px auto; 
+  width: 100%;      
+  max-width: 650px;  
+  height: auto;  
 }
 
 .main-section {
