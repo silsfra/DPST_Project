@@ -2,7 +2,7 @@ import { supabase } from './supabase.js';
 
 export async function getCars() {
   const { data, error } = await supabase
-    .from("car_data")
+    .from("car_data_5")
     .select("*");
 
   if (error) {

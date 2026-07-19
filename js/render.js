@@ -141,6 +141,21 @@ function createCarCard(car, normalizedNPV, filters) {
   return card;
 }
 
+function shuffleArray(array) {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [shuffled[i], shuffled[j]] = [
+      shuffled[j],
+      shuffled[i]
+    ];
+  }
+
+  return shuffled;
+}
+
 export function renderCars(cars, filters = {}) {
   const container = document.getElementById("car-list");
   if (!container) return;
@@ -156,11 +171,13 @@ export function renderCars(cars, filters = {}) {
     return;
   }
 
-  const npvValues = cars.map(calculateDefaultNPV);
+  const shuffledCars = shuffleArray(cars);
+
+  const npvValues = shuffledCars.map(calculateDefaultNPV);
   const minNPV = Math.min(...npvValues);
   const maxNPV = Math.max(...npvValues);
 
-  cars.forEach((car, index) => {
+  shuffledCars.forEach((car, index) => {
     const normalizedNPV = normalize(npvValues[index], minNPV, maxNPV);
     const card = createCarCard(car, normalizedNPV, filters);
 
