@@ -38,34 +38,33 @@ function formatMoney(value) {
 }
 
 function renderBrands() {
-  brandSelect.innerHTML = `<option value="">Select brand...</option>`;
+  // 1. สร้างหัวข้อเริ่มต้นไว้ใน Array ก่อน
+  const options = [`<option value="">Select brand...</option>`];
 
+  // 2. ใช้ push เพื่อสะสมตัวเลือกเข้ามา
   getBrands().forEach(brand => {
-    brandSelect.innerHTML += `
-      <option value="${brand}">${brand}</option>
-    `;
+    options.push(`<option value="${brand}">${brand}</option>`);
   });
+
+  // 3. ยัดใส่ innerHTML ทีเดียวตอนท้าย
+  brandSelect.innerHTML = options.join("");
 }
 
 function renderModels(brand) {
-  modelSelect.innerHTML = `<option value="">Select model...</option>`;
+  const options = [`<option value="">Select model...</option>`];
 
   cars
     .filter(car => car.brand === brand)
     .forEach(car => {
       const carName = getCarName(car);
-
-      modelSelect.innerHTML += `
-        <option value="${car.ID}">
-          ${carName}
-        </option>
-      `;
+      options.push(`<option value="${car.ID}">${carName}</option>`);
     });
+
+  modelSelect.innerHTML = options.join("");
 }
 
 function getSelectedCar() {
   const carId = modelSelect.value;
-
   return cars.find(car => String(car.ID) === String(carId)) || null;
 }
 
@@ -80,17 +79,22 @@ function updateCarButton(target, car) {
 }
 
 function updateCarImage(target, car) {
+  console.log("Target:", target);
+  console.log("Car:", car);
+  console.log("Image URL:", car.image_url);
+
   const column = document.querySelector(
     `.compare-column[data-car="${target}"]`
   );
 
   const image = column?.querySelector(".car-frame img");
 
-  if (!image || !car) return;
+  console.log("Image Element:", image);
 
   image.src = car.image_url || DEFAULT_IMAGE;
-  image.alt = `${car.brand} ${getCarName(car)}`;
-}
+
+  console.log("Final src:", image.src);
+} 
 
 function getDetailValue(car, key) {
   const values = {
