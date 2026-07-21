@@ -21,10 +21,10 @@ document.addEventListener("filterschange", (e) => {
 
 function getClusterName(cluster) {
   const clusters = {
-    0: "All-round",
-    1: "Local",
-    2: "Long Range",
-    3: "City",
+    0: "Local",
+    1: "Long Range",
+    2: "Sport",
+    3: "All-round",
   };
 
   return clusters[cluster] || "Unknown";

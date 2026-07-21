@@ -618,6 +618,7 @@ body {
   align-items: center;
   margin-bottom: 12px;
   font-size: 13px;
+  color: whitesmoke;
 }
 
 .preference-item:last-child {
