@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   async function loadCar() {
     const cars = await getCars();
-    const car = cars.find(c => String(c.ID) === id);
+    const car = cars.find(c => String(c.id) === String(id));
 
     if (!car) {
       document.body.innerHTML = `<h1>Car Not Found</h1>`;

@@ -135,7 +135,7 @@ function createCarCard(car, normalizedNPV, filters) {
   `;
 
   card.addEventListener("click", () => {
-    window.location.href = `car.html?id=${car.ID}`;
+    window.location.href = `car.html?id=${car.id}`;
   });
 
   return card;
