@@ -10,6 +10,14 @@ function getCheckedValues(selector) {
     .map(input => input.value);
 }
 
+function getCheckedValuesFromContainer(container) {
+  if (!container) return [];
+
+  return Array.from(
+    container.querySelectorAll("input[type='checkbox']:checked")
+  ).map(input => input.value);
+}
+
 function getElementValue(id) {
   return document.getElementById(id)?.value || "";
 }
@@ -49,12 +57,27 @@ function togglePreferenceBox() {
 }
 
 function getFilters() {
+  const dropdowns = document.querySelectorAll(
+    ".left-filter .custom-dropdown"
+  );
+
   return {
-    brands: getCheckedValues(".brand"),
-    colors: getCheckedValues(".color"),
-    priceRange: getElementValue("priceRange"),
-    cluster: getElementValue("cluster"),
-    budget: getElementValue("budget"),
+    brands: dropdowns[0]
+      ? getCheckedValuesFromContainer(dropdowns[0])
+      : [],
+
+    priceRanges: dropdowns[1]
+      ? getCheckedValuesFromContainer(dropdowns[1])
+      : [],
+
+    colors: dropdowns[2]
+      ? getCheckedValuesFromContainer(dropdowns[2])
+      : [],
+
+    clusters: getCheckedValues(
+      ".car-type-options input[type='checkbox']"
+    ),
+
     rankingMode: getRankingMode(),
     preferences: getPreferences(),
   };
@@ -72,17 +95,18 @@ function updateUI() {
 function bindEvents() {
   document
     .querySelectorAll(`
-      .brand,
-      .color,
-      #cluster,
-      #budget,
+      .left-filter .custom-dropdown input[type='checkbox'],
+      .car-type-options input[type='checkbox'],
       input[name='rankingMode'],
-      .preference-item input,
+      .preference-item input[type='checkbox'],
       .preference-percent
     `)
     .forEach(input => {
-      input.addEventListener("input", updateUI);
       input.addEventListener("change", updateUI);
+
+      if (input.classList.contains("preference-percent")) {
+        input.addEventListener("input", updateUI);
+      }
     });
 }
 

@@ -171,13 +171,16 @@ export function renderCars(cars, filters = {}) {
     return;
   }
 
-  const shuffledCars = shuffleArray(cars);
+  const displayCars =
+    filters.rankingMode === "default"
+      ? shuffleArray(cars)
+      : [...cars];
 
-  const npvValues = shuffledCars.map(calculateDefaultNPV);
+  const npvValues = displayCars.map(calculateDefaultNPV);
   const minNPV = Math.min(...npvValues);
   const maxNPV = Math.max(...npvValues);
 
-  shuffledCars.forEach((car, index) => {
+  displayCars.forEach((car, index) => {
     const normalizedNPV = normalize(npvValues[index], minNPV, maxNPV);
     const card = createCarCard(car, normalizedNPV, filters);
 
