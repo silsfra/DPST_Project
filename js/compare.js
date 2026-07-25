@@ -57,7 +57,7 @@ function renderModels(brand) {
     .filter(car => car.brand === brand)
     .forEach(car => {
       const carName = getCarName(car);
-      options.push(`<option value="${car.ID}">${carName}</option>`);
+      options.push(`<option value="${car.id}">${carName}</option>`);
     });
 
   modelSelect.innerHTML = options.join("");
@@ -65,7 +65,10 @@ function renderModels(brand) {
 
 function getSelectedCar() {
   const carId = modelSelect.value;
-  return cars.find(car => String(car.ID) === String(carId)) || null;
+  return cars.find(car => {
+    const id = car.id ?? car.ID;
+    return String(id) === String(carId);
+  }) || null;
 }
 
 function updateCarButton(target, car) {
@@ -94,7 +97,7 @@ function updateCarImage(target, car) {
   image.src = car.image_url || DEFAULT_IMAGE;
 
   console.log("Final src:", image.src);
-} 
+}
 
 function getDetailValue(car, key) {
   const values = {

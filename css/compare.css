@@ -10,7 +10,7 @@
 body {
   margin: 0;
   font-family: "Pridi";
-  background: #f4f6f8;
+  background: #0c1a2e;
   color: #333;
   overflow: hidden;
 }
@@ -64,6 +64,10 @@ body {
 .compare-header h1 {
   margin: 0 0 8px;
   font-size: 40px;
+  color: #e5e7eb;
+  letter-spacing: 3px;
+  font-family: "Pridi";
+  font-weight: 600;
 }
 
 .compare-layout {
