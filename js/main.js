@@ -110,10 +110,43 @@ function bindEvents() {
     });
 }
 
+function bindDropdowns() {
+  document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
+    const button = dropdown.querySelector(".dropdown-btn");
+
+    if (!button) return;
+
+    button.addEventListener("click", event => {
+      event.stopPropagation();
+
+      document.querySelectorAll(".custom-dropdown.open").forEach(item => {
+        if (item !== dropdown) {
+          item.classList.remove("open");
+        }
+      });
+
+      dropdown.classList.toggle("open");
+    });
+  });
+
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".custom-dropdown.open").forEach(dropdown => {
+      dropdown.classList.remove("open");
+    });
+  });
+
+  document.querySelectorAll(".dropdown-menu").forEach(menu => {
+    menu.addEventListener("click", event => {
+      event.stopPropagation();
+    });
+  });
+}
+
 async function init() {
   try {
     allCars = await getCars();
 
+    bindDropdowns();
     bindEvents();
     updateUI();
   } catch (error) {
