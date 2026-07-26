@@ -436,8 +436,16 @@ body {
   display: none;
 }
 
+.icon-hover {
+  opacity: 0;
+}
+
 .icon-mode input[type="radio"]{
   display:none;
+}
+
+.icon-normal {
+  opacity: 1;
 }
 
 .left-filter{
@@ -670,6 +678,9 @@ body {
 }
 
 .ranking-icon{
+  position: absolute;
+  inset: 0;
+
   width:28px;
   height:28px;
 
@@ -677,7 +688,14 @@ body {
 
   opacity:.45;
 
-  transition:.25s;
+  transition: opacity .2s ease;
+}
+
+.ranking-icon-wrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 
 .ranking-option {
@@ -710,6 +728,22 @@ body {
   border: 1px solid #85fff9; 
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
               0 0 15px rgba(133, 255, 249, 0.3);
+}
+
+.ranking-option:has(input:checked) .icon-hover {
+  opacity: 1;
+}
+
+.ranking-option:has(input:checked) .icon-normal {
+  opacity: 0;
+}
+
+.ranking-option:hover .icon-normal {
+  opacity: 0;
+}
+
+.ranking-option:hover .icon-hover {
+  opacity: 1;
 }
 
 .ranking-option input[type="radio"]{
