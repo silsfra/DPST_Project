@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css?family=Pridi:200,300,regular,500,600,700" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Mali:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic" rel="stylesheet');
 
 * {
   box-sizing: border-box;
@@ -271,7 +273,7 @@ body {
   margin-bottom: 10px;
 
   color: #85fff9;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
 }
 
