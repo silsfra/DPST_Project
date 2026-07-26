@@ -1,86 +1,462 @@
 @import url('https://fonts.googleapis.com/css?family=Pridi:200,300,regular,500,600,700" rel="stylesheet');
 
-*{
-    box-sizing:border-box;
-  }
-  
-  body{
-    margin:0;
-    font-family:"Segoe UI",sans-serif;
-    background: #0c1a2e;
-    color:#333;
-    overflow: hidden;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: #0c1a2e;
+  color: #333;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbar {
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 0 5%;
+  box-sizing: border-box;
+
+  background: #152c42;
+
+  /* เส้นจางๆ */
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+
+  text-decoration: none;
+  color: #44c1bb;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Pridi";
+
+  padding: 0 1.5vw;
+
+  transition: .25s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -5px;
+
+  transform: translateX(-50%);
+
+  width: 60%;
+  height: 2px;
+
+  background-color: #44c1bb;
+
+  transition:
+    background-color .3s ease,
+    height .3s ease,
+    width .3s ease;
+}
+
+.nav-links a:hover {
+  color: #44c1bb;
+  text-shadow: 0 0 12px rgba(68, 193, 187, 0.8);
+}
+
+.nav-links a:hover::after {
+  width: 73%;
+  background-color: #44c1bb;
+  filter: drop-shadow(0 0 5px rgba(68, 193, 187, 0.8));
+}
+
+
+.about-page {
+  width: min(100% - 40px, 1180px);
+
+  margin: 0 auto;
+  padding: 132px 0 80px;
+}
+.about-header {
+  width: 100%;
+  margin: 0 auto 54px;
+  text-align: center;
+}
+
+.about-label {
+  margin: 0 0 12px;
+
+  color: #85fff9;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+
+  white-space: nowrap;
+}
+
+.about-header h1 {
+  margin: 0 0 14px;
+
+  color: #ffffff;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 500;
+  line-height: 1.35;
+
+  white-space: nowrap;
+}
+
+.about-intro {
+  margin: 0;
+
+  color: #8ea4bf;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+
+  white-space: nowrap;
+}
+/* =========================
+   CONTENT
+========================= */
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-card {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 26px;
+
+  padding: 34px;
+
+  background: rgba(33, 47, 66, 0.9);
+  border: 1px solid #38537c;
+  border-radius: 24px;
+
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.2),
+    0 0 18px rgba(115, 205, 250, 0.04);
+}
+
+.section-number {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #85fff9;
+  font-size: 16px;
+  font-weight: 500;
+
+  background: #17283a;
+  border: 1px solid #4f688c;
+  border-radius: 18px;
+}
+
+.section-content {
+  min-width: 0;
+}
+
+.section-content h2 {
+  margin: 4px 0 18px;
+
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.section-content p {
+  margin: 0 0 16px;
+
+  color: #b5c1d2;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.section-content strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* =========================
+   REASONS
+========================= */
+
+.reason-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-top: 24px;
+}
+
+.reason-item {
+  padding: 20px;
+
+  background: #1b2b3e;
+  border: 1px solid rgba(79, 104, 140, 0.7);
+  border-radius: 18px;
+}
+
+.reason-item h3 {
+  margin: 0 0 10px;
+
+  color: #dffefd;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.reason-item p {
+  margin: 0;
+
+  color: #8ea4bf;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* =========================
+   COMPARISON
+========================= */
+
+.highlight-card {
+  border-color: rgba(133, 255, 249, 0.45);
+
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.22),
+    0 0 22px rgba(133, 255, 249, 0.08);
+}
+
+.comparison-box {
+  margin: 24px 0;
+  padding: 24px;
+
+  background: #17283a;
+  border-left: 4px solid #85fff9;
+  border-radius: 4px 16px 16px 4px;
+}
+
+.comparison-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #85fff9;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.comparison-box p {
+  margin: 0;
+
+  color: #d8deeb;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.note {
+  color: #8ea4bf !important;
+  font-size: 13px !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .about-header h1,
+  .about-intro {
+    white-space: normal;
   }
 
+  .about-header h1 {
+    font-size: 25px;
+  }
+
+  .about-intro {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-header h1 {
+    font-size: 21px;
+  }
+
+  .about-intro {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 700px) {
   .navbar {
-    width: 100%;
-    height: 72px;
-  
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  
-    padding: 0 5%;
-    box-sizing: border-box;
-  
-    background: #152c42;
-  
-    /* เส้นจางๆ */
-    border-bottom: 1px solid rgba(0, 0, 0, .08);
-  
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    height: 64px;
+    padding: 0 12px;
+    justify-content: center;
   }
-  
+
   .nav-links {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    justify-content: center;
   }
-  
+
   .nav-links a {
-    position: relative;
-  
-    text-decoration: none;
-    color: #44c1bb;
-  
-    font-size: 16px;
-    font-weight: 500;
-    font-family: "Pridi";
-  
-    padding: 0 1.5vw;
-  
-    transition: .25s;
+    padding: 8px 13px;
+    font-size: 14px;
   }
-  
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-  
-    left: 50%;
-    bottom: -5px;
-  
-    transform: translateX(-50%);
-  
-    width: 60%;
-    height: 2px;
-  
-    background-color: #44c1bb;
-  
-    transition:
-      background-color .3s ease,
-      height .3s ease,
-      width .3s ease;
+
+  .about-page {
+    width: min(100% - 28px, 1180px);
+    padding-top: 104px;
   }
-  
-  .nav-links a:hover {
-    color: #44c1bb;
-    text-shadow: 0 0 12px rgba(68, 193, 187, 0.8);
+
+  .about-header {
+    margin-bottom: 34px;
   }
-  
-  .nav-links a:hover::after {
-    width: 73%;
-    background-color: #44c1bb;
-    filter: drop-shadow(0 0 5px rgba(68, 193, 187, 0.8));
+
+  .about-intro {
+    font-size: 14px;
   }
+
+  .about-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .section-number {
+    width: 50px;
+    height: 50px;
+  }
+
+  .section-content h2 {
+    font-size: 19px;
+  }
+
+  .section-content p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .comparison-box {
+    padding: 18px;
+  }
+
+  .comparison-box p {
+    font-size: 14px;
+  }
+
+  .about-heading-line {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    text-align: center;
+  }
+
+  .about-header h1 {
+    font-size: 21px;
+  }
+
+  .about-label {
+    font-size: 10px;
+  }
+
+  .discount-box {
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 18px;
+  }
+
+  .discount-rate {
+    min-width: 76px;
+    height: 62px;
+
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   DISCOUNT RATE
+========================= */
+
+.discount-box {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  margin: 24px 0;
+  padding: 22px;
+
+  background: #17283a;
+  border: 1px solid rgba(133, 255, 249, 0.22);
+  border-radius: 18px;
+}
+
+.discount-rate {
+  flex: 0 0 auto;
+
+  min-width: 92px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #85fff9;
+  font-size: 27px;
+  font-weight: 600;
+
+  background: rgba(68, 193, 187, 0.08);
+  border: 1px solid rgba(133, 255, 249, 0.35);
+  border-radius: 16px;
+}
+
+.discount-box h3 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.discount-box p {
+  margin: 0;
+
+  color: #9fb0c5;
+  font-size: 13px;
+  line-height: 1.75;
+}
