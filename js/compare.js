@@ -101,7 +101,7 @@ function updateCarImage(target, car) {
 
 function getDetailValue(car, key) {
   const values = {
-    npv: "-",
+    npv: formatMoney(car.npv),
     price: formatMoney(car.price),
     range: `${car.wltp_range_km || "-"} km`,
     battery: `${car.battery_capacity_kWh || "-"} kWh`,
