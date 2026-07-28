@@ -152,7 +152,7 @@ document.getElementById("car-colors").innerHTML =
       </div>
 
       <div class="npv-summary-row">
-        <span>ค่าใช้จ่ายเพิ่มเติมหลังคิดลด 5%</span>
+        <span>ค่าใช้จ่ายเพิ่มเติมหลังคิดลด 2.5%</span>
         <strong>-${formatMoney(discountedRunningCost)}</strong>
       </div>
 
