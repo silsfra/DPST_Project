@@ -99,7 +99,26 @@
           <div>
             <h3>Personal Preference</h3>
             <p>กำหนดเปอร์เซ็นต์ความสำคัญ</p>
+            <p>ตัวอย่างการตั้งค่า</p>
           </div>
+        </div>
+
+        <div class="preference-presets">
+          <button type="button" class="preset-btn" data-preset="practical">
+            ใช้งานทั่วไป
+          </button>
+        
+          <button type="button" class="preset-btn" data-preset="performance">
+            สมรรถนะ
+          </button>
+        
+          <button type="button" class="preset-btn" data-preset="value">
+            ความคุ้มค่า
+          </button>
+        
+          <button type="button" class="preset-reset-btn">
+            ล้างค่า
+          </button>
         </div>
 
         <div class="preference-grid">
@@ -107,21 +126,57 @@
             <h4>Performance</h4>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="horsepower_hp" />
+
               <span>แรงม้า</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="horsepower_hp"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="torque_Nm" />
+
               <span>แรงบิด</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="torque_Nm"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="acceleration_0_100_sec" />
+
               <span>0-100 km/h</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="acceleration_0_100_sec"
+                  value="0"
+                  min="0"
+                  step="1"
+                  max="50"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
           </div>
 
@@ -129,9 +184,21 @@
             <h4>Practicality</h4>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="cargo_capacity_liters" />
+
               <span>พื้นที่เก็บของ</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="cargo_capacity_liters"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
           </div>
 
@@ -139,21 +206,57 @@
             <h4>Battery & Range</h4>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="wltp_range_km" />
+
               <span>ระยะทางวิ่ง</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="wltp_range_km"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="battery_capacity_kWh" />
+
               <span>ความจุแบต</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="battery_capacity_kWh"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="dc_charging_power_kW" />
+
               <span>ความเร็วชาร์จ</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="dc_charging_power_kW"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
           </div>
 
@@ -161,9 +264,21 @@
             <h4>Cost</h4>
 
             <label class="preference-item">
-              <input type="checkbox" data-key="npv" />
+
               <span>NPV</span>
-              <input type="number" class="preference-percent" value="0" min="0" step="10" max="100" />
+            
+              <input
+                  type="number"
+                  class="preference-percent"
+                  data-key="npv"
+                  value="0"
+                  min="0"
+                  step="10"
+                  max="100"
+              />
+
+              <span class="percent-symbol">%</span>
+            
             </label>
           </div>
         </div>

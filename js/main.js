@@ -28,19 +28,14 @@ function getRankingMode() {
 
 function getPreferences() {
   return Array
-    .from(document.querySelectorAll(".preference-item"))
-    .map(item => {
-      const checkbox = item.querySelector("input[type='checkbox']");
-      const percentInput = item.querySelector(".preference-percent");
-
-      if (!checkbox?.checked) return null;
-
-      const percent = Number(percentInput?.value || 0);
+    .from(document.querySelectorAll(".preference-percent"))
+    .map(input => {
+      const percent = Number(input.value || 0);
 
       if (percent <= 0) return null;
 
       return {
-        key: checkbox.dataset.key,
+        key: input.dataset.key,
         percent,
       };
     })
@@ -92,22 +87,107 @@ function updateUI() {
   renderCars(filteredCars, filters);
 }
 
+const PREFERENCE_PRESETS = {
+  practical: {
+    cargo_capacity_liters: 50,
+    wltp_range_km: 30,
+    dc_charging_power_kW: 20,
+  },
+
+  performance: {
+    horsepower_hp: 40,
+    torque_Nm: 35,
+    acceleration_0_100_sec: 25,
+  },
+
+  value: {
+    npv: 70,
+    wltp_range_km: 30,
+  },
+};
+
+function resetPreferenceValues() {
+  document
+    .querySelectorAll(".preference-percent")
+    .forEach(input => {
+      input.value = 0;
+    });
+}
+
+function applyPreferencePreset(presetName) {
+  const preset = PREFERENCE_PRESETS[presetName];
+
+  if (!preset) return;
+
+  resetPreferenceValues();
+
+  document
+    .querySelectorAll(".preference-percent")
+    .forEach(input => {
+      const key = input.dataset.key;
+
+      input.value = preset[key] ?? 0;
+    });
+
+  document
+    .querySelectorAll(".preset-btn")
+    .forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.preset === presetName
+      );
+    });
+
+  updateUI();
+}
+
+function clearPreferencePreset() {
+  resetPreferenceValues();
+
+  document
+    .querySelectorAll(".preset-btn")
+    .forEach(button => {
+      button.classList.remove("active");
+    });
+
+  updateUI();
+}
+
 function bindEvents() {
   document
     .querySelectorAll(`
       .left-filter .custom-dropdown input[type='checkbox'],
       .car-type-options input[type='checkbox'],
       input[name='rankingMode'],
-      .preference-item input[type='checkbox'],
       .preference-percent
     `)
     .forEach(input => {
       input.addEventListener("change", updateUI);
 
       if (input.classList.contains("preference-percent")) {
-        input.addEventListener("input", updateUI);
+        input.addEventListener("input", () => {
+          document
+            .querySelectorAll(".preset-btn")
+            .forEach(button => {
+              button.classList.remove("active");
+            });
+
+          updateUI();
+        });
       }
     });
+
+  document
+    .querySelectorAll(".preset-btn")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        applyPreferencePreset(button.dataset.preset);
+      });
+    });
+
+  document
+    .querySelector(".preset-reset-btn")
+    ?.addEventListener("click", clearPreferencePreset);
 }
 
 function bindDropdowns() {

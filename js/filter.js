@@ -37,24 +37,44 @@ function normalizeValue(value, min, max, direction) {
   return direction === "low" ? 1 - normalized : normalized;
 }
 
-function calculatePreferenceScore(car, cars, preferences) {
-  if (!preferences || preferences.length === 0) return 0;
+function calculatePreferenceScore(car, cars, preferences = []) {
+  const activePreferences = preferences.filter(pref => {
+    const percent = Number(pref.percent);
+    return PREFERENCE_CONFIG[pref.key] && percent > 0;
+  });
 
-  const totalPercent = preferences.reduce((sum, pref) => sum + pref.percent, 0);
+  if (activePreferences.length === 0) return 0;
+
+  const totalPercent = activePreferences.reduce(
+    (sum, pref) => sum + Number(pref.percent),
+    0
+  );
+
   if (totalPercent <= 0) return 0;
 
   let finalScore = 0;
 
-  preferences.forEach(pref => {
+  activePreferences.forEach(pref => {
     const config = PREFERENCE_CONFIG[pref.key];
-    if (!config) return;
 
-    const values = cars.map(c => getPreferenceValue(c, pref.key));
+    const values = cars.map(car =>
+      getPreferenceValue(car, pref.key)
+    );
+
     const min = Math.min(...values);
     const max = Math.max(...values);
     const value = getPreferenceValue(car, pref.key);
 
-    finalScore += normalizeValue(value, min, max, config.direction) * (pref.percent / totalPercent);
+    const normalizedScore = normalizeValue(
+      value,
+      min,
+      max,
+      config.direction
+    );
+
+    finalScore +=
+      normalizedScore *
+      (Number(pref.percent) / totalPercent);
   });
 
   return finalScore;
