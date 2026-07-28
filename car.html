@@ -46,6 +46,49 @@
         </div>
       </div>
 
+      <div class="charging-section">
+        <label class="charging-title">รูปแบบการชาร์จไฟ</label>
+      
+        <div class="charging-options">
+          <label class="charging-option">
+            <input
+              type="radio"
+              name="charging-type"
+              value="home"
+              data-rate="4.4217"
+              checked
+            />
+      
+            <span class="charging-card">
+              <span class="charging-icon">⌂</span>
+      
+              <span class="charging-text">
+                <strong>ชาร์จที่บ้าน</strong>
+                <small>Home Charger · 4.4217 บาท/kWh</small>
+              </span>
+            </span>
+          </label>
+      
+          <label class="charging-option">
+            <input
+              type="radio"
+              name="charging-type"
+              value="public"
+              data-rate="7.5"
+            />
+      
+            <span class="charging-card">
+              <span class="charging-icon">⚡</span>
+      
+              <span class="charging-text">
+                <strong>ชาร์จตู้สาธารณะ</strong>
+                <small>DC Fast Charge · 7.50 บาท/kWh</small>
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+
       <div class="cost-result">
         <p id="running-cost-result-per-year">ค่าใช้จ่ายเพิ่มเติมรายปี: -</p>
         <p id="running-cost-result">ค่าใช้จ่ายเพิ่มเติมตลอดระยะเวลา: -</p>

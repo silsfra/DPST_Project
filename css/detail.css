@@ -1,121 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f4f6f8;
-  color: #333;
+  min-height: 100vh;
+
+  font-family: "Pridi", serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(68, 193, 187, 0.08),
+      transparent 35%
+    ),
+    #0c1a2e;
+
+  color: #d8deeb;
+
+  overflow-x: hidden;
 }
+
+/* =========================
+   PAGE
+========================= */
 
 .page {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px;
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+  padding: 40px 0 80px;
 }
+
+/* =========================
+   BACK BUTTON
+========================= */
 
 .back-btn {
-  display: inline-block;
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 24px;
+  padding: 9px 16px;
+
+  color: #85fff9;
+  font-size: 14px;
+  font-weight: 400;
   text-decoration: none;
-  color: #333;
-  font-weight: 600;
+
+  background: #17283a;
+  border: 1px solid #38537c;
+  border-radius: 12px;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.cost-box,
-.npv-output-box {
-  margin-top: 24px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.back-btn:hover {
+  color: #ffffff;
+  border-color: #44c1bb;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 14px rgba(68, 193, 187, 0.18);
 }
+
+/* =========================
+   CAR DETAIL
+========================= */
 
 .detail-card {
-  margin-top: 24px;
-}
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 34px;
+  align-items: center;
 
-.detail-card {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  margin-top: 0;
+  padding: 34px;
+
+  background: rgba(33, 47, 66, 0.92);
+  border: 1px solid #38537c;
+  border-radius: 24px;
+
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(115, 205, 250, 0.05);
 }
 
 .detail-image {
   width: 100%;
-  max-width: 700px;
-  height: auto;
-  border-radius: 16px;
-  background: #fff;
+  height: 420px;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 20px;
 }
 
 .car-info {
-  flex: 1;
-  min-width: 300px;
+  min-width: 0;
 }
 
 .car-info h2 {
-  margin: 0;
-  font-size: 30px;
-  font-weight: 700;
+  margin: 0 0 8px;
+
+  color: #ffffff;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .car-info p {
-  margin-top: 10px;
+  margin: 8px 0;
+
+  color: #9fb0c5;
   font-size: 14px;
-  color: #6b7280;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* =========================
+   COLORS
+========================= */
+
+.detail-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 18px 0 22px;
+}
+
+.detail-color-dot {
+  width: 24px;
+  height: 24px;
+
+  border: 2px solid #17283a;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 1px #4f688c,
+    0 0 8px rgba(133, 255, 249, 0.08);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.detail-color-dot:hover {
+  transform: scale(1.14);
+
+  box-shadow:
+    0 0 0 2px #85fff9,
+    0 0 12px rgba(133, 255, 249, 0.28);
+}
+
+/* =========================
+   CAR SPECS
+========================= */
+
+.car-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+
+  margin-top: 24px;
+}
+
+.spec-card {
+  min-width: 0;
+  padding: 15px;
+
+  background: #17283a;
+  border: 1px solid #38537c;
+  border-radius: 15px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.spec-card:hover {
+  border-color: #44c1bb;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 14px rgba(68, 193, 187, 0.12);
+}
+
+.spec-card span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #8ea4bf;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.spec-card strong {
+  display: block;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+
+  word-break: break-word;
+}
+
+/* =========================
+   COST AND NPV CARDS
+========================= */
+
+.cost-box,
+.npv-output-box {
+  margin-top: 24px;
+  padding: 30px;
+
+  background: rgba(33, 47, 66, 0.92);
+  border: 1px solid #38537c;
+  border-radius: 24px;
+
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.2),
+    0 0 18px rgba(115, 205, 250, 0.04);
 }
 
 .cost-box h3,
 .npv-output-box h3 {
-  margin: 0 0 16px;
-  font-size: 18px;
+  margin: 0 0 22px;
+
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 500;
 }
 
+/* =========================
+   FORM
+========================= */
+
 .form-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  flex-wrap: wrap;
 }
 
 .form-group {
-  flex: 1;
-  min-width: 160px;
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+
+  color: #85fff9;
   font-size: 12px;
-  color: #6b7280;
+  font-weight: 300;
 }
 
 .form-group input {
-  padding: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  width: 100%;
+  padding: 12px 14px;
+
+  font-family: "Pridi", serif;
+  font-size: 14px;
+
+  border: 1px solid #38537c;
+  border-radius: 11px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+    background:#152c42;
+    color:white;
+    color-scheme: dark;
 }
 
+.form-group input:hover {
+  border-color: #4f688c;
+}
+
+.form-group input:focus {
+  background: #152c42;
+  border-color: #44c1bb;
+
+  box-shadow: 0 0 12px rgba(68, 193, 187, 0.22);
+}
+
+/* เอาลูกศร input number ให้เข้าธีม */
+.form-group input::-webkit-inner-spin-button,
+.form-group input::-webkit-outer-spin-button {
+  opacity: 0.65;
+}
+
+/* =========================
+   COST RESULT
+========================= */
+
 .cost-result {
-  margin-top: 18px;
+  margin-top: 24px;
+  padding: 20px;
+
+  background: #17283a;
+  border: 1px solid rgba(79, 104, 140, 0.75);
+  border-radius: 16px;
 }
 
 .cost-result p,
 .npv-output-box p {
   margin: 8px 0;
-  font-size: 16px;
-  font-weight: 700;
+
+  color: #b5c1d2;
+  font-size: 15px;
+  font-weight: 300;
 }
+
+.cost-result strong,
+.npv-output-box strong {
+  color: #85fff9;
+  font-weight: 500;
+}
+
+/* =========================
+   NPV SUMMARY
+========================= */
 
 #npv-summary {
   margin-top: 20px;
+  padding: 8px 22px;
+
+  background: #17283a;
+  border: 1px solid rgba(79, 104, 140, 0.75);
+  border-radius: 16px;
 }
 
 .npv-summary-row {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  padding: 10px 0;
-  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+  gap: 24px;
+
+  padding: 13px 0;
+
+  color: #b5c1d2;
+  font-size: 14px;
+  font-weight: 300;
+
+  border-bottom: 1px solid rgba(133, 255, 249, 0.1);
 }
 
 .npv-summary-row:last-child {
@@ -123,32 +373,96 @@ body {
 }
 
 .npv-summary-row strong {
+  flex-shrink: 0;
+
+  color: #dffefd;
+  font-weight: 500;
   text-align: right;
-  font-weight: 400;
 }
 
 .npv-summary-row.total {
-  font-weight: 400;
+  margin: 4px -10px;
+  padding: 16px 10px;
+
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+
+  background: rgba(68, 193, 187, 0.07);
+  border-radius: 12px;
 }
 
-@media (max-width: 768px) {
-  .page {
-    padding: 16px;
-  }
+.npv-summary-row.total strong {
+  color: #85fff9;
+  font-size: 19px;
+}
 
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
   .detail-card {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .detail-image {
-    max-width: 100%;
+    height: 340px;
   }
 
   .form-row {
-    flex-direction: column;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    width: min(100% - 28px, 1180px);
+    padding: 24px 0 60px;
+  }
+
+  .detail-card,
+  .cost-box,
+  .npv-output-box {
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .detail-image {
+    height: 270px;
+    padding: 14px;
+  }
+
+  .car-info h2 {
+    font-size: 27px;
+  }
+
+  .car-spec-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-card,
+  .cost-box,
+  .npv-output-box {
+    padding: 18px;
+  }
+
+  .detail-image {
+    height: 220px;
+  }
+
+  .car-spec-grid {
+    grid-template-columns: 1fr;
   }
 
   .npv-summary-row {
+    align-items: flex-start;
     flex-direction: column;
     gap: 4px;
   }
@@ -158,64 +472,118 @@ body {
   }
 }
 
-.car-spec-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+/* =========================
+   CHARGING TYPE
+========================= */
 
+.charging-section {
   margin-top: 24px;
 }
 
-.spec-card {
-  padding: 14px;
-
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-}
-
-.spec-card span {
+.charging-title {
   display: block;
+  margin-bottom: 10px;
 
-  margin-bottom: 6px;
+  color: #85fff9;
+  font-size: 13px;
+  font-weight: 400;
+}
 
+.charging-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.charging-option {
+  cursor: pointer;
+}
+
+.charging-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.charging-card {
+  min-height: 82px;
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #17283a;
+  border: 1px solid #38537c;
+  border-radius: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.charging-card:hover {
+  border-color: #44c1bb;
+  transform: translateY(-2px);
+}
+
+.charging-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: #85fff9;
+  font-size: 21px;
+
+  background: rgba(68, 193, 187, 0.08);
+  border: 1px solid rgba(133, 255, 249, 0.22);
+  border-radius: 12px;
+}
+
+.charging-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.charging-text strong {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.charging-text small {
+  color: #8ea4bf;
   font-size: 12px;
-  color: #6b7280;
+  font-weight: 300;
 }
 
-.spec-card strong {
-  font-size: 16px;
-  font-weight: 600;
+/* ตอนถูกเลือก */
+
+.charging-option input:checked + .charging-card {
+  background: rgba(68, 193, 187, 0.09);
+  border-color: #44c1bb;
+
+  box-shadow:
+    0 0 0 1px rgba(68, 193, 187, 0.16),
+    0 0 16px rgba(68, 193, 187, 0.13);
 }
 
-@media (max-width: 768px) {
-  .car-spec-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.charging-option input:checked + .charging-card .charging-icon {
+  color: #ffffff;
+  background: rgba(68, 193, 187, 0.18);
+  border-color: #85fff9;
 }
 
-@media (max-width: 480px) {
-  .car-spec-grid {
+@media (max-width: 600px) {
+  .charging-options {
     grid-template-columns: 1fr;
   }
-}
-
-.detail-colors {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-
-  margin: 14px 0 20px;
-}
-
-.detail-color-dot {
-  width: 22px;
-  height: 22px;
-
-  border-radius: 50%;
-  border: 2px solid #fff;
-
-  box-shadow: 0 0 0 1px #d1d5db;
-
-  cursor: pointer;
 }
