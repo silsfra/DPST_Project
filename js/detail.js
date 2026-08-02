@@ -35,12 +35,20 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("car-image").src = car.image_url;
     document.getElementById("car-title").innerText = fullName;
 
+    const insuranceInput =
+      document.getElementById("insurance");
+
+    if (insuranceInput) {
+      insuranceInput.value =
+        car.insurance ?? 25000;
+    }
+
     const colors = car.colors || [];
 
-document.getElementById("car-colors").innerHTML =
-  colors.map(color => {
-    if (color.secondary) {
-      return `
+    document.getElementById("car-colors").innerHTML =
+      colors.map(color => {
+        if (color.secondary) {
+          return `
         <div
           class="detail-color-dot"
           title="${color.name}"
@@ -54,17 +62,17 @@ document.getElementById("car-colors").innerHTML =
           ">
         </div>
       `;
-    }
+        }
 
-    return `
+        return `
       <div
         class="detail-color-dot"
         title="${color.name}"
         style="background: ${color.hex};">
       </div>
     `;
-  }).join("");
-  
+      }).join("");
+
     document.getElementById("car-spec-grid").innerHTML = `
       <div class="spec-card">
         <span>Range</span>
