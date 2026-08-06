@@ -1,5 +1,5 @@
 const ACT_FEE = 645.21;
-const DISCOUNT_RATE = 0.05;
+const DISCOUNT_RATE = 0.03;
 
 const RESALE_INITIAL_DROP = 0.2293;
 const RESALE_AGE_RATE = 0.061;

@@ -160,7 +160,7 @@ window.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="npv-summary-row">
-        <span>ค่าใช้จ่ายเพิ่มเติมหลังคิดลด 2.5%</span>
+        <span>ค่าใช้จ่ายเพิ่มเติมหลังคิดลด 3.0%</span>
         <strong>-${formatMoney(discountedRunningCost)}</strong>
       </div>
 
