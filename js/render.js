@@ -105,7 +105,6 @@ function createCarCard(car, normalizedNPV, filters) {
     <div class="car-info">
       <div class="card-top-info">
         <p class="brand">${car.brand || "-"}</p>
-        <p class="npv-top">${displayNPV}</p>
       </div>
 
       <h3 class="car-title">${carName}</h3>
@@ -131,6 +130,8 @@ function createCarCard(car, normalizedNPV, filters) {
         <p class="price">${formatMoney(car.price)}</p>
         <p class="npv">${displayScore}</p>
       </div>
+
+      <p class="npv-top">${displayNPV}</p>
     </div>
   `;
 
