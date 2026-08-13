@@ -669,9 +669,9 @@ body {
 
 .npv-top {
   margin: 0;
-  font-size: 17px;
-  font-weight: 700;
-  color: #cd0000;
+  font-size: 15px;
+  font-weight: 600;
+  color: #32e69b;
   white-space: nowrap;
 }
 
