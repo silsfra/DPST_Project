@@ -7,7 +7,7 @@ import {
   getTax
 } from './utils.js';
 
-const DISCOUNT_RATE = 0.05;
+const DISCOUNT_RATE = 0.03;
 const ACT = 645.21;
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -112,63 +112,143 @@ window.addEventListener("DOMContentLoaded", () => {
     return Number(document.getElementById(id).value);
   }
 
-  function calculateDiscountedRunningCost(years, insurance, maintenance) {
+  function getElectricityRate() {
+    const selected = document.querySelector(
+      'input[name="charging-type"]:checked'
+    );
+  
+    return Number(selected?.dataset.rate || 0);
+  }
+  
+  function calculateElectricityCostPerYear(km, electricityRate) {
+    const battery = Number(currentCar.battery_capacity_kWh || 0);
+    const range = Number(currentCar.wltp_range_km || 0);
+  
+    if (range <= 0) return 0;
+  
+    const kWhPerKm = battery / range;
+  
+    return km * kWhPerKm * electricityRate;
+  }
+
+  function calculateDiscountedRunningCost(
+    years,
+    insurance,
+    maintenance,
+    electricityCostPerYear
+  ) {
     let total = 0;
     const taxBase = getTax(currentCar.weight);
-
+  
     for (let year = 1; year <= years; year++) {
       const tax = year === 1 ? taxBase * 0.2 : taxBase;
-      const yearlyCost = insurance + maintenance + ACT + tax;
-
+  
+      const yearlyCost =
+        insurance +
+        maintenance +
+        ACT +
+        tax +
+        electricityCostPerYear;
+  
       total += yearlyCost / Math.pow(1 + DISCOUNT_RATE, year);
     }
-
+  
     return total;
   }
 
   function updateNPV() {
     if (!currentCar) return;
-
+  
     const years = getInputValue("years");
     const insurance = getInputValue("insurance");
     const maintenance = getInputValue("maintenance");
     const km = getInputValue("km");
-
-    const npv = calculateNPV(currentCar, years, insurance, maintenance, km);
-    const runningCost = calculateRunningCost(currentCar, years, insurance, maintenance);
-    const resale = calculateResalePrice(currentCar, years, km);
-
+  
+    // ราคาค่าไฟตามรูปแบบการชาร์จที่เลือก
+    const electricityRate = getElectricityRate();
+  
+    // ค่าไฟต่อปี
+    const electricityCostPerYear =
+      calculateElectricityCostPerYear(
+        km,
+        electricityRate
+      );
+  
+    // ค่าใช้จ่ายเดิมที่ระบบคำนวณ
+    const baseRunningCost =
+      calculateRunningCost(
+        currentCar,
+        years,
+        insurance,
+        maintenance
+      );
+  
+    // รวมค่าไฟเข้าไป
+    const runningCost =
+      baseRunningCost +
+      (electricityCostPerYear * years);
+  
+    // ราคาขายต่อ
+    const resale =
+      calculateResalePrice(
+        currentCar,
+        years,
+        km
+      );
+  
+    // ค่าใช้จ่ายทั้งหมดหลังคิดลด รวมค่าไฟ
     const discountedRunningCost =
-      calculateDiscountedRunningCost(years, insurance, maintenance);
-
+      calculateDiscountedRunningCost(
+        years,
+        insurance,
+        maintenance,
+        electricityCostPerYear
+      );
+  
+    // ราคาขายต่อหลังคิดลด
     const discountedResale =
-      resale / Math.pow(1 + DISCOUNT_RATE, years);
-
-    document.getElementById("running-cost-result-per-year").innerText =
-      "ค่าใช้จ่ายเพิ่มเติมรายปี: " + formatMoney(runningCost / years);
-
-    document.getElementById("running-cost-result").innerText =
-      "ค่าใช้จ่ายเพิ่มเติมตลอดระยะเวลา: " + formatMoney(runningCost);
-
-    document.getElementById("npv-result").innerText =
+      resale /
+      Math.pow(1 + DISCOUNT_RATE, years);
+  
+    // NPV ใหม่ที่รวมค่าไฟแล้ว
+    const npv =
+      -Number(currentCar.price)
+      - discountedRunningCost
+      + discountedResale;
+  
+    document.getElementById(
+      "running-cost-result-per-year"
+    ).innerText =
+      "ค่าใช้จ่ายเพิ่มเติมรายปี: " +
+      formatMoney(runningCost / years);
+  
+    document.getElementById(
+      "running-cost-result"
+    ).innerText =
+      "ค่าใช้จ่ายเพิ่มเติมตลอดระยะเวลา: " +
+      formatMoney(runningCost);
+  
+    document.getElementById(
+      "npv-result"
+    ).innerText =
       "NPV: " + formatMoney(npv);
-
+  
     document.getElementById("npv-summary").innerHTML = `
       <div class="npv-summary-row">
         <span>ราคารถเริ่มต้น</span>
         <strong>-${formatMoney(currentCar.price)}</strong>
       </div>
-
+  
       <div class="npv-summary-row">
         <span>ค่าใช้จ่ายเพิ่มเติมหลังคิดลด 3.0%</span>
         <strong>-${formatMoney(discountedRunningCost)}</strong>
       </div>
-
+  
       <div class="npv-summary-row">
         <span>มูลค่าปัจจุบันของราคาขายต่อ</span>
         <strong>+${formatMoney(discountedResale)}</strong>
       </div>
-
+  
       <div class="npv-summary-row total">
         <span>สูตรที่ใช้</span>
         <strong>
@@ -183,10 +263,16 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   document
-    .querySelectorAll("#years, #insurance, #maintenance, #km")
-    .forEach(input => {
-      input.addEventListener("input", updateNPV);
-    });
+  .querySelectorAll("#years, #insurance, #maintenance, #km")
+  .forEach(input => {
+    input.addEventListener("input", updateNPV);
+  });
 
-  loadCar();
+document
+  .querySelectorAll('input[name="charging-type"]')
+  .forEach(input => {
+    input.addEventListener("change", updateNPV);
+  });
+
+loadCar();
 });

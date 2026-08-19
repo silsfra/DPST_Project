@@ -55,33 +55,92 @@ export function calculateResalePrice(car, years, kmPerYear) {
   return priceAfterInitialDrop * ageFactor * mileageFactor;
 }
 
-export function calculateRunningCost(car, years, insurance, maintenance) {
+export function calculateElectricityCost(car, kmPerYear, electricityRate) {
+  const battery = Number(car.battery_capacity_kWh || 0);
+  const range = Number(car.wltp_range_km || 0);
+
+  if (range <= 0 || !electricityRate) return 0;
+
+  const kWhPerKm = battery / range;
+
+  return kmPerYear * kWhPerKm * electricityRate;
+} 
+
+export function calculateRunningCost(
+  car,
+  years,
+  insurance,
+  maintenance,
+  kmPerYear,
+  electricityRate
+) {
   const taxBase = getTax(getCarWeight(car));
+
+  const electricityCost =
+    calculateElectricityCost(
+      car,
+      kmPerYear,
+      electricityRate
+    );
 
   let total = 0;
 
   for (let year = 1; year <= years; year++) {
     const tax = getYearlyTax(taxBase, year);
-    total += insurance + maintenance + ACT_FEE + tax;
+
+    total +=
+      insurance +
+      maintenance +
+      ACT_FEE +
+      tax +
+      electricityCost;
   }
 
   return total;
 }
 
-export function calculateNPV(car, years, insurance, maintenance, kmPerYear) {
+export function calculateNPV(
+  car,
+  years,
+  insurance,
+  maintenance,
+  kmPerYear,
+  electricityRate
+) {
   const taxBase = getTax(getCarWeight(car));
+
+  const electricityCost =
+    calculateElectricityCost(
+      car,
+      kmPerYear,
+      electricityRate
+    );
 
   let npv = -car.price;
 
   for (let year = 1; year <= years; year++) {
     const tax = getYearlyTax(taxBase, year);
-    const yearlyCost = insurance + maintenance + ACT_FEE + tax;
+
+    const yearlyCost =
+      insurance +
+      maintenance +
+      ACT_FEE +
+      tax +
+      electricityCost;
 
     npv -= yearlyCost / getDiscountFactor(year);
 
     if (year === years) {
-      const resale = calculateResalePrice(car, years, kmPerYear);
-      npv += resale / getDiscountFactor(year);
+      const resale =
+        calculateResalePrice(
+          car,
+          years,
+          kmPerYear
+        );
+
+      npv +=
+        resale /
+        getDiscountFactor(year);
     }
   }
 
