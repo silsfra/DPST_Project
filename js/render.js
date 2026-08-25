@@ -87,7 +87,7 @@ function createCarCard(car, normalizedNPV, filters) {
   const colorHTML = colors.map(renderColorDot).join("");
 
   const displayScore = getDisplayScore(car, normalizedNPV, filters);
-  const displayNPV = `NPV : ${Math.round(calculateDefaultNPV(car) + Number(car.price || 0)).toLocaleString()}฿`;
+  const displayNPV = `NPV : ${Math.round(calculateDefaultNPV(car)).toLocaleString()}฿`;
 
   card.innerHTML = `
     <div class="card-image-wrapper">
