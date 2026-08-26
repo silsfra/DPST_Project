@@ -1067,166 +1067,100 @@ body {
   font-weight: 500;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 700px) {
 
-  .filter-box,
-  .spec-box {
-    grid-template-columns: 1fr;
+  body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
-  .bottom {
-    flex-direction: column;
-  }
-}
+  /* NAV */
+  .navbar {
+    position: sticky;
+    top: 0;
 
-@media (max-width: 640px) {
-  .main-section {
-    padding: 14px;
-  }
+    height: 52px;
+    min-height: 52px;
 
-  .filter-box {
-    padding: 16px;
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0 12px;
   }
 
-  .top-filter,
-  .ranking-box,
-  .preference-box {
-    padding: 16px;
-    border-radius: 14px;
-  }
-
-  .filter-row,
-  .ranking-options,
-  .preference-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .recommend-btn {
-    height: 44px;
-  }
-
-  .preference-item {
-
-    display: grid;
-
-    grid-template-columns:
-      1fr 70px 20px;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 14px 0;
-
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-  }
-
-  .preference-item:last-child {
-
-    border-bottom: none;
-  }
-
-  .preference-name {
-
-    color: white;
-
-    font-size: 14px;
-  }
-
-  .preference-percent {
+  /* สำคัญมาก */
+  .container {
+    display: flex !important;
+    flex-direction: column !important;
 
     width: 100%;
+    height: auto;
 
-    text-align: center;
+    margin-top: 0;
 
-    background: #152c42;
-
-    border: 1px solid #38537c;
-
-    border-radius: 10px;
-
-    color: white;
+    overflow: visible;
   }
 
-  .percent-symbol {
+  /* Ranking / Filter อยู่ด้านบนเต็มจอ */
+  .filter-box {
+    display: flex !important;
+    flex-direction: column !important;
 
-    color: #85fff9;
+    width: 100% !important;
+    height: auto !important;
+
+    padding: 20px;
+
+    border-right: none;
+    border-bottom: 1px solid #38537c;
+
+    overflow: visible;
   }
 
-  .car-grid {
+  /* เนื้อหาหลักลงมาต่อด้านล่าง */
+  .main-section {
+    display: block;
+
+    width: 100% !important;
+    height: auto !important;
+
+    padding: 16px;
+
+    overflow: visible;
+  }
+
+  /* Ranking ไม่ต้องแบ่ง column */
+  .ranking-options {
+    display: grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+
+    gap: 10px;
   }
 
-  .spec-box {
-    grid-template-columns: repeat(3, 1fr);
+  .ranking-option {
+    width: 100%;
   }
 
-  .bottom {
-    align-items: flex-start;
+  /* ส่วน filter ด้านล่าง */
+  .filter-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+
+    width: 100%;
   }
 
   .left-filter {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr !important;
+
+    width: 100%;
   }
 
   .car-type-options {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 900px) {
-  .filter-grid {
+  /* รถ */
+  .car-grid {
     grid-template-columns: 1fr;
   }
-
-  .left-filter {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
-
-@media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-
-  .filter-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px 14px;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .filter-box h3,
-  .filter-box h4 {
-    grid-column: 1 / -1;
-  }
-
-  .filter-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .recommend-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1200px) {
-
-  .ranking-options,
-  .preference-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .filter-grid {
-    grid-template-columns:
-      minmax(230px, 300px) minmax(0, 1fr);
-  }
-}
-
-
-
 /* -------------------------------------------------------------------------------------------------------------------------------------- */
