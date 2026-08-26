@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EV Car Finder</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,67 +31,55 @@
           <h3>Ranking Mode</h3>
           <p>เลือกวิธีจัดอันดับรถ</p>
         </div>
-    
+
         <div class="ranking-options">
-    
+
           <label class="ranking-option">
             <input type="radio" name="rankingMode" value="default" checked />
             <span>Default</span>
           </label>
-    
+
           <label class="ranking-option icon-mode">
             <input type="radio" name="rankingMode" value="price-asc">
-        
+
             <span class="ranking-icon-wrap">
-                <img class="ranking-icon icon-normal"
-                     src="assets/Untitled_design_-_3.png">
-        
-                <img class="ranking-icon icon-hover"
-                     src="assets/Untitled_design_-_4.png">
+              <img class="ranking-icon icon-normal" src="assets/Untitled_design_-_3.png">
+
+              <img class="ranking-icon icon-hover" src="assets/Untitled_design_-_4.png">
             </span>
-        
+
             <span>Price: Low → High</span>
-        </label>
-        
-        <label class="ranking-option icon-mode">
+          </label>
+
+          <label class="ranking-option icon-mode">
             <input type="radio" name="rankingMode" value="price-desc">
-        
+
             <span class="ranking-icon-wrap">
-                <img class="ranking-icon icon-normal"
-                     src="assets/Untitled_design_-_3.png">
-        
-                <img class="ranking-icon icon-hover"
-                     src="assets/Untitled_design_-_4.png">
+              <img class="ranking-icon icon-normal" src="assets/Untitled_design_-_3.png">
+
+              <img class="ranking-icon icon-hover" src="assets/Untitled_design_-_4.png">
             </span>
-        
+
             <span>Price: High → Low</span>
-        </label>
-    
+          </label>
+
           <label class="ranking-option icon-mode">
             <input type="radio" name="rankingMode" value="npv-desc">
-          
+
             <span class="ranking-icon-wrap">
-              <img
-                class="ranking-icon icon-normal"
-                src="assets/Untitled_design_-_1.png"
-                alt=""
-              >
-          
-              <img
-                class="ranking-icon icon-hover"
-                src="assets/Untitled_design_-_2.png"
-                alt=""
-              >
+              <img class="ranking-icon icon-normal" src="assets/Untitled_design_-_1.png" alt="">
+
+              <img class="ranking-icon icon-hover" src="assets/Untitled_design_-_2.png" alt="">
             </span>
-          
+
             <span>NPV Best</span>
           </label>
-    
+
           <label class="ranking-option">
             <input type="radio" name="rankingMode" value="personal" />
             <span>Personal Preference</span>
           </label>
-    
+
         </div>
       </section>
 
@@ -107,15 +96,15 @@
           <button type="button" class="preset-btn" data-preset="practical">
             ใช้งานทั่วไป
           </button>
-        
+
           <button type="button" class="preset-btn" data-preset="performance">
             สมรรถนะ
           </button>
-        
+
           <button type="button" class="preset-btn" data-preset="value">
             ความคุ้มค่า
           </button>
-        
+
           <button type="button" class="preset-reset-btn">
             ล้างค่า
           </button>
@@ -128,55 +117,34 @@
             <label class="preference-item">
 
               <span>แรงม้า</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="horsepower_hp"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="horsepower_hp" value="0" min="0" step="10"
+                max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
 
             <label class="preference-item">
 
               <span>แรงบิด</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="torque_Nm"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="torque_Nm" value="0" min="0" step="10"
+                max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
 
             <label class="preference-item">
 
               <span>0-100 km/h</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="acceleration_0_100_sec"
-                  value="0"
-                  min="0"
-                  step="1"
-                  max="50"
-              />
+
+              <input type="number" class="preference-percent" data-key="acceleration_0_100_sec" value="0" min="0"
+                step="1" max="50" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
           </div>
 
@@ -186,19 +154,12 @@
             <label class="preference-item">
 
               <span>พื้นที่เก็บของ</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="cargo_capacity_liters"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="cargo_capacity_liters" value="0" min="0"
+                step="10" max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
           </div>
 
@@ -208,55 +169,34 @@
             <label class="preference-item">
 
               <span>ระยะทางวิ่ง</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="wltp_range_km"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="wltp_range_km" value="0" min="0" step="10"
+                max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
 
             <label class="preference-item">
 
               <span>ความจุแบต</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="battery_capacity_kWh"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="battery_capacity_kWh" value="0" min="0"
+                step="10" max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
 
             <label class="preference-item">
 
               <span>ความเร็วชาร์จ</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="dc_charging_power_kW"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="dc_charging_power_kW" value="0" min="0"
+                step="10" max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
           </div>
 
@@ -266,32 +206,25 @@
             <label class="preference-item">
 
               <span>NPV</span>
-            
-              <input
-                  type="number"
-                  class="preference-percent"
-                  data-key="npv"
-                  value="0"
-                  min="0"
-                  step="10"
-                  max="100"
-              />
+
+              <input type="number" class="preference-percent" data-key="npv" value="0" min="0" step="10" max="100" />
 
               <span class="percent-symbol">%</span>
-            
+
             </label>
           </div>
         </div>
       </section>
-    
+
     </aside>
     </aside>
 
     <main class="main-section">
-      <img src="assets/New_NPV_Logo.png" class="main-logo">      <p class="NPV-meaning">
-        NPV (Net Present Value) หรือภาษาไทยเรียกว่า "มูลค่าปัจจุบันสุทธิ" คือ 
-        เครื่องมือทางคณิตศาสตร์และการเงินที่ใช้ประเมินความคุ้มค่าของการลงทุน 
-        โดยคำนวณจากการนำกระแสเงินสดรับและกระแสเงินสดจ่ายทั้งหมดที่จะเกิดขึ้นในอนาคตตลอดอายุการใช้งาน 
+      <img src="assets/New_NPV_Logo.png" class="main-logo">
+      <p class="NPV-meaning">
+        NPV (Net Present Value) หรือภาษาไทยเรียกว่า "มูลค่าปัจจุบันสุทธิ" คือ
+        เครื่องมือทางคณิตศาสตร์และการเงินที่ใช้ประเมินความคุ้มค่าของการลงทุน
+        โดยคำนวณจากการนำกระแสเงินสดรับและกระแสเงินสดจ่ายทั้งหมดที่จะเกิดขึ้นในอนาคตตลอดอายุการใช้งาน
         นำมาคิดลดกลับมาเป็นมูลค่า ณ ปัจจุบัน แล้วหักล้างกับเงินลงทุนซื้อรถเริ่มต้น
       </p>
       <p class="NPV-meaning-underText">
@@ -362,7 +295,7 @@
             <div class="car-type-options">
               <label>
                 <input type="checkbox" value="0">
-              
+
                 <div class="type-content">
                   <span class="type-title">Local</span>
                   <span class="type-desc">
@@ -372,7 +305,7 @@
               </label>
               <label>
                 <input type="checkbox" value="1">
-              
+
                 <div class="type-content">
                   <span class="type-title">Long Range</span>
                   <span class="type-desc">
@@ -382,7 +315,7 @@
               </label>
               <label>
                 <input type="checkbox" value="2">
-              
+
                 <div class="type-content">
                   <span class="type-title">Sport</span>
                   <span class="type-desc">
@@ -392,7 +325,7 @@
               </label>
               <label>
                 <input type="checkbox" value="3">
-              
+
                 <div class="type-content">
                   <span class="type-title">All-round</span>
                   <span class="type-desc">

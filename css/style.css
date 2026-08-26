@@ -1067,6 +1067,30 @@ body {
   font-weight: 500;
 }
 
+@media (max-width: 1150px) {
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .left-filter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .car-type-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .car-type-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 700px) {
 
   body {
@@ -1075,36 +1099,35 @@ body {
     overflow-y: auto;
   }
 
-  /* NAV */
   .navbar {
     position: sticky;
     top: 0;
-
     height: 52px;
     min-height: 52px;
-
     padding: 0 12px;
   }
 
-  /* สำคัญมาก */
   .container {
     display: flex !important;
     flex-direction: column !important;
 
     width: 100%;
+    max-width: 100%;
     height: auto;
 
     margin-top: 0;
 
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
-  /* Ranking / Filter อยู่ด้านบนเต็มจอ */
   .filter-box {
     display: flex !important;
     flex-direction: column !important;
 
     width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
     height: auto !important;
 
     padding: 20px;
@@ -1112,55 +1135,96 @@ body {
     border-right: none;
     border-bottom: 1px solid #38537c;
 
-    overflow: visible;
+    overflow: hidden;
   }
 
-  /* เนื้อหาหลักลงมาต่อด้านล่าง */
   .main-section {
     display: block;
 
     width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
     height: auto !important;
 
     padding: 16px;
 
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
-  /* Ranking ไม่ต้องแบ่ง column */
   .ranking-options {
     display: grid;
     grid-template-columns: 1fr;
-
     gap: 10px;
   }
 
   .ranking-option {
     width: 100%;
+    max-width: 100%;
   }
 
-  /* ส่วน filter ด้านล่าง */
+  /* สำคัญ */
   .filter-grid {
     display: grid;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
 
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    gap: 14px;
   }
 
   .left-filter {
     display: grid;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
 
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* สำคัญสุดสำหรับ cluster */
+  .car-type-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: 16px;
+
+    overflow: hidden;
   }
 
   .car-type-options {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    gap: 10px;
   }
 
-  /* รถ */
+  .car-type-options label {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .type-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .type-desc {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
   .car-grid {
     grid-template-columns: 1fr;
   }
 }
+
 /* -------------------------------------------------------------------------------------------------------------------------------------- */
