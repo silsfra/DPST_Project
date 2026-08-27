@@ -1069,9 +1069,116 @@ body {
 
 @media (max-width: 1150px) {
 
+  .main-section {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .top-filter {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .filter-grid {
+    display: grid;
+
+    grid-template-columns:
+      minmax(220px, 320px)
+      minmax(0, 1fr);
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    gap: 16px;
+  }
+
+  .left-filter {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .car-type-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .car-type-options {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .car-type-options label {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+
+  body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: 72px;
+
+    overflow: visible;
+  }
+
+  .filter-box {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+
+    border-right: none;
+    border-bottom: 1px solid #38537c;
+
+    overflow: visible;
+  }
+
+  .ranking-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .main-section {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+
+    padding: 20px;
+
+    overflow: visible;
+  }
+
+  .top-filter {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .filter-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
+
+    width: 100%;
+    min-width: 0;
   }
 
   .left-filter {
@@ -1082,11 +1189,14 @@ body {
 
   .car-type-card {
     width: 100%;
-    max-width: 100%;
     min-width: 0;
   }
 
   .car-type-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .car-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
