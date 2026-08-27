@@ -1120,6 +1120,117 @@ body {
   }
 }
 
+/* =========================
+   iPad Air 5 - Landscape
+   1180 x 820
+========================= */
+@media (min-width: 1025px) and (max-width: 1180px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ranking ด้านซ้ายให้แคบลง */
+  .container {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .filter-box {
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+  }
+
+  .ranking-option {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  /* พื้นที่หลัก */
+  .main-section {
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+
+  /* กล่อง Find Your Perfect EV */
+  .top-filter {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 20px;
+  }
+
+  /* เปลี่ยนจาก 2 ฝั่ง เป็นเรียงบน-ล่าง
+     เพราะพื้นที่หลังหัก Ranking ไม่พอ */
+  .filter-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* รุ่น / ยี่ห้อ + Budget อยู่ข้างกัน */
+  .left-filter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .custom-dropdown {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dropdown-btn {
+    width: 100%;
+  }
+
+  /* Cluster */
+  .car-type-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    padding: 18px;
+  }
+
+  .car-type-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .car-type-options label {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .type-content {
+    min-width: 0;
+  }
+
+  .type-desc {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* รถแสดง 2 คันต่อแถว */
+  .car-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 701px) and (max-width: 1024px) {
 
   body {
